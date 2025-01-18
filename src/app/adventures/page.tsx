@@ -1,7 +1,6 @@
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { bikingAdventuresData } from "@/data/content";
 import dayjs from "dayjs";
-import Image from "next/image";
 import React from "react";
 
 const page = () => {
