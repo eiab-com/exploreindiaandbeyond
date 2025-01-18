@@ -40,8 +40,8 @@ export default function RootLayout({
           <GridContainer className=" justify-center items-start place-content-start gap-y-2">
             <Navbar />
             {children}
-            <Footer />
           </GridContainer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

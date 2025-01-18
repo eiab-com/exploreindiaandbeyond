@@ -1,4 +1,6 @@
 // pages/adventures/[id]/page.tsx
+import React from "react";
+import Image from "next/image";
 
 import { bikingAdventuresData } from "@/data/content";
 
@@ -31,9 +33,15 @@ export default async function Page({
   }
 
   return (
-    <div className=" flex items-start justify-start">
+    <div className=" col-span-12 flex flex-col items-start justify-start space-y-4 ">
       <h1>{adventure.title}</h1>
-      <img src={adventure.imageSrc} alt={adventure.altText} />
+      <Image
+        width={1000}
+        height={1000}
+        className="w-full h-full object-cover"
+        src={adventure.imageSrc}
+        alt={adventure.altText}
+      />
       <p>{adventure.longDescription}</p>
       <p>
         <strong>Trek Duration:</strong> {adventure.trekDuration}
@@ -59,4 +67,3 @@ export default async function Page({
     </div>
   );
 }
-
