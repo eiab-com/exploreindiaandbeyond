@@ -1,3 +1,4 @@
+// GridContainer.tsx
 import React from "react";
 
 type GridContainerProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -12,7 +13,7 @@ const GridContainer = ({
 }: GridContainerProps) => {
   return (
     <main
-      className={` mx-32 grid min-h-screen grid-cols-12 gap-6  ${className}`}
+      className={`mx-4 sm:mx-8 md:mx-16 lg:mx-32 grid min-h-screen grid-cols-12 gap-4 sm:gap-6 ${className}`}
       {...rest}
     >
       {children}
