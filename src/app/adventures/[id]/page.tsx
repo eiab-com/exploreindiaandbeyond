@@ -8,8 +8,14 @@ import { Link } from "next-view-transitions";
 import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ params: { id: string } }>;
+}) {
+  const {
+    params: { id },
+  } = await params;
   const adventure = bikingAdventuresData.find((a) => a.id.trim() === id.trim());
 
   if (!adventure) {
@@ -17,7 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <div className="col-span-12 text-center py-20 border-2">
         <h1 className="text-3xl font-bold mb-4">Adventure Not Found</h1>
         <p className="text-muted-foreground">
-          {` The requested journey doesn't exist in our archives`}
+          {`The requested journey doesn't exist in our archives`}
         </p>
         <Button className="mt-6" asChild>
           <Link href="/adventures">Explore All Adventures</Link>
@@ -52,7 +58,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-      {/* Key Details Grid */}
+      {/* Adventure Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <DetailCard
           icon={Mountain}
@@ -82,15 +88,13 @@ export default async function Page({ params }: { params: { id: string } }) {
         <DetailCard icon={Users} title="Group Size" value="4-12 Riders" />
       </div>
 
-      {/* Main Content */}
+      {/* Description Section */}
       <div className="grid lg:grid-cols-3 gap-12">
-        {/* Description Section */}
         <div className="lg:col-span-2 space-y-8">
           <SectionHeading title="Adventure Overview" />
           <p className="text-lg leading-relaxed text-muted-foreground">
             {adventure.longDescription}
           </p>
-
           <SectionHeading title="Experience Highlights" />
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {adventure.keyHighlights?.map((highlight, index) => (
@@ -108,7 +112,6 @@ export default async function Page({ params }: { params: { id: string } }) {
             <h3 className="text-xl font-semibold">Plan Your Journey</h3>
             <div className="space-y-4">
               <InfoItem title="Next Departure" value="September 15, 2024" />
-              {/* <InfoItem title="Price" value="£1,899 / rider" /> */}
               <InfoItem
                 title="Accommodation"
                 value={adventure.accommodationType}
@@ -134,8 +137,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
 const SectionHeading = ({ title }: { title: string }) => (
   <h2 className="text-2xl font-bold border-b pb-2">{title}</h2>
 );
-
