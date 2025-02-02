@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../ui/card";
-import { Button } from "../../ui/button";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Dayjs } from "dayjs";
@@ -30,17 +30,28 @@ const AdventureCard = ({
   const constructedLink = `/adventures/${id}`;
 
   return (
-    <Card className="max-w-[350px] h-fit overflow-hidden scale-90 font-body">
+    <Card className="max-w-[350px] h-fit overflow-hidden font-body bg-secondary border border-border shadow-md hover:shadow-lg transition-shadow duration-300">
       <CardHeader className="p-0">
-        <Image src={coverImage} alt={altText} height={100} width={400} />
-        <CardTitle className="p-2 text-xl font-heading">{title}</CardTitle>
+        <Image
+          src={coverImage}
+          alt={altText}
+          height={100}
+          width={400}
+          className="object-cover rounded-t-lg"
+        />
+        <CardTitle className="p-4 text-xl font-heading text-primary">
+          {title}
+        </CardTitle>
       </CardHeader>
-      <CardDescription className="pl-2 text-lg">
+      <CardDescription className="px-4 text-lg text-muted-foreground">
         {startDate.format("MMMM, YYYY")}
       </CardDescription>
 
-      <CardFooter className="p-2">
-        <Button className="w-full" asChild>
+      <CardFooter className="p-4">
+        <Button
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/80"
+          asChild
+        >
           <Link href={constructedLink}>Read More</Link>
         </Button>
       </CardFooter>

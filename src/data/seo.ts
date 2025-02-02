@@ -2,42 +2,88 @@ import { Metadata } from "next/types";
 
 export const seo: Metadata = {
   metadataBase: new URL("https://www.exploreindiaandbeyond.com/"),
-  title: "Explore India and Beyond | Premium Motorcycle Tours",
+  title: {
+    default: "Explore India and Beyond | Premium Motorcycle Tours",
+    template: "%s | Explore India and Beyond",
+  },
   description:
-    "Explore India and Beyond offers thrilling motorcycle tours across India, blending adventure with cultural authenticity. Ride through royal palaces, hidden Himalayan monasteries, and scenic routes with expert guidance from Samarth and Vinayak.",
-  keywords:
-    "Explore India and Beyond, India motorcycle tours, Royal Enfield tours, Himalayan motorcycle rides, adventure biking India, guided bike tours, luxury bike tours India, cultural motorcycle journeys, Samarth and Vinayak, biking adventures India, KTM 390 Adventure tours, offbeat travel India, authentic Indian biking experiences",
+    "Experience India's ultimate motorcycle adventures with expert guides Samarth & Vinayak. Royal Enfield & KTM 390 tours through Himalayas, Rajasthan deserts & hidden cultural gems.",
+  keywords: [
+    "India motorcycle tours",
+    "Himalayan bike adventures",
+    "Royal Enfield tours India",
+    "KTM 390 adventure rides",
+    "cultural motorcycle journeys",
+    "guided bike tours India",
+    "luxury motorcycle vacations",
+    "offbeat India travel",
+    "Samarth Vinayak adventures",
+    "UK to India bike tours",
+  ],
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
       noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
     },
   },
   alternates: {
-    canonical: "https://www.exploreindiaandbeyond.com/",
+    canonical: "/",
   },
   openGraph: {
     type: "website",
-    title: "Explore India and Beyond | Premium Motorcycle Tours",
+    title: "Premium Motorcycle Adventures in India",
     description:
-      "Embark on unforgettable motorcycle adventures across India with Explore India and Beyond. Experience the thrill of biking through majestic landscapes, from royal palaces to hidden Himalayan trails.",
-    url: "https://www.exploreindiaandbeyond.com",
+      "UK-friendly guided tours through India's most spectacular landscapes - Himalayan peaks, desert trails & coastal roads",
+    url: "/",
     siteName: "Explore India and Beyond",
+    locale: "en_GB",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Motorcycle group riding through Himalayan mountains",
+      },
+    ],
   },
   twitter: {
-    title: "Explore India and Beyond | Premium Motorcycle Tours",
     card: "summary_large_image",
-    site: "@exploreindiabeyond",
-    creator: "@exploreindiabeyond",
+    title: "India Motorcycle Adventures | Explore India and Beyond",
+    description:
+      "Join our expert-guided motorcycle tours through India's most breathtaking routes",
+    site: "@ExploreIndiaBike",
+    creator: "@ExploreIndiaBike",
+    images: ["/images/twitter-card.jpg"],
   },
   icons: {
-    icon: ["/favicon.ico"],
-    apple: ["./apple-touch-icon.png"],
-    shortcut: ["./apple-touch-icon.png"],
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon-16x16.png",
+      },
+    ],
   },
-  manifest: "./site.webmanifest",
+  manifest: "/site.webmanifest",
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "Multiple Locations",
+    "twitter:domain": "exploreindiaandbeyond.com",
+    "twitter:url": "https://www.exploreindiaandbeyond.com/",
+  },
 };

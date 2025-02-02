@@ -7,7 +7,7 @@ const WhyUs = () => {
   return (
     <section
       id="about"
-      className="col-span-12 max-h-screen min-h-auto rounded-2xl p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
+      className="col-span-12 h-screen rounded-2xl p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
     >
       {/* Section Header */}
       <div className="w-full absolute top-0 p-4 sm:p-8">

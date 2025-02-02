@@ -47,7 +47,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12 -mt-6 rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden mx-6"
+      className="col-span-12 -mt-6 rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden"
     >
       <div
         ref={leftCurtain}

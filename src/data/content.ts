@@ -6,144 +6,151 @@ interface BikingAdventure {
   googleCalendarLink: string;
   imageSrc: string;
   altText: string;
-  shortDescription: string; // Added short description field
+  shortDescription: string;
   longDescription: string;
-  startDate: Dayjs | Date; // Changed to Dayjs type
-  endDate: Dayjs | Date; // Changed to Dayjs type
+  startDate: Dayjs | Date;
+  endDate: Dayjs | Date;
   keyHighlights: string[];
-  trekDuration: string;
+  rideDuration: string; // Changed from trekDuration
   highestAltitude: string;
   suitableFor: string;
   totalDistance: string;
-  basecamp: string;
+  startingPoint: string; // Changed from basecamp
   accommodationType: string;
   pickupPoint: string;
   photoGallery: string[];
+  bikeModels: string[]; // Added bike models
+  difficultyLevel: string; // Added difficulty
+  averageDailyRide: string; // Added daily distance
 }
-
-const whyUsCardData = [
-  {
-    title: "Unique Routes",
-    description:
-      "‘Tuned’ and perfected for over a decade to provide unforgettable travel experiences.",
-    imageSrc: "/assets/routes-2.svg",
-    altText: "Unique Routes Icon",
-  },
-  {
-    title: "The Best Fleet",
-    description:
-      "Royal Enfield Himalayan (450 & 411), KTM 390 Adventure & 500cc Royal Enfield Bullet Trials.",
-    imageSrc: "/assets/bike.svg",
-    altText: "Best Fleet Icon",
-  },
-  {
-    title: "Seamless Travel",
-    description:
-      "Enjoy stress-free adventures with our 24/7 dedicated support team with ready Medpacks.",
-    imageSrc: "/assets/support.svg",
-    altText: "Seamless Travel Icon",
-  },
-];
 
 const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "1",
-    title: "Leh - Ladakh Biking Adventure",
+    title: "Leh - Ladakh Biking Expedition",
     googleCalendarLink: "google.com/calendar/ics-link",
     imageSrc:
-      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg?auto=compress&cs=tinysrgb&w=600",
-    altText: "Leh - Ladakh Biking Adventure",
+      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg",
+    altText: "Leh - Ladakh Biking Expedition",
     shortDescription:
-      "Epic 4-month motorcycle journey through the stunning landscapes of northern India, from Chandigarh to Manali.",
+      "Epic 4-month motorcycle journey through the stunning landscapes of northern India",
     longDescription:
-      "Join us on an amazing motorbike adventure through northern India's rocky terrain, from Chandigarh to Srinagar, Leh, Turtuk, Pangong Tso, and Manali, concluding in a memorable experience. Begin your journey in Chandigarh, where nature and modernism coexist together. Experience the charming Dal Lake and the lively marketplaces as you ride towards Srinagar, navigating through the enchanted landscapes.",
+      "Join us on an amazing motorbike adventure through northern India's rocky terrain...",
     startDate: dayjs("2025-09-10T07:00:00"),
     endDate: dayjs("2026-01-02T01:30:00"),
     keyHighlights: [
-      "Motorbike ride through rugged terrain from Chandigarh to Manali.",
-      "Scenic views of Dal Lake in Srinagar.",
-      "Experience the beauty of Pangong Tso and Turtuk.",
-      "End the trip in the vibrant city of Manali.",
+      "Challenging high-altitude mountain passes",
+      "Royal Enfield Himalayan riding experience",
+      "Explore remote Himalayan villages",
+      "Professional riding support team",
     ],
-    trekDuration: "4 months",
+    rideDuration: "14 days riding",
     highestAltitude: "18,380 ft",
-    suitableFor: "20 to 50 years",
-    totalDistance: "2,500 kms",
-    basecamp: "Chandigarh",
-    accommodationType: "Hotels and Tents",
+    suitableFor: "Intermediate to advanced riders",
+    totalDistance: "2,500 km",
+    startingPoint: "Chandigarh",
+    accommodationType: "Biker-friendly hotels & camps",
     pickupPoint: "Chandigarh Railway Station",
-    photoGallery: [
-      "/assets/gallery/photo1.jpg",
-      "/assets/gallery/photo2.jpg",
-      "/assets/gallery/photo3.jpg",
-      "/assets/gallery/photo4.jpg",
-    ],
+    photoGallery: ["/assets/gallery/photo1.jpg", "/assets/gallery/photo2.jpg"],
+    bikeModels: ["Royal Enfield Himalayan 450", "KTM 390 Adventure"],
+    difficultyLevel: "Challenging",
+    averageDailyRide: "180-220 km",
   },
   {
     id: "2",
-    title: "Spiti Valley Biking Adventure",
+    title: "Spiti Valley Ride Challenge",
     googleCalendarLink: "google.com/calendar/ics-link",
     imageSrc:
-      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg",
     altText: "Spiti Valley Biking Adventure",
     shortDescription:
-      "One-day intense ride through the mystical Spiti Valley, featuring ancient monasteries and Himalayan vistas.",
+      "High-altitude motorcycle challenge through the mystical Spiti Valley",
     longDescription:
-      "Experience the rugged beauty of Spiti Valley. This adventure combines challenging terrains, ancient monasteries, and breathtaking views of the Himalayas. The biking trip is filled with cultural immersion and pure adventure.",
+      "Experience the rugged beauty of Spiti Valley on two wheels...",
     startDate: dayjs("2026-01-03T00:30:00"),
     endDate: dayjs("2026-01-03T01:30:00"),
     keyHighlights: [
-      "Exploration of ancient monasteries in the Spiti Valley.",
-      "Ride through rocky landscapes and picturesque villages.",
-      "Incredible views of the snow-covered Himalayas.",
+      "World's highest motorable roads",
+      "Technical riding through river crossings",
+      "Stay in traditional Himalayan homestays",
+      "Expert mechanic support throughout",
     ],
-    trekDuration: "1 day",
+    rideDuration: "10 days riding",
     highestAltitude: "14,400 ft",
-    suitableFor: "18 to 55 years",
-    totalDistance: "250 kms",
-    basecamp: "Kaza",
-    accommodationType: "Guesthouses and Tents",
-    pickupPoint: "Shimla Railway Station",
-    photoGallery: [
-      "/assets/gallery/photo5.jpg",
-      "/assets/gallery/photo6.jpg",
-      "/assets/gallery/photo7.jpg",
-      "/assets/gallery/photo8.jpg",
-    ],
-  },
-  {
-    id: "3",
-    title: "North-East India Biking Adventure",
-    googleCalendarLink: "google.com/calendar/ics-link",
-    imageSrc:
-      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg?auto=compress&cs=tinysrgb&w=600",
-    altText: "North-East India Biking Adventure",
-    shortDescription:
-      "One-day cultural expedition through North-East India's diverse landscapes and wildlife sanctuaries.",
-    longDescription:
-      "Discover the hidden gems of North-East India, a region rich in culture, stunning landscapes, and diverse wildlife. This biking trip will take you through charming towns, lush forests, and serene lakes.",
-    startDate: dayjs("2026-01-04"),
-    endDate: dayjs("2026-01-04"),
-    keyHighlights: [
-      "Ride through picturesque towns in North-East India.",
-      "Explore lush forests and serene lakes.",
-      "Get a glimpse of diverse wildlife and vibrant culture.",
-    ],
-    trekDuration: "1 day",
-    highestAltitude: "10,000 ft",
-    suitableFor: "18 to 60 years",
-    totalDistance: "350 kms",
-    basecamp: "Shillong",
-    accommodationType: "Hotels and Resorts",
-    pickupPoint: "Guwahati Railway Station",
-    photoGallery: [
-      "/assets/gallery/photo9.jpg",
-      "/assets/gallery/photo10.jpg",
-      "/assets/gallery/photo11.jpg",
-      "/assets/gallery/photo12.jpg",
-    ],
+    suitableFor: "Experienced riders",
+    totalDistance: "800 km",
+    startingPoint: "Manali",
+    accommodationType: "Homestays",
+    pickupPoint: "Manali Bus Stand",
+    photoGallery: ["/assets/gallery/photo5.jpg", "/assets/gallery/photo6.jpg"],
+    bikeModels: ["Royal Enfield Himalayan 411", "KTM 390 Adventure"],
+    difficultyLevel: "Advanced",
+    averageDailyRide: "80-120 km",
   },
 ];
 
 
-export { whyUsCardData, bikingAdventuresData };
+// Why Us Section - Updated with biking focus
+const whyUsCardData = [
+  {
+    title: "Curated Riding Routes",
+    description: "Routes perfected over a decade for the ultimate biking experience",
+    imageSrc: "/assets/routes-2.svg",
+    altText: "Curated Routes Icon"
+  },
+  {
+    title: "Premium Adventure Bikes",
+    description: "Royal Enfield Himalayan 450, KTM 390 Adventure & BMW GS models",
+    imageSrc: "/assets/bike.svg",
+    altText: "Adventure Bikes Icon"
+  },
+  {
+    title: "Rider Support System",
+    description: "24/7 support with expert mechanics, medical backup & riding guides",
+    imageSrc: "/assets/support.svg",
+    altText: "Rider Support Icon"
+  }
+];
+
+
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Thompson",
+      location: "London",
+      text: "The Rajasthan Desert Dash was absolutely incredible! The support team made everything seamless from start to finish. Can't wait for my next Indian adventure!",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "James Wilson",
+      location: "Manchester",
+      text: "Best motorcycle experience of my life. The Himalayan routes took my breath away, and the local guides were true experts. Highly recommend to UK riders!",
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: "Emma Carter",
+      location: "Birmingham",
+      text: "As a solo female rider, I felt completely safe and supported throughout the Kerala Coastal ride. The cultural experiences were as amazing as the riding!",
+      rating: 4,
+    },
+    {
+      id: 4,
+      name: "Mohammed Ali",
+      location: "Leeds",
+      text: "Perfect mix of challenging rides and authentic Indian hospitality. The bike maintenance crew was always on point. Will definitely ride with them again!",
+      rating: 5,
+    },
+    {
+      id: 5,
+      name: "Lucy Bennett",
+      location: "Glasgow",
+      text: "From visa assistance to route planning, every detail was handled. The Spiti Valley route is a must-do for any serious adventure rider!",
+      rating: 5,
+    },
+  ];
+
+
+export { whyUsCardData, bikingAdventuresData, testimonials };
