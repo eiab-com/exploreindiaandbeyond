@@ -1,21 +1,18 @@
-// pages/adventures/[id]/page.tsx
 import React from "react";
 import Image from "next/image";
 import { MapPin, Mountain, Gauge, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bikingAdventuresData } from "@/data/content";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ params: { id: string } }>;
+  params: Promise<{ id: string }>;
 }) {
-  const {
-    params: { id },
-  } = await params;
+  const id = (await params).id;
   const adventure = bikingAdventuresData.find((a) => a.id.trim() === id.trim());
 
   if (!adventure) {
@@ -137,6 +134,7 @@ export default async function Page({
     </div>
   );
 }
+
 const SectionHeading = ({ title }: { title: string }) => (
   <h2 className="text-2xl font-bold border-b pb-2">{title}</h2>
 );
