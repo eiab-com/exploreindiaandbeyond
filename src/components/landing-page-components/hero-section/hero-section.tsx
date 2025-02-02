@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { CompassIcon } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
@@ -47,7 +47,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12  rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden mx-6"
+      className="col-span-12 -mt-6 rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden mx-6"
     >
       <div
         ref={leftCurtain}

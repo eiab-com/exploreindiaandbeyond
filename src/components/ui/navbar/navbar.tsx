@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Menu, X } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="h-16  rounded-b-xl p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-50 bg-background/60 backdrop-blur-md"
+      className="h-20  rounded-b-xl p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-50 bg-background/60 backdrop-blur-md"
     >
       <div className="logo text-primary font-heading text-xl md:text-2xl lg:text-3xl font-bold w-full">
         EIAB.com
