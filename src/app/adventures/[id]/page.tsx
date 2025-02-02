@@ -5,6 +5,8 @@ import { MapPin, Mountain, Gauge, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bikingAdventuresData } from "@/data/content";
 import { Link } from "next-view-transitions";
+import DetailCard from "@/components/adventures/detail-card";
+import InfoItem from "@/components/adventures/info-item";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -133,38 +135,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
 }
 
-// Reusable Components
-const DetailCard = ({
-  icon,
-  title,
-  value,
-}: {
-  icon?: React.ElementType;
-  title: string;
-  value: string;
-}) => (
-  <div className="flex items-center p-6 bg-card rounded-xl border space-x-4">
-    {icon && (
-      <div className="w-12 h-12 p-3 rounded-full bg-muted flex items-center justify-center">
-        {React.createElement(icon, {
-          className: "w-6 h-6 text-primary",
-        })}
-      </div>
-    )}
-    <div>
-      <p className="text-sm text-muted-foreground">{title}</p>
-      <p className="text-lg font-semibold">{value}</p>
-    </div>
-  </div>
-);
-
 const SectionHeading = ({ title }: { title: string }) => (
   <h2 className="text-2xl font-bold border-b pb-2">{title}</h2>
 );
 
-const InfoItem = ({ title, value }: { title: string; value: string }) => (
-  <div className="flex justify-between py-2 border-b">
-    <span className="text-muted-foreground">{title}</span>
-    <span className="font-medium">{value}</span>
-  </div>
-);
