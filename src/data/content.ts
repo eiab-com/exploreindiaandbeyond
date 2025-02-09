@@ -105,7 +105,7 @@ const whyUsCardData = [
     altText: "Adventure Bikes Icon"
   },
   {
-    title: "Rider Support System",
+    title: "Rider Support",
     description: "24/7 support with expert mechanics, medical backup & riding guides",
     imageSrc: "/assets/support.svg",
     altText: "Rider Support Icon"

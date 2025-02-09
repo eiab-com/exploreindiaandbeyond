@@ -2,50 +2,60 @@ import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import { whyUsCardData as cardData } from "@/data/content";
+import SectionMiniHeader from "@/components/section-header-aesth/section-mini-header";
 
 const WhyUs = () => {
   return (
     <section
       id="about"
-      className="col-span-12 h-screen rounded-2xl p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
+      className="col-span-12 mx-4 h-screen p-4 sm:p-8 md:p-12 flex  justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
     >
       {/* Section Header */}
-      <div className="w-full absolute top-0 p-4 sm:p-8">
-        <p className="text-xs sm:text-sm md:text-base opacity-70">/ why us </p>
-      </div>
+      <SectionMiniHeader title="about us" />
 
       {/* Main Heading */}
-      <p className="font-body text-3xl sm:text-5xl md:text-6xl text-center w-11/12 sm:w-3/4 leading-snug mb-10">
-        We specialize in crafting journeys that go beyond typical tourist
-        trails.
-      </p>
+      <div className="left flex flex-col justify-center items-left w-full h-full p-4  ">
+        <p className="font-body text-3xl sm:text-5xl md:text-6xl text-left w-11/12  leading-snug mb-10 sm:w-full sm:text-center  lg:text-left  ">
+          We specialize in crafting journeys that go beyond typical tourist
+          trails.
+        </p>
 
-      {/* Card Container */}
-      <div className="card-container w-full flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
-        {cardData.map((card, index) => (
-          <Card
-            key={index}
-            className="w-full border-transparent max-w-xs bg-transparent  h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-500"
-          >
-            <CardHeader className="flex justify-center items-center p-4 sm:p-6 flex-row gap-3">
-              <Image
-                src={card.imageSrc}
-                width={50}
-                height={50}
-                alt={card.altText}
-                className="w-16  md:w-16 lg:w-16 h-auto flex"
-              />
-              <h3 className="text-lg w-full sm:text-xl font-bold ">
-                {card.title}
-              </h3>
-            </CardHeader>
-            <CardContent className="">
-              <p className="text-sm sm:text-base leading-relaxed">
-                {card.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
+        {/* Card Container */}
+        <div className="card-container w-full flex flex-col sm:flex-row flex-wrap justify-start items-left gap-4 sm:gap-8 sm:justify-center lg:justify-start lg:mt-36 ">
+          {cardData.map((card, index) => (
+            <Card
+              key={index}
+              className="w-full border-transparent max-w-sm bg-accent h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-200"
+            >
+              <CardHeader className="flex justify-center items-center p-4 sm:p-6 flex-row gap-3 ">
+                <Image
+                  src={card.imageSrc}
+                  width={50}
+                  height={50}
+                  alt={card.altText}
+                  className="w-16  md:w-12 lg:w-14 h-auto flex"
+                />
+                <h3 className="text-lg w-full sm:text-xl font-bold ">
+                  {card.title}
+                </h3>
+              </CardHeader>
+              <CardContent className="">
+                <p className="text-sm sm:text-base leading-relaxed ">
+                  {card.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+      <div className="right h-full w-full overflow-hidden group md:hidden sm:hidden lg:inline-flex">
+        <Image
+          src="https://images.unsplash.com/photo-1582092722992-b2f960bafbfb?q=80&w=3447&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Mountains with road"
+          width={500}
+          height={500}
+          className="w-full h-full object-cover group-hover:scale-[1.01] transition-all duration-500"
+        />
       </div>
     </section>
   );

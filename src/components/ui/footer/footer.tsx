@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Youtube, PhoneIcon } from "lucide-react";
 import { Button } from "../button";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const Footer = () => {
   return (
@@ -12,21 +13,23 @@ const Footer = () => {
           <h1 className="text-primary text-center font-heading text-xl md:text-2xl lg:text-left lg:text-3xl font-bold">
             Explore India and Beyond
           </h1>
-          <p>
-            <span className="font-bold text-center lg:text-left">EIAB.com</span>{" "}
+          <p className="text-foreground">
+            <span className="font-bold text-center  lg:text-left">
+              EIAB.com
+            </span>{" "}
             is a platform dedicated to helping travelers discover and explore
             the vibrant culture.
           </p>
         </div>
 
         <div className="right space-y-6">
-          <div className="flex gap-4 items-center justify-center">
+          <div className="flex gap-4 items-center justify-center text-foreground">
             <Button
               variant={"ghost"}
               className="border-2 border-primary rounded-full text-base font-extrabold transition-all inline-flex gap-2 sm:gap-4 shadow-lg group"
             >
               <span>Contact Us</span>
-              <PhoneIcon className="transition-transform group-hover:text-white" />
+              <PhoneIcon className="transition-transform" />
             </Button>
             <Link href="https://facebook.com">
               <Facebook size={20} strokeWidth={1} />
@@ -48,6 +51,7 @@ const Footer = () => {
         © {new Date().getFullYear()} Explore India and Beyond. All rights
         reserved.
       </p>
+      <ModeToggle />
     </footer>
   );
 };

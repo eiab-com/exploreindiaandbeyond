@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Dayjs } from "dayjs";
 
 interface AdventureCardProps {

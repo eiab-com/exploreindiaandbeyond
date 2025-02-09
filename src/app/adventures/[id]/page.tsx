@@ -44,7 +44,7 @@ export default async function Page({
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
           {adventure.title}
         </h1>
-        <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+        <div className="relative aspect-video  overflow-hidden shadow-lg">
           <Image
             src={adventure.imageSrc}
             alt={adventure.altText}
@@ -105,7 +105,7 @@ export default async function Page({
 
         {/* Booking Card */}
         <div className="w-full max-w-xs lg:max-w-sm mx-auto">
-          <div className="bg-card rounded-xl p-6 shadow-sm border space-y-6">
+          <div className="bg-card  p-6 shadow-sm border space-y-6">
             <h3 className="text-xl font-semibold">Plan Your Journey</h3>
             <div className="space-y-4">
               <InfoItem title="Next Departure" value="September 15, 2024" />
@@ -115,7 +115,7 @@ export default async function Page({
               />
               <InfoItem title="Pickup Point" value={adventure.pickupPoint} />
             </div>
-            <Button className="w-full" size="lg">
+            <Button className="w-full rounded-none" size="lg">
               Reserve Your Spot
             </Button>
           </div>
@@ -125,7 +125,7 @@ export default async function Page({
       {/* Map Section */}
       <div className="space-y-6">
         <SectionHeading title="Route Map" />
-        <div className="aspect-video bg-muted rounded-xl overflow-hidden">
+        <div className="aspect-video bg-muted  overflow-hidden">
           <div className="w-full h-full flex items-center justify-center">
             <span className="text-muted-foreground">Route map coming soon</span>
           </div>

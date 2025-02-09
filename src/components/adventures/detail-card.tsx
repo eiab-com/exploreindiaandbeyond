@@ -10,7 +10,7 @@ const DetailCard = ({
   title: string;
   value: string;
 }) => (
-  <div className="flex items-center p-6 bg-card rounded-xl border space-x-4">
+  <div className="flex items-center p-6 bg-card  border space-x-4">
     {icon && (
       <div className="w-12 h-12 p-3 rounded-full bg-muted flex items-center justify-center">
         {React.createElement(icon, {

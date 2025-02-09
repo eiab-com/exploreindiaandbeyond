@@ -29,11 +29,14 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="h-20  rounded-b-xl p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-50 bg-background/60 backdrop-blur-md"
+      className="h-20  rounded-b-xl p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-[10000] bg-background/60 backdrop-blur-md"
     >
-      <div className="logo text-primary font-heading text-xl md:text-2xl lg:text-3xl font-bold w-full">
+      <Link
+        href="/"
+        className="logo text-primary font-heading text-xl md:text-2xl lg:text-3xl font-bold w-full"
+      >
         EIAB.com
-      </div>
+      </Link>
 
       <nav
         className={`${

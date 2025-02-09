@@ -6,7 +6,7 @@ import GridContainer from "@/components/ui/grid-container";
 import Navbar from "@/components/ui/navbar/navbar";
 import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/data/seo";
- import { ViewTransitions } from "next-view-transitions";
+import { ViewTransitions } from "next-view-transitions";
 
 const oswald = Oswald({
   weight: "400",
@@ -28,25 +28,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <ViewTransitions>
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${oswald.variable} ${instrument_sans.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${oswald.variable} ${instrument_sans.variable} antialiased`}
         >
-          <GridContainer className=" justify-center items-start place-content-start gap-y-2">
-            <Navbar />
-            {children}
-          </GridContainer>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <GridContainer className=" justify-center items-start place-content-start gap-y-2">
+              <Navbar />
+              {children}
+            </GridContainer>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
     </ViewTransitions>
   );
 }
