@@ -17,10 +17,10 @@ const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="col-span-12 h-screen rounded-2xl p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body min-h-[50vh]  mx-4 mb-20"
+      className="col-span-12 mx-16 h-[40vh] p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
     >
       {/* Section Header */}
-      <SectionMiniHeader title="testimonials"  />
+      <SectionMiniHeader title="testimonials" />
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 z-50">
         What Riders Say
       </h2>

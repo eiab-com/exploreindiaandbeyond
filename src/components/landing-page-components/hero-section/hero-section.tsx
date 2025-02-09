@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { Button } from "../../ui/button";
 import { CompassIcon } from "lucide-react";
+import { useTransitionRouter } from "next-view-transitions";
 
 gsap.registerPlugin(useGSAP);
 
@@ -13,6 +14,8 @@ const HeroSection = () => {
   const leftCurtain = useRef(null);
   const rightCurtain = useRef(null);
   const imageRef = useRef(null);
+
+  const router = useTransitionRouter();
 
   const handleImageLoad = () => {
     setIsImageLoaded(true);
@@ -82,7 +85,10 @@ const HeroSection = () => {
           <div className="seperator border border-r border-white  h-full"></div>
         </div>
 
-        <Button className="mt-4 px- sm:px-5  sm:py-7 relative rounded-full w-auto text-base sm:text-lg font-extrabold transition-all z-30 duration-200 inline-flex gap-2 sm:gap-4 shadow-lg group">
+        <Button
+          onClick={() => router.push("/adventures")}
+          className="mt-4 px- sm:px-5  sm:py-7 relative rounded-full w-auto text-base sm:text-lg font-extrabold transition-all z-30 duration-200 inline-flex gap-2 sm:gap-4 shadow-lg group"
+        >
           <span>Reserve Your Adventure</span>
           <CompassIcon className="flex-1 scale-150 sm:scale-[1.75]  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  group-hover:text-white" />
         </Button>

@@ -43,24 +43,24 @@ const Navbar = () => {
           isMenuOpen ? "block" : "hidden"
         } absolute top-20 left-0 w-full bg-background/90 backdrop-blur-md md:static md:flex md:gap-8 md:bg-transparent md:backdrop-blur-none md:items-center `}
       >
-        <ul className="flex flex-col md:flex-row gap-4 p-4 md:p-0 md:ml-auto">
+        <ul className="flex flex-col md:flex-row font-body gap-4 p-4 md:p-0 md:ml-auto">
           <li>
-            <Link className="uppercase font-body  text-sm" href="/">
+            <Link className="uppercase font-bold  text-sm" href="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="uppercase font-body text-sm" href="/adventures">
+            <Link className="uppercase font-bold text-sm" href="/adventures">
               ADVENTURES
             </Link>
           </li>
           <li>
-            <Link className="uppercase font-body text-sm" href="/contact">
+            <Link className="uppercase font-bold text-sm" href="/contact">
               About us
             </Link>
           </li>
           <li>
-            <Link className="uppercase font-body text-sm" href="/contact">
+            <Link className="uppercase font-bold text-sm" href="/contact">
               Contact
             </Link>
           </li>

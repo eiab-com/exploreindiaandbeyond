@@ -1,11 +1,21 @@
-import React from "react";
 import Image from "next/image";
-import { MapPin, Mountain, Gauge, Calendar, Users } from "lucide-react";
+import {
+  MapPin,
+  Mountain,
+  Gauge,
+  Calendar,
+  Users,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bikingAdventuresData } from "@/data/content";
 import Link from "next/link";
 import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
+import {
+  Dialog,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import ContactForm from "@/components/adventures/contact-form/contact-form";
 
 export default async function Page({
   params,
@@ -30,108 +40,115 @@ export default async function Page({
   }
 
   return (
-    <div className="col-span-12 max-w-screen-xl min-w-[70vw] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      {/* Breadcrumb */}
-      <nav className="text-sm text-muted-foreground">
-        <Link href="/adventures" className="hover:text-primary">
-          Adventures
-        </Link>{" "}
-        / {adventure.title}
-      </nav>
+    <Dialog>
+      <div className="col-span-12 max-w-screen-xl min-w-[60vw] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Breadcrumb */}
+        <nav className="text-sm text-muted-foreground">
+          <Link href="/adventures" className="hover:text-primary">
+            Adventures
+          </Link>{" "}
+          / {adventure.title}
+        </nav>
 
-      {/* Hero Section */}
-      <div className="space-y-6">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-          {adventure.title}
-        </h1>
-        <div className="relative aspect-video  overflow-hidden shadow-lg">
-          <Image
-            src={adventure.imageSrc}
-            alt={adventure.altText}
-            fill
-            className="object-cover"
-            priority
+        {/* Hero Section */}
+        <div className="space-y-6">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+            {adventure.title}
+          </h1>
+          <div className="relative aspect-video  overflow-hidden shadow-lg rounded-lg">
+            <Image
+              src={adventure.imageSrc}
+              alt={adventure.altText}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Adventure Details */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <DetailCard
+            icon={Mountain}
+            title="Highest Altitude"
+            value={adventure.highestAltitude}
           />
-        </div>
-      </div>
-
-      {/* Adventure Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <DetailCard
-          icon={Mountain}
-          title="Highest Altitude"
-          value={adventure.highestAltitude}
-        />
-        <DetailCard
-          icon={Gauge}
-          title="Total Distance"
-          value={adventure.totalDistance}
-        />
-        <DetailCard
-          icon={Calendar}
-          title="Duration"
-          value={adventure.rideDuration}
-        />
-        <DetailCard
-          icon={Users}
-          title="Difficulty"
-          value={adventure.difficultyLevel}
-        />
-        <DetailCard
-          icon={MapPin}
-          title="Starting Point"
-          value={adventure.startingPoint}
-        />
-        <DetailCard icon={Users} title="Group Size" value="4-12 Riders" />
-      </div>
-
-      {/* Description Section */}
-      <div className="grid lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2 space-y-8">
-          <SectionHeading title="Adventure Overview" />
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            {adventure.longDescription}
-          </p>
-          <SectionHeading title="Experience Highlights" />
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {adventure.keyHighlights?.map((highlight, index) => (
-              <li key={index} className="flex items-start space-x-3">
-                <span className="text-primary">✓</span>
-                <span className="flex-1">{highlight}</span>
-              </li>
-            ))}
-          </ul>
+          <DetailCard
+            icon={Gauge}
+            title="Total Distance"
+            value={adventure.totalDistance}
+          />
+          <DetailCard
+            icon={Calendar}
+            title="Duration"
+            value={adventure.rideDuration}
+          />
+          <DetailCard
+            icon={Users}
+            title="Difficulty"
+            value={adventure.difficultyLevel}
+          />
+          <DetailCard
+            icon={MapPin}
+            title="Starting Point"
+            value={adventure.startingPoint}
+          />
+          <DetailCard icon={Users} title="Group Size" value="4-12 Riders" />
         </div>
 
-        {/* Booking Card */}
-        <div className="w-full max-w-xs lg:max-w-sm mx-auto">
-          <div className="bg-card  p-6 shadow-sm border space-y-6">
-            <h3 className="text-xl font-semibold">Plan Your Journey</h3>
-            <div className="space-y-4">
-              <InfoItem title="Next Departure" value="September 15, 2024" />
-              <InfoItem
-                title="Accommodation"
-                value={adventure.accommodationType}
-              />
-              <InfoItem title="Pickup Point" value={adventure.pickupPoint} />
+        {/* Description Section */}
+        <div className="grid lg:grid-cols-3 gap-6 justify-between">
+          <div className="lg:col-span-2 space-y-8">
+            <SectionHeading title="Adventure Overview" />
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              {adventure.longDescription}
+            </p>
+            <SectionHeading title="Experience Highlights" />
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {adventure.keyHighlights?.map((highlight, index) => (
+                <li key={index} className="flex items-start space-x-3">
+                  <span className="text-primary">✓</span>
+                  <span className="flex-1">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Booking Card */}
+          <div className="lg:sticky lg:top-6 lg:self-start">
+            <div className="bg-card rounded-lg p-6 shadow-sm border space-y-6">
+              <h3 className="text-xl font-semibold">Plan Your Journey</h3>
+              <div className="space-y-4">
+                <InfoItem title="Next Departure" value="September 15, 2024" />
+                <InfoItem
+                  title="Accommodation"
+                  value={adventure.accommodationType}
+                />
+                <InfoItem title="Pickup Point" value={adventure.pickupPoint} />
+              </div>
+              <DialogTrigger asChild>
+                <Button className="w-full font-body font-bold" size="lg">
+                  Enquire More
+                </Button>
+              </DialogTrigger>
             </div>
-            <Button className="w-full rounded-none" size="lg">
-              Reserve Your Spot
-            </Button>
           </div>
         </div>
-      </div>
 
-      {/* Map Section */}
-      <div className="space-y-6">
-        <SectionHeading title="Route Map" />
-        <div className="aspect-video bg-muted  overflow-hidden">
-          <div className="w-full h-full flex items-center justify-center">
-            <span className="text-muted-foreground">Route map coming soon</span>
+        {/* Map Section */}
+        <div className="space-y-6">
+          <SectionHeading title="Route Map" />
+          <div className="aspect-video bg-muted  overflow-hidden rounded-lg">
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-muted-foreground">
+                Route map coming soon
+              </span>
+            </div>
           </div>
         </div>
+        <ContactForm adventureTitle={adventure.title} />
       </div>
-    </div>
+    </Dialog>
   );
 }
 

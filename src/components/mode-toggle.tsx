@@ -15,13 +15,13 @@ export function ModeToggle() {
 
   return (
     <div className="flex items-center space-x-2">
-      <Sun className="h-[1.2rem] w-[1.2rem] dark:opacity-50" />
+      <Sun className="h-[1.2rem] w-[1.2rem] dark:opacity-50 text-foreground" />
       <Switch
         id="theme-mode"
         checked={theme === "dark"}
         onCheckedChange={handleThemeToggle}
       />
-      <Moon className="h-[1.2rem] w-[1.2rem] opacity-50 dark:opacity-100" />
+      <Moon className="h-[1.2rem] w-[1.2rem] opacity-50 dark:opacity-100 text-foreground" />
       <Label htmlFor="theme-mode" className="sr-only">
         Toggle theme
       </Label>
