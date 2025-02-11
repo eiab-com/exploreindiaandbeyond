@@ -73,7 +73,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ adventureTitle }) => {
     }
   }, [isSubmitted]);
 
-  const onSubmit = async (data: ContactForm) => {
+  const onSubmit = async (data: {
+    name: string;
+    email: string;
+    message: string;
+    destination: string;
+    countryCode: string;
+    phone: string;
+  }) => {
     try {
       console.log("Form submitted:", data);
 
@@ -92,7 +99,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ adventureTitle }) => {
   };
 
   return (
-    <DialogContent className="bg-accent w-auto p-6 rounded-lg shadow-lg">
+    <DialogContent className=" w-auto p-6 rounded-lg shadow-lg">
       <DialogHeader>
         <DialogTitle className="text-xl font-semibold">
           Enquire about {adventureTitle}
@@ -144,7 +151,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ adventureTitle }) => {
                     <Select
                       onValueChange={field.onChange}
                       value={field.value} // Changed from defaultValue to value
-                      
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select">

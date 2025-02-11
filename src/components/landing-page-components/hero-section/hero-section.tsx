@@ -50,7 +50,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12 -mt-6 rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden"
+      className="col-span-12 -mt-6  rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden"
     >
       <div
         ref={leftCurtain}
@@ -70,28 +70,24 @@ const HeroSection = () => {
         onLoad={handleImageLoad}
       />
 
-      <div className="overlay bg-black/60 h-full w-full gap-6 relative z-30 flex flex-col justify-center items-center px-4 md:px-8 lg:px-12">
-        <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-8xl text-white text-center w-full md:w-4/5 lg:w-full leading-[1.3] relative z-20">
-          Motorcycle Your Way Through <br />
-          <span className="italic">{`India's Top Scenic Roads`}</span>
-        </h1>
-        <p className="text-white text-lg sm:text-xl md:text-2xl text-center w-full sm:w-3/4 md:w-3/4 lg:w-2/4 relative z-20 font-body">
-          Experience the thrill of riding through the most scenic routes in
-          India with our guided tours.
-        </p>
+      <div className="overlay bg-black/40 h-full w-full gap-6 relative z-30 flex space-between  items-end px-4 md:px-8 lg:px-12">
+        <div className="space-y-6 w-full relative bottom-10">
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold lg:text-8xl text-white  w-full md:w-4/5 lg:w-full leading-[1.5] relative z-20 uppercase">
+           {` Motorcycle Your Way Through India's Top Scenic Roads`}
+          </h1>
+        </div>
+        <Button
+          onClick={() => router.push("/adventures")}
+          className="mt-4 rounded-full w-fit bg-white dark:bg-white  sm:px-5  sm:py-7 relative bottom-10   text-base sm:text-lg font-extrabold transition-all z-30 duration-200 flex justify-center gap-4 sm:gap-4 shadow-lg group"
+        >
+          <span className="text-black">Reserve Your Adventure</span>
+          <CompassIcon className=" scale-150 sm:scale-[1.75] text-black  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  " />
+        </Button>
         <div className="seperators hidden md:flex justify-evenly items-center w-full h-full absolute z-10 opacity-[10%]">
           <div className="seperator border border-r border-white  h-full"></div>
           <div className="seperator border border-r border-white  h-full"></div>
           <div className="seperator border border-r border-white  h-full"></div>
         </div>
-
-        <Button
-          onClick={() => router.push("/adventures")}
-          className="mt-4 px- sm:px-5  sm:py-7 relative rounded-full w-auto text-base sm:text-lg font-extrabold transition-all z-30 duration-200 inline-flex gap-2 sm:gap-4 shadow-lg group"
-        >
-          <span>Reserve Your Adventure</span>
-          <CompassIcon className="flex-1 scale-150 sm:scale-[1.75]  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  group-hover:text-white" />
-        </Button>
       </div>
     </section>
   );

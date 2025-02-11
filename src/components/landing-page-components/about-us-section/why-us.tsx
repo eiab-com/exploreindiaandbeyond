@@ -20,7 +20,7 @@ const WhyUs = () => {
           {cardData.map((card, index) => (
             <Card
               key={index}
-              className="w-full border-transparent max-w-sm bg-accent h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-200"
+              className="w-full bg-primary/50 max-w-sm rounded-2xl  h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-200"
             >
               <CardHeader className="flex justify-center items-center p-4 sm:p-6 flex-row gap-3">
                 <Image
@@ -43,7 +43,7 @@ const WhyUs = () => {
           ))}
         </div>
       </div>
-      <div className="right h-full w-full overflow-hidden group md:hidden sm:hidden lg:inline-flex">
+      <div className="right h-full w-full rounded-2xl overflow-hidden group md:hidden sm:hidden lg:inline-flex">
         <Image
           src="https://images.unsplash.com/photo-1582092722992-b2f960bafbfb?q=80&w=3447&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Mountains with road"

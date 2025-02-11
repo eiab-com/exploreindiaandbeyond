@@ -43,7 +43,7 @@ const TestimonialSection = () => {
               className="md:basis-1/2 lg:basis-1/3 px-4 py-2"
             >
               <div className="p-1 h-full">
-                <Card className="bg-accent h-full rounded-none">
+                <Card className="h-full rounded-2xl">
                   <CardContent className="flex flex-col items-center justify-center p-6 h-[200px]">
                     <div className="flex gap-1 mb-4 text-yellow-400">
                       {Array.from({ length: testimonial.rating }).map(

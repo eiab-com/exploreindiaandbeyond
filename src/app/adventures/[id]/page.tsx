@@ -1,20 +1,12 @@
+
 import Image from "next/image";
-import {
-  MapPin,
-  Mountain,
-  Gauge,
-  Calendar,
-  Users,
-} from "lucide-react";
+import { MapPin, Mountain, Gauge, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bikingAdventuresData } from "@/data/content";
 import Link from "next/link";
 import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
-import {
-  Dialog,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import ContactForm from "@/components/adventures/contact-form/contact-form";
 
 export default async function Page({

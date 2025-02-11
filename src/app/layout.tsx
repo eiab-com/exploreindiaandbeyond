@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Oswald } from "next/font/google";
+import { Instrument_Sans, Squada_One } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import GridContainer from "@/components/ui/grid-container";
@@ -8,13 +8,13 @@ import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/data/seo";
 import { ViewTransitions } from "next-view-transitions";
 
-const oswald = Oswald({
+const heading = Squada_One({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-heading",
 });
 
-const instrument_sans = Instrument_Sans({
+const body = Instrument_Sans({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-body",
@@ -31,7 +31,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${oswald.variable} ${instrument_sans.variable} antialiased`}
+          className={`${heading.variable} ${body.variable} antialiased`}
         >
           <ThemeProvider
             attribute="class"
