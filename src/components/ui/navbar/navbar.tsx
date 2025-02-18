@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="h-20  rounded-b-xl p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-[10000] bg-background/60 backdrop-blur-md"
+      className="h-20  rounded-b-sm p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-[10000] bg-background/60 backdrop-blur-md"
     >
       <Link
         href="/"

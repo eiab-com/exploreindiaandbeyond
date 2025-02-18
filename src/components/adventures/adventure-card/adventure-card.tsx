@@ -37,7 +37,7 @@ const AdventureCard = ({
   const constructedLink = `/adventures/${id}`;
 
   return (
-    <Card className="w-fit bg-card group   sm:w-96 rounded-2xl overflow-hidden font-body shadow-none hover:shadow-xl transition-all">
+    <Card className=" bg-card group   sm:w-96 rounded-2xl overflow-hidden font-body shadow-none hover:shadow-xl transition-all">
       <CardHeader className=" p-1 overflow-hidden ">
         <Image
           src={coverImage}
@@ -70,7 +70,7 @@ const AdventureCard = ({
 
       <CardFooter className="p-4">
         <Button
-          className="w-full text-sm font-body font-black  rounded-xl uppercase"
+          className="w-full text-sm font-body font-black  uppercase"
           asChild
         >
           <Link href={constructedLink}>Read More</Link>

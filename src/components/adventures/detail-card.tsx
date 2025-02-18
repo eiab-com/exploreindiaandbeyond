@@ -10,17 +10,22 @@ const DetailCard = ({
   title: string;
   value: string;
 }) => (
-  <div className="flex rounded-md items-center p-6 bg-card  border space-x-4 bg-accent">
+  <div className="flex rounded-md items-center p-3 bg-card border space-x-2 w-full sm:w-auto">
+    {/* Icon Container */}
     {icon && (
-      <div className="w-12 h-12 p-3 rounded-full bg-muted flex items-center justify-center">
+      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
         {React.createElement(icon, {
-          className: "w-6 h-6 text-primary",
+          className: "w-4 h-4 sm:w-6 sm:h-6 text-primary", // Responsive icon size
         })}
       </div>
     )}
-    <div>
-      <p className="text-sm text-muted-foreground">{title}</p>
-      <p className="text-lg font-semibold">{value}</p>
+
+    {/* Text Content */}
+    <div className="flex-1 min-w-0">
+      <p className="text-xs sm:text-sm text-muted-foreground truncate">
+        {title}
+      </p>
+      <p className="text-base sm:text-lg font-semibold truncate">{value}</p>
     </div>
   </div>
 );
