@@ -55,8 +55,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className="uppercase font-bold text-sm" href="/contact">
-              About us
+            <Link className="uppercase font-bold text-sm" href="/team">
+              Team
             </Link>
           </li>
           <li>
