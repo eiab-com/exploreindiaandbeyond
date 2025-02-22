@@ -3,9 +3,14 @@ import React from "react";
 interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   className?: string;
+  onLoad?: () => void;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, className = "" }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({
+  src,
+  onLoad,
+  className = "",
+}) => {
   return (
     <div className={`w-full h-full ${className}`}>
       <video
@@ -14,6 +19,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, className = "" }) => {
         loop
         muted
         className="w-full h-full object-cover"
+        onLoad={onLoad}
       />
     </div>
   );

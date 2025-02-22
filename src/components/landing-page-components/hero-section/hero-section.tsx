@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button } from "../../ui/button";
-import {  ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useTransitionRouter } from "next-view-transitions";
 import VideoPlayer from "@/components/video-player";
 
@@ -74,6 +74,7 @@ const HeroSection = () => {
       <VideoPlayer
         className="absolute top-0 left-0 w-full h-full z-10"
         src={randomVideoAddress}
+        onLoad={handleImageLoad}
       />
 
       {/* Overlay and Content */}
