@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { Button } from "../../ui/button";
-import { CompassIcon } from "lucide-react";
+import { CompassIcon, ChevronDown } from "lucide-react";
 import { useTransitionRouter } from "next-view-transitions";
 
 gsap.registerPlugin(useGSAP);
@@ -50,8 +50,9 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12 rounded-2xl h-[calc(100vh-2rem)] relative overflow-hidden"
+      className="col-span-12 rounded-2xl h-[calc(100vh-2rem)]  relative overflow-hidden"
     >
+      {/* Curtains */}
       <div
         ref={leftCurtain}
         className="absolute inset-0 bg-background z-40"
@@ -61,33 +62,46 @@ const HeroSection = () => {
         className="absolute inset-0 bg-background z-40"
       ></div>
 
+      {/* Hero Image */}
       <Image
         src="https://images.unsplash.com/photo-1505934833128-2efeaa8be018?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ref={imageRef}
         layout="fill"
         alt="Hero image"
-        className=" relative z-[20] object-cover"
+        className="relative z-[20] object-cover object-center"
         onLoad={handleImageLoad}
       />
 
-      <div className="overlay bg-black/60 h-full w-full gap-6 relative z-30 flex space-between items-center  px-4 md:px-8 lg:px-12">
-        <div className="space-y-24 w-full relative">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold lg:text-8xl text-white  w-3/4 md:w-4/5 lg:w-2/3 leading-[1.5] relative z-20 uppercase">
-            {` Motorcycle Your Way Through India's Top Scenic Roads`}
+      {/* Overlay and Content */}
+      <div className="overlay bg-gradient-to-t from-black/80 via-black/50 to-transparent h-full w-full gap-6 relative z-30 flex items-center justify-center px-4 md:px-8 lg:px-12">
+        <div className="space-y-8 lg:space-y-16 w-full relative flex flex-col items-center justify-center">
+          {/* Headline */}
+          <h1 className="font-heading text-4xl text-center sm:text-5xl md:text-6xl font-bold lg:text-[120px] text-white w-full md:w-4/5 lg:w-3/4 leading-[1.15] tracking-tight uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            {`Motorcycle Your Way Through India's Top Scenic Roads`}
           </h1>
+
+          {/* CTA Button */}
           <Button
             onClick={() => router.push("/adventures")}
-            className=" w-fit bg-white  sm:px-5  sm:py-7 relative bottom-10   text-base sm:text-lg font-extrabold transition-all z-30 duration-200 flex justify-center gap-4 sm:gap-4 shadow-lg group"
+            className="w-fit inline-flex bg-primary hover:bg-primary/90 px-6 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8 text-base sm:text-lg lg:text-xl font-bold transition-all z-30 duration-300 items-center gap-2 sm:gap-3 shadow-lg sm:shadow-xl hover:shadow-2xl group"
           >
-            <span className="text-black">Reserve Your Adventure</span>
-            <CompassIcon className=" scale-150 sm:scale-[1.75] text-black  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  " />
+            <span className="text-white uppercase text-sm sm:text-base lg:text-lg">
+              Reserve Your Adventure
+            </span>
+            <CompassIcon className="!w-6 !h-6 sm:!w-8 sm:!h-8 lg:!w-10 lg:!h-10 text-white transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
           </Button>
         </div>
 
-        <div className="seperators hidden md:flex justify-evenly items-center w-full h-full absolute z-10 opacity-[10%]">
-          <div className="seperator border border-r border-white  h-full"></div>
-          <div className="seperator border border-r border-white  h-full"></div>
-          <div className="seperator border border-r border-white  h-full"></div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 z-30 animate-bounce">
+          <ChevronDown className="text-white w-12 h-12 " />
+        </div>
+
+        {/* Separators */}
+        <div className="seperators hidden md:flex justify-evenly items-center w-full h-full absolute z-10 opacity-20">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="border-r border-white/50 h-full" />
+          ))}
         </div>
       </div>
     </section>

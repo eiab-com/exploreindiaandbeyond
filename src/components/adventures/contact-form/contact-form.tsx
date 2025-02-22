@@ -99,7 +99,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ adventureTitle }) => {
   };
 
   return (
-    <DialogContent className=" w-auto p-6 rounded-lg shadow-lg">
+    <DialogContent className="  p-6 rounded-lg shadow-lg w-3/4 lg:w-1/2 ">
       <DialogHeader>
         <DialogTitle className="text-xl font-semibold">
           Enquire about {adventureTitle}

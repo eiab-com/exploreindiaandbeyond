@@ -13,26 +13,26 @@ const WhyUs = () => {
           We specialize in crafting journeys that go beyond typical tourist
           trails.
         </p>
-        <div className="card-container w-full flex flex-col sm:flex-row flex-wrap justify-start items-left gap-4 sm:gap-8 sm:justify-center lg:justify-start lg:mt-36">
+        <div className="card-container w-full flex flex-col sm:flex-row flex-wrap justify-center lg:items-start lg: items-left gap-4 sm:gap-8 sm:justify-center lg:justify-start lg:mt-36">
           {cardData.map((card, index) => (
             <Card
               key={index}
-              className="w-full bg-secondary/50 max-w-sm rounded-2xl  h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-200"
+              className="w-full bg-secondary/50 max-w-xs rounded-xl  h-fit hover:border-primary hover:border-2 hover:shadow-2xl relative hover:-translate-y-2 transition-all duration-200"
             >
-              <CardHeader className="flex justify-center items-center p-4 sm:p-6 flex-row gap-3">
+              <CardHeader className="flex justify-center items-center p-2 sm:p-6 flex-row gap-3">
                 <Image
                   src={card.imageSrc}
                   width={50}
                   height={50}
                   alt={card.altText}
-                  className="w-16 md:w-12 lg:w-14 h-auto flex"
+                  className="w-12 md:w-12 lg:w-14 h-auto flex"
                 />
                 <h3 className="text-lg w-full sm:text-xl font-bold">
                   {card.title}
                 </h3>
               </CardHeader>
-              <CardContent>
-                <p className="text-sm sm:text-base leading-relaxed">
+              <CardContent className="p-2">
+                <p className="text-sm  lg:inline leading-relaxed">
                   {card.description}
                 </p>
               </CardContent>
