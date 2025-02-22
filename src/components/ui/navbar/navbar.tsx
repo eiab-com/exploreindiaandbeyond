@@ -64,7 +64,7 @@ const Navbar = () => {
           ].map((item, index) => (
             <li key={index}>
               <Link
-                className="uppercase font-black font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+                className="uppercase  font-bold font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
                 href={item.href}
               >
                 {item.name}

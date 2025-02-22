@@ -2,10 +2,10 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import { Button } from "../../ui/button";
-import { CompassIcon, ChevronDown } from "lucide-react";
+import {  ChevronDown } from "lucide-react";
 import { useTransitionRouter } from "next-view-transitions";
+import VideoPlayer from "@/components/video-player";
 
 gsap.registerPlugin(useGSAP);
 
@@ -47,6 +47,14 @@ const HeroSection = () => {
     }
   }, [isImageLoaded]);
 
+  const heroVideoAddresses = [
+    "https://videos.pexels.com/video-files/27956995/12272647_2560_1440_30fps.mp4",
+    "https://videos.pexels.com/video-files/5379990/5379990-uhd_2560_1440_24fps.mp4",
+  ];
+  // Randomly select a video address
+  const randomVideoAddress =
+    heroVideoAddresses[Math.floor(Math.random() * heroVideoAddresses.length)];
+
   return (
     <section
       id="home-section"
@@ -63,13 +71,9 @@ const HeroSection = () => {
       ></div>
 
       {/* Hero Image */}
-      <Image
-        src="https://images.unsplash.com/photo-1505934833128-2efeaa8be018?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        ref={imageRef}
-        layout="fill"
-        alt="Hero image"
-        className="relative z-[20] object-cover object-center"
-        onLoad={handleImageLoad}
+      <VideoPlayer
+        className="absolute top-0 left-0 w-full h-full z-10"
+        src={randomVideoAddress}
       />
 
       {/* Overlay and Content */}
@@ -83,12 +87,11 @@ const HeroSection = () => {
           {/* CTA Button */}
           <Button
             onClick={() => router.push("/adventures")}
-            className="w-fit inline-flex bg-primary hover:bg-primary/90 px-6 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8 text-base sm:text-lg lg:text-xl font-bold transition-all z-30 duration-300 items-center gap-2 sm:gap-3 shadow-lg sm:shadow-xl hover:shadow-2xl group"
+            className="w-fit inline-flex  bg-foreground px-6 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8 text-base sm:text-lg lg:text-xl font-bold transition-all z-30 duration-300 items-center gap-2 sm:gap-3 shadow-lg sm:shadow-xl hover:shadow-2xl group"
           >
-            <span className="text-white uppercase text-sm sm:text-base lg:text-lg">
+            <span className="uppercase text-sm sm:text-base lg:text-lg">
               Reserve Your Adventure
             </span>
-            <CompassIcon className="!w-6 !h-6 sm:!w-8 sm:!h-8 lg:!w-10 lg:!h-10 text-white transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
           </Button>
         </div>
 
