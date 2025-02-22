@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "next-view-transitions";
@@ -10,17 +10,27 @@ gsap.registerPlugin(useGSAP);
 const Navbar = () => {
   const navbarRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
 
-  useGSAP(() => {
-    if (navbarRef.current) {
-      gsap.from(navbarRef.current, {
-        y: "-100%",
-        duration: 1,
-        delay: 2,
-        ease: "power4.inOut",
-      });
-    }
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Hide when scrolling down, show when scrolling up
+      setIsVisible(currentScrollY < lastScrollY);
+
+      // Check if at the top
+      setIsAtTop(currentScrollY === 0);
+
+      // Update last scroll position
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -29,11 +39,17 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="h-20  rounded-b-sm p-4 md:p-6 col-span-12 flex justify-between items-center sticky top-0 z-[10000] bg-background/60 backdrop-blur-md"
+      className={`fixed lg:p-10 top-0 left-0 w-full h-28 z-[10000] rounded-b-sm md:p-6 flex justify-between items-center transition-all duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      } ${
+        isAtTop
+          ? "bg-transparent"
+          : "bg-background/90 backdrop-blur-md shadow-md"
+      }`}
     >
       <Link
         href="/"
-        className="logo text-primary font-heading text-xl md:text-2xl lg:text-3xl font-bold w-full"
+        className="logo text-primary font-heading text-xl md:text-2xl lg:text-3xl font-bold"
       >
         EIAB.com
       </Link>
@@ -45,7 +61,7 @@ const Navbar = () => {
       >
         <ul className="flex flex-col md:flex-row font-body gap-4 p-4 md:p-0 md:ml-auto">
           <li>
-            <Link className="uppercase font-bold  text-sm" href="/">
+            <Link className="uppercase font-bold text-sm" href="/">
               Home
             </Link>
           </li>

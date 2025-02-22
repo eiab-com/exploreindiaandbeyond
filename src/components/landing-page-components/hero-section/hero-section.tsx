@@ -50,7 +50,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12 -mt-6  rounded-2xl h-[calc(100vh-10rem)] relative overflow-hidden"
+      className="col-span-12 rounded-2xl h-[calc(100vh-2rem)] relative overflow-hidden"
     >
       <div
         ref={leftCurtain}
@@ -66,23 +66,24 @@ const HeroSection = () => {
         ref={imageRef}
         layout="fill"
         alt="Hero image"
-        className="rounded-2xl relative z-[20] object-cover"
+        className=" relative z-[20] object-cover"
         onLoad={handleImageLoad}
       />
 
-      <div className="overlay bg-black/40 h-full w-full gap-6 relative z-30 flex space-between  items-end px-4 md:px-8 lg:px-12">
-        <div className="space-y-6 w-full relative bottom-10">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold lg:text-8xl text-white  w-full md:w-4/5 lg:w-full leading-[1.5] relative z-20 uppercase">
-           {` Motorcycle Your Way Through India's Top Scenic Roads`}
+      <div className="overlay bg-black/60 h-full w-full gap-6 relative z-30 flex space-between items-center  px-4 md:px-8 lg:px-12">
+        <div className="space-y-24 w-full relative">
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold lg:text-8xl text-white  w-3/4 md:w-4/5 lg:w-2/3 leading-[1.5] relative z-20 uppercase">
+            {` Motorcycle Your Way Through India's Top Scenic Roads`}
           </h1>
+          <Button
+            onClick={() => router.push("/adventures")}
+            className=" w-fit bg-white  sm:px-5  sm:py-7 relative bottom-10   text-base sm:text-lg font-extrabold transition-all z-30 duration-200 flex justify-center gap-4 sm:gap-4 shadow-lg group"
+          >
+            <span className="text-black">Reserve Your Adventure</span>
+            <CompassIcon className=" scale-150 sm:scale-[1.75] text-black  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  " />
+          </Button>
         </div>
-        <Button
-          onClick={() => router.push("/adventures")}
-          className="mt-4 rounded-full w-fit bg-white dark:bg-white  sm:px-5  sm:py-7 relative bottom-10   text-base sm:text-lg font-extrabold transition-all z-30 duration-200 flex justify-center gap-4 sm:gap-4 shadow-lg group"
-        >
-          <span className="text-black">Reserve Your Adventure</span>
-          <CompassIcon className=" scale-150 sm:scale-[1.75] text-black  transition-transform duration-200 group-hover:block group-hover:scale-[1.80] group-hover:-rotate-45  " />
-        </Button>
+
         <div className="seperators hidden md:flex justify-evenly items-center w-full h-full absolute z-10 opacity-[10%]">
           <div className="seperator border border-r border-white  h-full"></div>
           <div className="seperator border border-r border-white  h-full"></div>

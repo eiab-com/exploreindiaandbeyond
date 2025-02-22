@@ -10,14 +10,13 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { testimonials } from "@/data/content";
-import Image from "next/image";
 import SectionMiniHeader from "@/components/section-header-aesth/section-mini-header";
 
 const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="col-span-12 mx-16 h-[40vh] p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
+      className="col-span-12 mx-16 h-[60vh] p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
     >
       {/* Section Header */}
       <SectionMiniHeader title="testimonials" />
@@ -70,16 +69,6 @@ const TestimonialSection = () => {
         <CarouselPrevious className="hidden sm:flex" />
         <CarouselNext className="hidden sm:flex" />
       </Carousel>
-
-      <div className="backdrop h-full absolute top-0 w-full z-30">
-        <div className="overlay bg-black/90 z-20 h-full w-full relative"></div>
-        <Image
-          src=" https://images.unsplash.com/photo-1558980664-2cd663cf8dde?q=80&w=5070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="testimonials"
-          fill
-          className="object-cover z-10 relative"
-        />
-      </div>
     </section>
   );
 };

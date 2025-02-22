@@ -37,7 +37,7 @@ const AdventureCard = ({
   const constructedLink = `/adventures/${id}`;
 
   return (
-    <Card className=" bg-card group   sm:w-96 rounded-2xl overflow-hidden font-body shadow-none hover:shadow-xl transition-all">
+    <Card className=" bg-card group  sm:w-96 rounded-2xl overflow-hidden font-body shadow-none hover:shadow-xl transition-all">
       <CardHeader className=" p-1 overflow-hidden ">
         <Image
           src={coverImage}
@@ -48,7 +48,7 @@ const AdventureCard = ({
         />
       </CardHeader>
 
-      <div className="p-4 space-y-3">
+      <div className="p-4 space-y-1">
         <CardTitle className="text-lg font-semibold  leading-tight flex justify-between items-center">
           {title}
           <p className="text-sm text-muted-foreground/80">
@@ -68,9 +68,9 @@ const AdventureCard = ({
         </CardDescription>
       </div>
 
-      <CardFooter className="p-4">
+      <CardFooter className="p-2">
         <Button
-          className="w-full text-sm font-body font-black  uppercase"
+          className="w-full text-sm rounded-b-xl font-body font-black  uppercase"
           asChild
         >
           <Link href={constructedLink}>Read More</Link>

@@ -33,7 +33,7 @@ export default async function Page({
 
   return (
     <Dialog>
-      <div className="col-span-12 max-w-screen-xl min-w-[60vw] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="col-span-12 mt-28 max-w-screen-xl min-w-[60vw] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Breadcrumb */}
         <nav className="text-sm text-muted-foreground">
           <Link href="/adventures" className="hover:text-primary">

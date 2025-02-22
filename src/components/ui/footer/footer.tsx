@@ -6,7 +6,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 p-6  bg-card col-span-12 rounded-t-2xl relative mx-auto w-[calc(100%-48px)]">
+    <footer className="mt-20 p-6 border border-1  col-span-12 rounded-t-2xl relative mx-auto">
       <div className="w-full mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-accent-foreground/20">
           {/* Brand Section */}

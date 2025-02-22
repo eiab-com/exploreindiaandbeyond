@@ -30,20 +30,18 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${heading.variable} ${body.variable} antialiased`}
-        >
+        <body className={`${heading.variable} ${body.variable} antialiased`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
-            <GridContainer className=" justify-center items-start place-content-start gap-y-2">
+            <GridContainer className=" relative justify-center items-start place-content-start gap-y-2">
               <Navbar />
               {children}
+              <Footer />
             </GridContainer>
-            <Footer />
           </ThemeProvider>
         </body>
       </html>
