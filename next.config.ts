@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
       "images.pexels.com",
       "videos.pexels.com",
       "www.playbook.com",
-      'drive.google.com'
+      "drive.google.com",
+      "jsccmjobjntyhiiwwdmv.supabase.co",
     ],
   },
 };

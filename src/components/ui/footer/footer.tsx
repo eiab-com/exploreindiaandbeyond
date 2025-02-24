@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Youtube, PhoneIcon } from "lucide-react";
+import { Youtube, PhoneIcon } from "lucide-react";
 import { Button } from "../button";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
-import ContactForm from "@/components/adventures/contact-form/contact-form";
+import { useTransitionRouter } from "next-view-transitions";
 
 const Footer = () => {
+  const router = useTransitionRouter();
   return (
     <footer className="mt-20 p-6 border border-1  col-span-12 rounded-t-2xl relative mx-auto">
       <div className="w-full mx-auto">
@@ -30,25 +30,23 @@ const Footer = () => {
           <div className="md:col-span-4 md:col-start-11 text-foreground">
             <h3 className="text-lg font-semibold mb-4 ">Get in Touch</h3>
             <div className="flex flex-col space-y-4">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button
-                    variant={"outline"}
-                    className="w-fit bg-transparent border-primary hover:bg-primary/10 hover:scale-105 transition-transform"
-                  >
-                    Contact Us
-                    <PhoneIcon className="mr-2 h-4 w-4" />
-                  </Button>
-                </DialogTrigger>
-                <ContactForm adventureTitle={"Contact Us"} />
-              </Dialog>
+              <Button
+                variant={"outline"}
+                className="w-fit bg-transparent border-primary hover:bg-primary/10 hover:scale-105 transition-transform"
+                onClick={() => {
+                  router.push("/contact");
+                }}
+              >
+                Contact Us
+                <PhoneIcon className="mr-2 h-4 w-4" />
+              </Button>
 
               <div className="flex space-x-4">
                 {[
-                  { icon: Facebook, href: "https://facebook.com" },
-                  { icon: Twitter, href: "https://twitter.com" },
-                  { icon: Instagram, href: "https://instagram.com" },
-                  { icon: Youtube, href: "https://youtube.com" },
+                  {
+                    icon: Youtube,
+                    href: "https://www.youtube.com/@Exploreindiaandbeyond",
+                  },
                 ].map(({ icon: Icon, href }, index) => (
                   <Link
                     key={index}

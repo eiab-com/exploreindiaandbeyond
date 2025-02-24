@@ -46,6 +46,7 @@ const countries = [
   { dialCode: "+55", flag: "🇧🇷" }, // Brazil
 ];
 
+
 const ContactForm: React.FC<ContactFormProps> = ({ adventureTitle }) => {
   const successRef = useRef<HTMLDivElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);

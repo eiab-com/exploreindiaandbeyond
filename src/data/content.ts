@@ -61,7 +61,13 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Leh",
     accommodationType: "Hotels, homestays & camps",
     pickupPoint: "Leh Airport",
-    photoGallery: ["/assets/gallery/leh1.jpg", "/assets/gallery/leh2.jpg"],
+    photoGallery: [
+      "https://images.pexels.com/photos/1581200/pexels-photo-1581200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844724/pexels-photo-30844724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844723/pexels-photo-30844723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844722/pexels-photo-30844722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844720/pexels-photo-30844720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
     bikeModels: [
       "Royal Enfield Himalayan 450",
       "Royal Enfield Bullet 500",
@@ -441,7 +447,7 @@ const bikingAdventuresData: BikingAdventure[] = [
     title: "Leh - Ladakh Bike Trip",
     googleCalendarLink: "google.com/calendar/leh-ladakh",
     imageSrc:
-      "https://images.pexels.com/photos/1581200/pexels-photo-1581200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30743694/pexels-photo-30743694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Leh - Ladakh Biking Expedition",
     shortDescription:
       "Embark on an unforgettable 11-day motorcycle journey through the breathtaking landscapes of Ladakh, conquering some of the world's highest motorable roads.",
@@ -465,7 +471,13 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Leh",
     accommodationType: "Hotels, homestays & camps",
     pickupPoint: "Leh Airport",
-    photoGallery: ["/assets/gallery/leh1.jpg", "/assets/gallery/leh2.jpg"],
+    photoGallery: [
+      "https://images.pexels.com/photos/1581200/pexels-photo-1581200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844724/pexels-photo-30844724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844723/pexels-photo-30844723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844722/pexels-photo-30844722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844720/pexels-photo-30844720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
     bikeModels: [
       "Royal Enfield Himalayan 450",
       "Royal Enfield Bullet 500",

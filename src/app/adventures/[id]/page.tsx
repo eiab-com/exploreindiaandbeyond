@@ -14,6 +14,7 @@ import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import ContactForm from "@/components/adventures/contact-form/contact-form";
+
 import {
   Accordion,
   AccordionItem,
@@ -22,6 +23,7 @@ import {
 } from "@/components/ui/accordion";
 import React from "react";
 import dayjs from "dayjs";
+import PhotoViewer from "@/components/adventures/photo-gallery";
 
 export default async function Page({
   params,
@@ -48,7 +50,7 @@ export default async function Page({
   // Format the startDate for display
   const formattedStartDate = dayjs(adventure.startDate).format("MMMM D, YYYY");
 
-  // ✅ Precompute lists before JSX to improve readability and performance
+  // Precompute lists before JSX to improve readability and performance
   const highlightsList = (
     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {adventure.keyHighlights?.map((highlight, index) => (
@@ -112,7 +114,7 @@ export default async function Page({
         </div>
 
         {/* Adventure Details */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <MemoizedDetailCard
             icon={Mountain}
             title="Highest Altitude"
@@ -156,6 +158,13 @@ export default async function Page({
             <MemoizedSectionHeading title="Experience Highlights" />
             {highlightsList}
 
+            {/* Photo Gallery Section */}
+            {adventure.photoGallery && (
+              <PhotoViewer
+                images={adventure.photoGallery}
+                title={adventure.title}
+              />
+            )}
             {/* Itinerary Section with Accordion */}
             <MemoizedSectionHeading title="Detailed Itinerary" />
             {itineraryList}

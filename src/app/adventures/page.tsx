@@ -29,10 +29,10 @@ const Page = () => {
     );
 
   return (
-    <section className="w-full px-24 py-8 col-span-12 mt-12 h-screen">
+    <section className="w-full px-24 py-8 col-span-12 mt-20 sm:h-fit lg:min-h-screen">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-primary mb-4">
+        <h1 className="text-4xl font-bold text-primary mb-4 font-heading">
           Explore Our Adventures
         </h1>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">

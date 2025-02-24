@@ -1,4 +1,4 @@
-import { getContactedList } from "@/lib/data";
+import { getAdventureEnquiries } from "@/lib/data";
 import {
   Table,
   TableBody,
@@ -25,12 +25,12 @@ type Contact = {
 };
 
 const Page = async () => {
-  const contactedList: Contact[] = await getContactedList(); // Fetch data properly
+  const contactedList: Contact[] = await getAdventureEnquiries(); // Fetch data properly
 
   return (
     <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10   overflow-hidden p-4">
       <h1 className="text-3xl font-bold text-center w-full">
-        Our Contact List
+        Our Enquiry List
       </h1>
       <Table className=" mx-auto w-3/4">
         <TableCaption>List of users who contacted you.</TableCaption>
