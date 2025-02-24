@@ -88,9 +88,9 @@ export default async function Page({
 
   return (
     <Dialog>
-      <div className="col-span-12 mt-28 max-w-screen-xl min-w-[70vw] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="col-span-12 mt-28 px-4 sm:px-6 lg:px-8 space-y-12 max-w-screen-2xl mx-auto w-full">
         {/* Breadcrumb */}
-        <nav className="text-sm text-muted-foreground">
+        <nav className="text-sm text-muted-foreground col-span-12">
           <Link href="/adventures" className="hover:text-primary">
             Adventures
           </Link>{" "}
@@ -98,58 +98,66 @@ export default async function Page({
         </nav>
 
         {/* Hero Section */}
-        <div className="space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+        <div className="space-y-6 col-span-12">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             {adventure.title}
           </h1>
-          <div className="relative aspect-video overflow-hidden shadow-lg rounded-lg h-[50vh] w-full">
+          <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-lg">
             <Image
               src={adventure.imageSrc}
               alt={adventure.altText}
               fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, 80vw"
             />
           </div>
         </div>
 
-        {/* Adventure Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <MemoizedDetailCard
-            icon={Mountain}
-            title="Highest Altitude"
-            value={adventure.highestAltitude}
-          />
-          <MemoizedDetailCard
-            icon={Gauge}
-            title="Total Distance"
-            value={adventure.totalDistance}
-          />
-          <MemoizedDetailCard
-            icon={Calendar}
-            title="Duration"
-            value={adventure.rideDuration}
-          />
-          <MemoizedDetailCard
-            icon={Users}
-            title="Difficulty"
-            value={adventure.difficultyLevel}
-          />
-          <MemoizedDetailCard
-            icon={MapPin}
-            title="Starting Point"
-            value={adventure.startingPoint}
-          />
-          <MemoizedDetailCard
-            icon={Users}
-            title="Group Size"
-            value="4-12 Riders"
-          />
+        {/* Adventure Details Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 col-span-12">
+          {[
+            {
+              icon: Mountain,
+              title: "Highest Altitude",
+              value: adventure.highestAltitude,
+            },
+            {
+              icon: Gauge,
+              title: "Total Distance",
+              value: adventure.totalDistance,
+            },
+            {
+              icon: Calendar,
+              title: "Duration",
+              value: adventure.rideDuration,
+            },
+            {
+              icon: Users,
+              title: "Difficulty",
+              value: adventure.difficultyLevel,
+            },
+            {
+              icon: MapPin,
+              title: "Starting Point",
+              value: adventure.startingPoint,
+            },
+            { icon: Users, title: "Group Size", value: "4-12 Riders" },
+          ].map((item, index) => (
+            <MemoizedDetailCard
+              key={index}
+              icon={item.icon}
+              title={item.title}
+              value={item.value}
+             
+            />
+          ))}
         </div>
 
-        {/* Description & Highlights */}
-        <div className="grid lg:grid-cols-3 gap-6 justify-between">
-          <div className="lg:col-span-2 space-y-8">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 col-span-12">
+          {/* Left Column (Content) */}
+          <div className="lg:col-span-8 space-y-8">
             <MemoizedSectionHeading title="Adventure Overview" />
             <p className="text-lg leading-relaxed text-muted-foreground">
               {adventure.longDescription}
@@ -158,21 +166,20 @@ export default async function Page({
             <MemoizedSectionHeading title="Experience Highlights" />
             {highlightsList}
 
-            {/* Photo Gallery Section */}
             {adventure.photoGallery && (
               <PhotoViewer
                 images={adventure.photoGallery}
                 title={adventure.title}
               />
             )}
-            {/* Itinerary Section with Accordion */}
+
             <MemoizedSectionHeading title="Detailed Itinerary" />
             {itineraryList}
           </div>
 
-          {/* Booking Card */}
-          <div className="lg:sticky lg:top-6 lg:self-start">
-            <div className="bg-card rounded-lg p-6 shadow-sm border space-y-6">
+          {/* Right Column (Booking Card) */}
+          <div className="lg:col-span-4">
+            <div className="bg-card rounded-lg p-6 shadow-sm border space-y-6 sticky top-28">
               <h3 className="text-xl font-semibold">Plan Your Journey</h3>
               <div className="space-y-4">
                 <MemoizedInfoItem
@@ -201,7 +208,9 @@ export default async function Page({
         </div>
 
         {/* Contact Form */}
-        <ContactForm adventureTitle={adventure.title} />
+        <div className="col-span-12">
+          <ContactForm adventureTitle={adventure.title} />
+        </div>
       </div>
     </Dialog>
   );
