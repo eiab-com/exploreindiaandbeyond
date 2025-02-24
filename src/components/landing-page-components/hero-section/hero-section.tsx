@@ -58,7 +58,7 @@ const HeroSection = () => {
   return (
     <section
       id="home-section"
-      className="col-span-12 rounded-2xl h-[calc(100vh-2rem)]  relative overflow-hidden"
+      className="col-span-12 h-[calc(100vh-2rem)] mx-auto relative overflow-hidden w-full"
     >
       {/* Curtains */}
       <div
@@ -81,7 +81,7 @@ const HeroSection = () => {
       <div className="overlay bg-gradient-to-t from-black/80 via-black/50 to-transparent h-full w-full gap-6 relative z-30 flex items-center justify-center px-4 md:px-8 lg:px-12">
         <div className="space-y-8 lg:space-y-16 w-full relative flex flex-col items-center justify-center">
           {/* Headline */}
-          <h1 className="font-heading text-4xl text-center sm:text-5xl md:text-6xl font-bold lg:text-[120px] text-white w-full md:w-4/5 lg:w-3/4 leading-[1.15] tracking-tight uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <h1 className="font-heading text-4xl text-center sm:text-5xl md:text-6xl font-bold lg:text-[120px] text-white w-full md:w-4/5 lg:w-3/4 leading-[1.15] tracking-tight uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {`Motorcycle Your Way Through India's Top Scenic Roads`}
           </h1>
 

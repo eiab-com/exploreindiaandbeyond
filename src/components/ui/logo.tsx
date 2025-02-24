@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="logo p-2 w-full font-heading text-2xl md:text-2xl lg:text-5xl font-bold transition-all duration-300 group flex items-center space-x-1"
+      className="logo p-2 w-fit font-heading text-2xl md:text-2xl lg:text-5xl font-bold transition-all duration-300 group flex items-center space-x-1"
     >
       {/* E + xplore */}
       <span className="inline-flex">

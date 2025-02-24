@@ -29,7 +29,7 @@ const Page = () => {
     );
 
   return (
-    <div className="w-full px-4 py-8 col-span-12 mt-12">
+    <section className="w-full px-24 py-8 col-span-12 mt-12 h-screen">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary mb-4">
@@ -82,7 +82,7 @@ const Page = () => {
       </div>
 
       {/* Adventures Grid */}
-      <div className="flex gap-12 px-0 mx-auto justify-center items-center w-full flex-wrap">
+      <div className="flex gap-12 px-0  justify-center items-center w-full  flex-wrap">
         {filteredAdventures.length > 0 ? (
           filteredAdventures.map((adventure, index) => (
             <AdventureCard
@@ -103,7 +103,7 @@ const Page = () => {
           </p>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

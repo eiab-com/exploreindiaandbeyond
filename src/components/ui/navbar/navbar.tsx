@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className={`fixed top-0 left-0 w-full h-24 z-[10000] p-4 md:p-6 flex justify-between items-center transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full h-28 z-[10000] px-12 md:p-6 lg:px-12 flex justify-between items-center transition-all duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isAtTop
@@ -64,7 +64,7 @@ const Navbar = () => {
           ].map((item, index) => (
             <li key={index}>
               <Link
-                className="uppercase  font-bold font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+                className="uppercase font-black text-md text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
                 href={item.href}
               >
                 {item.name}
@@ -77,11 +77,11 @@ const Navbar = () => {
 
       {/* Mobile Menu Toggle Button */}
       <button
-        className="md:hidden text-3xl text-primary focus:outline-none p-2 hover:text-primary/80 transition-colors duration-300"
+        className="md:hidden text-3xl  focus:outline-none p-2 hover:text-foreground transition-colors duration-300"
         onClick={toggleMenu}
         aria-label="Toggle Menu"
       >
-        {isMenuOpen ? <X /> : <Menu />}
+        {isMenuOpen ? <X /> : <Menu strokeWidth="3" />}
       </button>
     </header>
   );

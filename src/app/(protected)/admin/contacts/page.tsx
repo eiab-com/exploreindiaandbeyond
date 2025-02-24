@@ -32,7 +32,7 @@ const Page = async () => {
       <h1 className="text-3xl font-bold text-center w-full">
         Our Contact List
       </h1>
-      <Table className=" mx-auto">
+      <Table className=" mx-auto w-3/4">
         <TableCaption>List of users who contacted you.</TableCaption>
         <TableHeader className="bg-card border">
           <TableRow>
@@ -71,7 +71,7 @@ const Page = async () => {
                     </a>
                   </Button>
                   <Button
-                    className="bg-primary/30"
+                    className="bg-primary/30 rounded-full"
                     size="icon"
                     variant="outline"
                     asChild

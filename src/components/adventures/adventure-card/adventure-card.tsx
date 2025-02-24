@@ -37,43 +37,59 @@ const AdventureCard = ({
   const constructedLink = `/adventures/${id}`;
 
   return (
-    <Card className=" bg-card group  sm:w-96 rounded-2xl overflow-hidden font-body shadow-none hover:shadow-xl transition-all">
-      <CardHeader className=" p-1 overflow-hidden ">
-        <Image
-          src={coverImage}
-          alt={altText}
-          height={250}
-          width={400}
-          className="object-cover w-full h-48 sm:h-56 aspect-video rounded-xl group-hover:scale-105 transition-all duration-200"
-        />
-      </CardHeader>
+    <Card className="bg-card group w-full max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md rounded-md overflow-hidden font-body shadow-sm hover:shadow-xl transition-all duration-300 border-primary/10 flex flex-col h-full">
+      <div className="relative">
+        {/* Date Overlay */}
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium shadow-md backdrop-blur-sm">
+          {startDate.format("MMM YYYY")}
+        </div>
 
-      <div className="p-4 space-y-1">
-        <CardTitle className="text-lg font-semibold  leading-tight flex justify-between items-center">
-          {title}
-          <p className="text-sm text-muted-foreground/80">
-            {startDate.format("MMMM, YYYY")}
-          </p>
-        </CardTitle>
-
-        <CardContent className="px-0 py-2 flex gap-2 justify-between items-center">
-          <div className="flex gap-2">
-            <Badge variant="outline"> 🏔️ {altitude}</Badge>
-            <Badge variant="outline"> 🚏 {distance}</Badge>
+        <CardHeader className="p-0 overflow-hidden">
+          <div className="relative h-40 xs:h-44 sm:h-48 md:h-52 w-full">
+            <Image
+              src={coverImage}
+              alt={altText}
+              fill
+              className="object-cover rounded-t-md group-hover:scale-105 transition-all duration-300 ease-in-out"
+            />
           </div>
-        </CardContent>
-
-        <CardDescription className="text-base text-muted-foreground">
-          {shortDescription}
-        </CardDescription>
+        </CardHeader>
       </div>
 
-      <CardFooter className="p-2">
+      <div className="p-3 sm:p-4 md:p-5 space-y-2 sm:space-y-3 flex-grow">
+        <CardTitle className="text-base sm:text-lg md:text-xl font-bold leading-tight">
+          {title}
+        </CardTitle>
+
+        <CardDescription className="text-sm sm:text-base line-clamp-2 text-muted-foreground">
+          {shortDescription}
+        </CardDescription>
+
+        <CardContent className="px-0 py-1 sm:py-2">
+          <div className="flex gap-1 sm:gap-2 flex-wrap">
+            <Badge
+              variant="secondary"
+              className="flex items-center gap-1 text-xs sm:text-sm"
+            >
+              <span className="text-xs">🏔️</span> {altitude}
+            </Badge>
+            <Badge
+              variant="secondary"
+              className="flex items-center gap-1 text-xs sm:text-sm"
+            >
+              <span className="text-xs">🚏</span> {distance}
+            </Badge>
+          </div>
+        </CardContent>
+      </div>
+
+      <CardFooter className="lg:p-2 sm:p-4 md:p-5 pt-0 mt-auto">
         <Button
-          className="w-full text-sm rounded-b-xl font-body font-black  uppercase"
+          className="w-full text-sm sm:text-sm md:text-base lg:text-lg font-medium hover:bg-primary/90 transition-colors"
           asChild
+          size="sm"
         >
-          <Link href={constructedLink}>Read More</Link>
+          <Link href={constructedLink}>Explore Adventure</Link>
         </Button>
       </CardFooter>
     </Card>

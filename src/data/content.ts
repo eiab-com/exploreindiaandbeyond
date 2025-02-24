@@ -11,269 +11,969 @@ interface BikingAdventure {
   startDate: Dayjs | Date;
   endDate: Dayjs | Date;
   keyHighlights: string[];
-  rideDuration: string; // Changed from trekDuration
+  rideDuration: string;
   highestAltitude: string;
   suitableFor: string;
   totalDistance: string;
-  startingPoint: string; // Changed from basecamp
+  startingPoint: string;
   accommodationType: string;
   pickupPoint: string;
   photoGallery: string[];
-  bikeModels: string[]; // Added bike models
-  difficultyLevel: string; // Added difficulty
-  averageDailyRide: string; // Added daily distance
+  bikeModels: string[];
+  difficultyLevel: string;
+  averageDailyRide: string;
   region: string;
+  itinerary: {
+    day: number;
+    title: string;
+    distance?: string;
+    highlights: string[];
+  }[]; // New Itinerary Field
 }
 
 const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "1",
-    title: "Leh - Ladakh Biking Expedition",
-    googleCalendarLink: "google.com/calendar/ics-link",
+    title: "Leh - Ladakh Bike Trip",
+    googleCalendarLink: "google.com/calendar/leh-ladakh",
     imageSrc:
-      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg",
+      "https://images.pexels.com/photos/5201944/pexels-photo-5201944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Leh - Ladakh Biking Expedition",
     shortDescription:
-      "Epic 4-month motorcycle journey through the stunning landscapes of northern India",
+      "Embark on an unforgettable 11-day motorcycle journey through the breathtaking landscapes of Ladakh, conquering some of the world's highest motorable roads.",
     longDescription:
-      "Join us on an amazing motorbike adventure through northern India's rocky terrain...",
-    startDate: dayjs("2025-09-10T07:00:00"),
-    endDate: dayjs("2026-01-02T01:30:00"),
+      "This 11-day Leh-Ladakh biking adventure is the ultimate test of endurance, skill, and passion for motorcycling. Ride through high-altitude passes, explore remote valleys, and immerse yourself in Ladakh’s rich culture and history...",
+    startDate: dayjs("2025-09-09T07:00:00"),
+    endDate: dayjs("2025-09-19T17:00:00"),
     keyHighlights: [
-      "Challenging high-altitude mountain passes",
-      "Royal Enfield Himalayan riding experience",
-      "Explore remote Himalayan villages",
-      "Professional riding support team",
+      "Ride through Khardung La (5,359m) & Umling La (5,883m) – Highest motorable passes",
+      "Explore remote Zanskar Valley, Padum, and Hanle",
+      "Marvel at the surreal beauty of Pangong Lake and Nubra Valley",
+      "Visit historic Buddhist monasteries: Lamayuru, Karsha, and Tawang",
+      "Witness the confluence of the Indus & Zanskar Rivers",
+      "Experience desert dunes and double-humped camels in Nubra",
+      "Backup vehicle, mechanic support, and expert tour captain",
     ],
-    rideDuration: "14 days riding",
-    highestAltitude: "18,380 ft",
+    rideDuration: "11 days riding",
+    highestAltitude: "5,883 m (Umling La Pass)",
     suitableFor: "Intermediate to advanced riders",
-    totalDistance: "2,500 km",
-    startingPoint: "Chandigarh",
-    accommodationType: "Biker-friendly hotels & camps",
-    pickupPoint: "Chandigarh Railway Station",
-    photoGallery: ["/assets/gallery/photo1.jpg", "/assets/gallery/photo2.jpg"],
-    bikeModels: ["Royal Enfield Himalayan 450", "KTM 390 Adventure"],
+    totalDistance: "2,175 km",
+    startingPoint: "Leh",
+    accommodationType: "Hotels, homestays & camps",
+    pickupPoint: "Leh Airport",
+    photoGallery: ["/assets/gallery/leh1.jpg", "/assets/gallery/leh2.jpg"],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
     difficultyLevel: "Challenging",
-    averageDailyRide: "180-220 km",
+    averageDailyRide: "150-250 km",
     region: "North",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Leh & Acclimatization",
+        highlights: [
+          "Explore Leh Market",
+          "Visit Shanti Stupa",
+          "Acclimatize to high altitude",
+        ],
+      },
+      {
+        day: 2,
+        title: "Leh Local Sightseeing",
+        highlights: [
+          "Visit Leh Palace & Magnetic Hill",
+          "See Indus-Zanskar Sangam",
+          "Explore Rancho School",
+        ],
+      },
+      {
+        day: 3,
+        title: "Leh → Kargil",
+        distance: "210 km",
+        highlights: [
+          "Ride through Namika La & Fotu La",
+          "Visit Kargil War Memorial",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kargil → Padum",
+        distance: "240 km",
+        highlights: [
+          "Cross Pensi La Pass (4,400m)",
+          "Explore stunning Zanskar Valley",
+        ],
+      },
+      {
+        day: 5,
+        title: "Padum Local Sightseeing",
+        highlights: ["Visit Karsha Monastery", "Explore Zangla Fort"],
+      },
+      {
+        day: 6,
+        title: "Padum → Lamayuru",
+        distance: "240 km",
+        highlights: [
+          "Ride through 'Moonland' terrain",
+          "Visit Lamayuru Monastery",
+        ],
+      },
+      {
+        day: 7,
+        title: "Lamayuru → Nubra Valley",
+        distance: "300 km",
+        highlights: [
+          "Cross Khardung La (5,359m)",
+          "Enjoy sand dunes & camel safari",
+        ],
+      },
+      {
+        day: 8,
+        title: "Nubra Valley → Pangong Lake",
+        distance: "275 km",
+        highlights: [
+          "Ride along the Shyok River",
+          "Camp under the stars at Pangong",
+        ],
+      },
+      {
+        day: 9,
+        title: "Pangong Lake → Hanle",
+        distance: "250 km",
+        highlights: [
+          "Visit Hanle Monastery",
+          "Experience the astronomical observatory",
+        ],
+      },
+      {
+        day: 10,
+        title: "Hanle → Umling La → Hanle",
+        distance: "200 km (round trip)",
+        highlights: [
+          "Ride to Umling La (5,883m) - Highest motorable road in the world",
+        ],
+      },
+      {
+        day: 11,
+        title: "Hanle → Leh",
+        distance: "250 km",
+        highlights: [
+          "Scenic ride back to Leh",
+          "Reflect on an unforgettable journey",
+        ],
+      },
+    ],
   },
   {
     id: "2",
-    title: "Spiti Valley Ride Challenge",
-    googleCalendarLink: "google.com/calendar/ics-link",
+    title: "Spiti Valley Adventure",
+    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
-      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg",
-    altText: "Spiti Valley Biking Adventure",
+      "https://images.pexels.com/photos/23522680/pexels-photo-23522680/free-photo-of-key-gompa-monastery-in-mountains-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Spiti Valley Biking Expedition",
     shortDescription:
-      "High-altitude motorcycle challenge through the mystical Spiti Valley",
+      "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
     longDescription:
-      "Experience the rugged beauty of Spiti Valley on two wheels...",
-    startDate: dayjs("2026-01-03T00:30:00"),
-    endDate: dayjs("2026-01-03T01:30:00"),
+      "The Spiti Valley bike trip is a perfect blend of adventure and scenic landscapes. This 9-day journey takes you through the rugged mountains of Himachal Pradesh, covering the last inhabited village near the Indo-Tibetan border, ancient monasteries, and high-altitude passes. \n\n\
+      Riders will experience the thrill of navigating through narrow mountain roads, river crossings, and high-altitude passes such as Kunzum La. Along the way, they'll witness the serene beauty of Chandra Taal (Moon Lake) and ride across Asia’s highest suspension bridge at Chicham. \n\n\
+      Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
+    startDate: dayjs("2025-08-22T06:00:00"),
+    endDate: dayjs("2025-09-01T17:00:00"),
     keyHighlights: [
-      "World's highest motorable roads",
-      "Technical riding through river crossings",
-      "Stay in traditional Himalayan homestays",
-      "Expert mechanic support throughout",
+      "Ride through the majestic Kinnaur & Spiti Valleys",
+      "Visit Chitkul, India's last village near the Indo-Tibetan border",
+      "Explore ancient monasteries: Tabo & Dhankar",
+      "Cross Asia's highest suspension bridge at Chicham",
+      "Witness the pristine beauty of Chandra Taal Lake",
+      "Conquer the Kunzum Pass (4,590m)",
+      "Backup vehicle, professional trip captain & mechanic support",
     ],
-    rideDuration: "10 days riding",
-    highestAltitude: "14,400 ft",
-    suitableFor: "Experienced riders",
-    totalDistance: "800 km",
-    startingPoint: "Manali",
-    accommodationType: "Homestays",
-    pickupPoint: "Manali Bus Stand",
-    photoGallery: ["/assets/gallery/photo5.jpg", "/assets/gallery/photo6.jpg"],
-    bikeModels: ["Royal Enfield Himalayan 411", "KTM 390 Adventure"],
-    difficultyLevel: "Advanced",
-    averageDailyRide: "80-120 km",
+    rideDuration: "9 days riding",
+    highestAltitude: "4,590 m (Kunzum Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "1,250 km",
+    startingPoint: "Chandigarh",
+    accommodationType: "Hotels, guesthouses & camps",
+    pickupPoint: "Chandigarh Airport",
+    photoGallery: ["/assets/gallery/spiti1.jpg", "/assets/gallery/spiti2.jpg"],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
+    difficultyLevel: "Challenging",
+    averageDailyRide: "130-200 km",
     region: "North",
+    itinerary: [
+      {
+        day: 0,
+        title: "Arrival in Chandigarh",
+        highlights: [
+          "Meet the crew and fellow riders",
+          "Bike inspection and preparations",
+        ],
+      },
+      {
+        day: 1,
+        title: "Chandigarh → Chail",
+        distance: "110 km",
+        highlights: [
+          "Scenic mountain views and lush greenery",
+          "Visit Chail Palace",
+        ],
+      },
+      {
+        day: 2,
+        title: "Chail → Sangla",
+        distance: "180 km",
+        highlights: [
+          "Ride through the mesmerizing Kinnaur Valley",
+          "See the beautiful Baspa River",
+        ],
+      },
+      {
+        day: 3,
+        title: "Sangla → Chitkul → Kalpa",
+        distance: "80 km",
+        highlights: [
+          "Visit Chitkul, the last Indian village near the border",
+          "Spectacular views of Kinner Kailash range",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kalpa → Tabo",
+        distance: "190 km",
+        highlights: [
+          "Drive through Spiti’s rocky terrains",
+          "Explore the 1,000-year-old Tabo Monastery",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tabo → Dhankar → Kaza → Chicham",
+        distance: "100 km",
+        highlights: [
+          "Visit Dhankar Monastery with stunning valley views",
+          "Cross the famous Chicham Suspension Bridge",
+        ],
+      },
+      {
+        day: 6,
+        title: "Chicham → Langza → Hikkim → Chicham",
+        distance: "90 km",
+        highlights: [
+          "See Langza’s Giant Buddha Statue",
+          "Send a postcard from the world’s highest post office in Hikkim",
+        ],
+      },
+      {
+        day: 7,
+        title: "Chicham → Chandra Taal → Manali",
+        distance: "190 km",
+        highlights: [
+          "Ride through the challenging Kunzum Pass (4,590m)",
+          "Camp beside Chandra Taal, the 'Moon Lake'",
+        ],
+      },
+      {
+        day: 8,
+        title: "Manali Local Sightseeing",
+        highlights: [
+          "Explore Hadimba Temple & Mall Road",
+          "Relax at Vashisht Hot Springs",
+        ],
+      },
+      {
+        day: 9,
+        title: "Manali → Chandigarh",
+        distance: "310 km",
+        highlights: [
+          "Scenic ride through the Beas River valley",
+          "End of an unforgettable journey",
+        ],
+      },
+    ],
   },
   {
     id: "3",
-    title: "Rajasthan Desert Ride",
-    googleCalendarLink: "google.com/calendar/rajasthan",
+    title: "Northeast India Motorcycle Expedition",
+    googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
-      "https://images.pexels.com/photos/4625460/pexels-photo-4625460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    altText: "Thar Desert biking adventure",
+      "https://images.pexels.com/photos/6058267/pexels-photo-6058267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Northeast India Biking Expedition",
     shortDescription:
-      "Sun-soaked journey through golden deserts and ancient forts",
-    longDescription: "Experience the magic of Rajasthan's desert landscape...",
-    startDate: dayjs("2026-02-15T06:00:00"),
-    endDate: dayjs("2026-02-28T18:00:00"),
+      "An epic 10-day ride through the lush hills, waterfalls, and cultural wonders of Northeast India.",
+    longDescription:
+      "The Northeast India Motorcycle Expedition takes you on a thrilling journey through some of the most scenic and culturally rich regions of the country. Over 10 days, you'll ride through the misty hills of Meghalaya, the dense forests of Kaziranga, and the spiritual heights of Tawang. \n\n\
+      Expect a mix of winding mountain roads, serene valleys, and encounters with vibrant tribal cultures. Ride across breathtaking locations like the Umngot River in Dawki, the famous Kaziranga National Park, and the high-altitude Bumla Pass near the Indo-China border. \n\n\
+      With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
+    startDate: dayjs("2025-10-10T06:00:00"),
+    endDate: dayjs("2025-10-20T17:00:00"),
     keyHighlights: [
-      "Ride through Thar Desert",
-      "Visit Jaisalmer Fort",
-      "Camel safari experience",
-      "Evening desert camps",
+      "Visit the ancient Kamakhya Temple in Guwahati",
+      "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
+      "Experience the crystal-clear Umngot River in Dawki",
+      "Ride through the cleanest village in Asia - Mawlynnong",
+      "Kaziranga National Park (One-horned Rhino sightings)",
+      "Cross the stunning Sangti & Tenga Valleys",
+      "Visit India's largest monastery - Tawang Monastery",
+      "Ride to Bumla Pass near the Indo-China border",
+      "Backup vehicle, professional guide, and mechanic support",
     ],
     rideDuration: "10 days riding",
-    highestAltitude: "1,722 ft",
-    suitableFor: "All skill levels",
-    totalDistance: "1,200 km",
-    startingPoint: "Jaipur",
-    accommodationType: "Heritage hotels & desert camps",
-    pickupPoint: "Jaipur Airport",
-    photoGallery: ["/assets/gallery/raj1.jpg", "/assets/gallery/raj2.jpg"],
-    bikeModels: ["Royal Enfield Classic 350", "Bajaj Dominar 400"],
-    difficultyLevel: "Moderate",
-    averageDailyRide: "100-150 km",
-    region: "West",
+    highestAltitude: "4,633 m (Bumla Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "1,600 km",
+    startingPoint: "Guwahati",
+    accommodationType: "Hotels, homestays & guesthouses",
+    pickupPoint: "Guwahati Airport",
+    photoGallery: [
+      "/assets/gallery/northeast1.jpg",
+      "/assets/gallery/northeast2.jpg",
+    ],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
+    difficultyLevel: "Moderate-Challenging",
+    averageDailyRide: "150-250 km",
+    region: "Northeast",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Guwahati",
+        highlights: [
+          "Visit Kamakhya Temple",
+          "Explore Guwahati’s vibrant local markets",
+        ],
+      },
+      {
+        day: 2,
+        title: "Guwahati → Cherrapunji",
+        distance: "150 km",
+        highlights: [
+          "Stop by Umiam Lake for scenic photography",
+          "Explore Elephant Falls & Mawdok Dympep Valley",
+          "Visit Nohkailikai Falls, India's highest plunge waterfall",
+        ],
+      },
+      {
+        day: 3,
+        title: "Cherrapunji → Shillong",
+        distance: "90 km",
+        highlights: [
+          "Ride to Dawki’s crystal-clear Umngot River",
+          "Visit Mawlynnong - the cleanest village in Asia",
+          "Explore Shillong’s famous cafes and night markets",
+        ],
+      },
+      {
+        day: 4,
+        title: "Shillong → Tezpur (via Kaziranga)",
+        distance: "350 km",
+        highlights: [
+          "Optional visit to Kaziranga National Park",
+          "Explore Mahabhairab Temple & Agnigarh Hill in Tezpur",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tezpur → Dirang",
+        distance: "180 km",
+        highlights: [
+          "Scenic ride through Sangti Valley",
+          "Explore Tippi Orchid Centre",
+        ],
+      },
+      {
+        day: 6,
+        title: "Dirang → Tawang",
+        distance: "150 km",
+        highlights: [
+          "Visit India's largest monastery - Tawang Monastery",
+          "Explore Tawang Museum & local markets",
+        ],
+      },
+      {
+        day: 7,
+        title: "Tawang Sightseeing & Bumla Pass",
+        distance: "70 km",
+        highlights: [
+          "Ride to Bumla Pass (4,633m) near Indo-China border",
+          "Visit Madhuri Lake and serene mountain lakes",
+        ],
+      },
+      {
+        day: 8,
+        title: "Tawang → Bomdilla",
+        distance: "160 km",
+        highlights: [
+          "Stop at Urgelling Monastery - birthplace of the 6th Dalai Lama",
+          "Visit Tawang War Memorial",
+        ],
+      },
+      {
+        day: 9,
+        title: "Bomdilla → Guwahati",
+        distance: "330 km",
+        highlights: [
+          "Enjoy scenic Himalayan valley roads",
+          "Relish traditional Assamese cuisine",
+        ],
+      },
+      {
+        day: 10,
+        title: "Departure from Guwahati",
+        highlights: [
+          "Morning city tour or shopping",
+          "Drop-off at Guwahati Airport",
+        ],
+      },
+    ],
   },
   {
     id: "4",
-    title: "Kerala Backwaters Cruise",
-    googleCalendarLink: "google.com/calendar/kerala",
+    title: "Leh - Ladakh Bike Trip",
+    googleCalendarLink: "google.com/calendar/leh-ladakh",
     imageSrc:
-      "https://images.pexels.com/photos/739047/pexels-photo-739047.jpeg",
-    altText: "Kerala backwaters biking",
-    shortDescription: "Lush green landscapes and coastal routes of South India",
+      "https://images.pexels.com/photos/1581200/pexels-photo-1581200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Leh - Ladakh Biking Expedition",
+    shortDescription:
+      "Embark on an unforgettable 11-day motorcycle journey through the breathtaking landscapes of Ladakh, conquering some of the world's highest motorable roads.",
     longDescription:
-      "Combine biking with houseboat stays in tropical paradise...",
-    startDate: dayjs("2026-03-01T05:30:00"),
-    endDate: dayjs("2026-03-10T15:00:00"),
+      "This 11-day Leh-Ladakh biking adventure is the ultimate test of endurance, skill, and passion for motorcycling. Ride through high-altitude passes, explore remote valleys, and immerse yourself in Ladakh’s rich culture and history...",
+    startDate: dayjs("2026-09-09T07:00:00"),
+    endDate: dayjs("2026-09-19T17:00:00"),
     keyHighlights: [
-      "Western Ghats mountain roads",
-      "Backwater houseboat stay",
-      "Tea plantation visits",
-      "Coastal riding routes",
+      "Ride through Khardung La (5,359m) & Umling La (5,883m) – Highest motorable passes",
+      "Explore remote Zanskar Valley, Padum, and Hanle",
+      "Marvel at the surreal beauty of Pangong Lake and Nubra Valley",
+      "Visit historic Buddhist monasteries: Lamayuru, Karsha, and Tawang",
+      "Witness the confluence of the Indus & Zanskar Rivers",
+      "Experience desert dunes and double-humped camels in Nubra",
+      "Backup vehicle, mechanic support, and expert tour captain",
     ],
-    rideDuration: "7 days riding",
-    highestAltitude: "7,000 ft",
-    suitableFor: "Beginner to intermediate",
-    totalDistance: "800 km",
-    startingPoint: "Kochi",
-    accommodationType: "Resorts & houseboats",
-    pickupPoint: "Kochi Port",
-    photoGallery: ["/assets/gallery/ker1.jpg", "/assets/gallery/ker2.jpg"],
-    bikeModels: ["TVS Apache RTR 200", "Jawa Perak"],
-    difficultyLevel: "Easy-Moderate",
-    averageDailyRide: "80-120 km",
-    region: "South",
+    rideDuration: "11 days riding",
+    highestAltitude: "5,883 m (Umling La Pass)",
+    suitableFor: "Intermediate to advanced riders",
+    totalDistance: "2,175 km",
+    startingPoint: "Leh",
+    accommodationType: "Hotels, homestays & camps",
+    pickupPoint: "Leh Airport",
+    photoGallery: ["/assets/gallery/leh1.jpg", "/assets/gallery/leh2.jpg"],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
+    difficultyLevel: "Challenging",
+    averageDailyRide: "150-250 km",
+    region: "North",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Leh & Acclimatization",
+        highlights: [
+          "Explore Leh Market",
+          "Visit Shanti Stupa",
+          "Acclimatize to high altitude",
+        ],
+      },
+      {
+        day: 2,
+        title: "Leh Local Sightseeing",
+        highlights: [
+          "Visit Leh Palace & Magnetic Hill",
+          "See Indus-Zanskar Sangam",
+          "Explore Rancho School",
+        ],
+      },
+      {
+        day: 3,
+        title: "Leh → Kargil",
+        distance: "210 km",
+        highlights: [
+          "Ride through Namika La & Fotu La",
+          "Visit Kargil War Memorial",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kargil → Padum",
+        distance: "240 km",
+        highlights: [
+          "Cross Pensi La Pass (4,400m)",
+          "Explore stunning Zanskar Valley",
+        ],
+      },
+      {
+        day: 5,
+        title: "Padum Local Sightseeing",
+        highlights: ["Visit Karsha Monastery", "Explore Zangla Fort"],
+      },
+      {
+        day: 6,
+        title: "Padum → Lamayuru",
+        distance: "240 km",
+        highlights: [
+          "Ride through 'Moonland' terrain",
+          "Visit Lamayuru Monastery",
+        ],
+      },
+      {
+        day: 7,
+        title: "Lamayuru → Nubra Valley",
+        distance: "300 km",
+        highlights: [
+          "Cross Khardung La (5,359m)",
+          "Enjoy sand dunes & camel safari",
+        ],
+      },
+      {
+        day: 8,
+        title: "Nubra Valley → Pangong Lake",
+        distance: "275 km",
+        highlights: [
+          "Ride along the Shyok River",
+          "Camp under the stars at Pangong",
+        ],
+      },
+      {
+        day: 9,
+        title: "Pangong Lake → Hanle",
+        distance: "250 km",
+        highlights: [
+          "Visit Hanle Monastery",
+          "Experience the astronomical observatory",
+        ],
+      },
+      {
+        day: 10,
+        title: "Hanle → Umling La → Hanle",
+        distance: "200 km (round trip)",
+        highlights: [
+          "Ride to Umling La (5,883m) - Highest motorable road in the world",
+        ],
+      },
+      {
+        day: 11,
+        title: "Hanle → Leh",
+        distance: "250 km",
+        highlights: [
+          "Scenic ride back to Leh",
+          "Reflect on an unforgettable journey",
+        ],
+      },
+    ],
   },
   {
     id: "5",
-    title: "Eastern Himalayas Explorer",
-    googleCalendarLink: "google.com/calendar/east-himalayas",
+    title: "Snow White Spiti",
+    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
-      "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg",
-    altText: "Eastern Himalayas biking",
-    shortDescription: "Discover hidden Buddhist monasteries and alpine forests",
+      "https://images.pexels.com/photos/13569282/pexels-photo-13569282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Spiti Valley Biking Expedition",
+    shortDescription:
+      "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
     longDescription:
-      "Ride through the less-explored eastern Himalayan ranges...",
-    startDate: dayjs("2026-04-10T04:00:00"),
-    endDate: dayjs("2026-04-20T12:00:00"),
+      "The Spiti Valley bike trip is a perfect blend of adventure and scenic landscapes. This 9-day journey takes you through the rugged mountains of Himachal Pradesh, covering the last inhabited village near the Indo-Tibetan border, ancient monasteries, and high-altitude passes. \n\n\
+      Riders will experience the thrill of navigating through narrow mountain roads, river crossings, and high-altitude passes such as Kunzum La. Along the way, they'll witness the serene beauty of Chandra Taal (Moon Lake) and ride across Asia’s highest suspension bridge at Chicham. \n\n\
+      Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
+    startDate: dayjs("2026-04-17T06:00:00"),
+    endDate: dayjs("2026-04-27T17:00:00"),
     keyHighlights: [
-      "Tea garden routes",
-      "Visit Tawang Monastery",
-      "Sela Pass challenge",
-      "Tribal culture experiences",
+      "Ride through the majestic Kinnaur & Spiti Valleys",
+      "Visit Chitkul, India's last village near the Indo-Tibetan border",
+      "Explore ancient monasteries: Tabo & Dhankar",
+      "Cross Asia's highest suspension bridge at Chicham",
+      "Witness the pristine beauty of Chandra Taal Lake",
+      "Conquer the Kunzum Pass (4,590m)",
+      "Backup vehicle, professional trip captain & mechanic support",
     ],
-    rideDuration: "8 days riding",
-    highestAltitude: "13,800 ft",
-    suitableFor: "Intermediate riders",
-    totalDistance: "900 km",
-    startingPoint: "Guwahati",
-    accommodationType: "Eco-lodges & guest houses",
-    pickupPoint: "Guwahati Railway Station",
-    photoGallery: ["/assets/gallery/east1.jpg", "/assets/gallery/east2.jpg"],
-    bikeModels: ["Hero Xpulse 200", "Suzuki V-Strom 650"],
-    difficultyLevel: "Moderate",
-    averageDailyRide: "100-130 km",
-    region: "East",
+    rideDuration: "9 days riding",
+    highestAltitude: "4,590 m (Kunzum Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "1,250 km",
+    startingPoint: "Chandigarh",
+    accommodationType: "Hotels, guesthouses & camps",
+    pickupPoint: "Chandigarh Airport",
+    photoGallery: ["/assets/gallery/spiti1.jpg", "/assets/gallery/spiti2.jpg"],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
+    difficultyLevel: "Challenging",
+    averageDailyRide: "130-200 km",
+    region: "North",
+    itinerary: [
+      {
+        day: 0,
+        title: "Arrival in Chandigarh",
+        highlights: [
+          "Meet the crew and fellow riders",
+          "Bike inspection and preparations",
+        ],
+      },
+      {
+        day: 1,
+        title: "Chandigarh → Chail",
+        distance: "110 km",
+        highlights: [
+          "Scenic mountain views and lush greenery",
+          "Visit Chail Palace",
+        ],
+      },
+      {
+        day: 2,
+        title: "Chail → Sangla",
+        distance: "180 km",
+        highlights: [
+          "Ride through the mesmerizing Kinnaur Valley",
+          "See the beautiful Baspa River",
+        ],
+      },
+      {
+        day: 3,
+        title: "Sangla → Chitkul → Kalpa",
+        distance: "80 km",
+        highlights: [
+          "Visit Chitkul, the last Indian village near the border",
+          "Spectacular views of Kinner Kailash range",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kalpa → Tabo",
+        distance: "190 km",
+        highlights: [
+          "Drive through Spiti’s rocky terrains",
+          "Explore the 1,000-year-old Tabo Monastery",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tabo → Dhankar → Kaza → Chicham",
+        distance: "100 km",
+        highlights: [
+          "Visit Dhankar Monastery with stunning valley views",
+          "Cross the famous Chicham Suspension Bridge",
+        ],
+      },
+      {
+        day: 6,
+        title: "Chicham → Langza → Hikkim → Chicham",
+        distance: "90 km",
+        highlights: [
+          "See Langza’s Giant Buddha Statue",
+          "Send a postcard from the world’s highest post office in Hikkim",
+        ],
+      },
+      {
+        day: 7,
+        title: "Chicham → Chandra Taal → Manali",
+        distance: "190 km",
+        highlights: [
+          "Ride through the challenging Kunzum Pass (4,590m)",
+          "Camp beside Chandra Taal, the 'Moon Lake'",
+        ],
+      },
+      {
+        day: 8,
+        title: "Manali Local Sightseeing",
+        highlights: [
+          "Explore Hadimba Temple & Mall Road",
+          "Relax at Vashisht Hot Springs",
+        ],
+      },
+      {
+        day: 9,
+        title: "Manali → Chandigarh",
+        distance: "310 km",
+        highlights: [
+          "Scenic ride through the Beas River valley",
+          "End of an unforgettable journey",
+        ],
+      },
+    ],
   },
   {
     id: "6",
-    title: "Konkan Coastal Challenge",
-    googleCalendarLink: "google.com/calendar/konkan",
+    title: "Spiti Valley Adventure",
+    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
-      "https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg",
-    altText: "Konkan coast biking",
-    shortDescription: "Scenic coastal highways and beachside camping",
-    longDescription: "Ride along India's western coastline with ocean views...",
-    startDate: dayjs("2026-05-05T06:30:00"),
-    endDate: dayjs("2026-05-12T17:00:00"),
+      "https://images.pexels.com/photos/27662410/pexels-photo-27662410/free-photo-of-spiti-valley.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Spiti Valley Biking Expedition",
+    shortDescription:
+      "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
+    longDescription:
+      "The Spiti Valley bike trip is a perfect blend of adventure and scenic landscapes. This 9-day journey takes you through the rugged mountains of Himachal Pradesh, covering the last inhabited village near the Indo-Tibetan border, ancient monasteries, and high-altitude passes. \n\n\
+      Riders will experience the thrill of navigating through narrow mountain roads, river crossings, and high-altitude passes such as Kunzum La. Along the way, they'll witness the serene beauty of Chandra Taal (Moon Lake) and ride across Asia’s highest suspension bridge at Chicham. \n\n\
+      Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
+    startDate: dayjs("2026-08-22T06:00:00"),
+    endDate: dayjs("2026-09-1T17:00:00"),
     keyHighlights: [
-      "Coastal cliff roads",
-      "Fresh seafood cuisine",
-      "Beachside camping",
-      "Waterfall visits",
+      "Ride through the majestic Kinnaur & Spiti Valleys",
+      "Visit Chitkul, India's last village near the Indo-Tibetan border",
+      "Explore ancient monasteries: Tabo & Dhankar",
+      "Cross Asia's highest suspension bridge at Chicham",
+      "Witness the pristine beauty of Chandra Taal Lake",
+      "Conquer the Kunzum Pass (4,590m)",
+      "Backup vehicle, professional trip captain & mechanic support",
     ],
-    rideDuration: "6 days riding",
-    highestAltitude: "2,000 ft",
-    suitableFor: "All skill levels",
-    totalDistance: "700 km",
-    startingPoint: "Mumbai",
-    accommodationType: "Beach resorts & camps",
-    pickupPoint: "Mumbai Airport",
-    photoGallery: ["/assets/gallery/kon1.jpg", "/assets/gallery/kon2.jpg"],
-    bikeModels: ["Yamaha MT-15", "KTM Duke 390"],
-    difficultyLevel: "Easy",
-    averageDailyRide: "100-120 km",
-    region: "West",
-  },
-  {
-    id: "7",
-    title: "Uttarakhand Himalayan Quest",
-    googleCalendarLink: "google.com/calendar/uttarakhand",
-    imageSrc:
-      "https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg",
-    altText: "Uttarakhand mountain biking",
-    shortDescription: "Spiritual and adventurous ride through Dev Bhumi",
-    longDescription: "Combine temple visits with thrilling mountain rides...",
-    startDate: dayjs("2026-06-01T05:00:00"),
-    endDate: dayjs("2026-06-10T14:00:00"),
-    keyHighlights: [
-      "Char Dham circuit",
-      "Whitewater rafting combo",
-      "Forest reserve trails",
-      "Yoga retreat experience",
+    rideDuration: "9 days riding",
+    highestAltitude: "4,590 m (Kunzum Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "1,250 km",
+    startingPoint: "Chandigarh",
+    accommodationType: "Hotels, guesthouses & camps",
+    pickupPoint: "Chandigarh Airport",
+    photoGallery: ["/assets/gallery/spiti1.jpg", "/assets/gallery/spiti2.jpg"],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
     ],
-    rideDuration: "8 days riding",
-    highestAltitude: "11,500 ft",
-    suitableFor: "Intermediate riders",
-    totalDistance: "1,000 km",
-    startingPoint: "Dehradun",
-    accommodationType: "Mountain lodges",
-    pickupPoint: "Dehradun Airport",
-    photoGallery: ["/assets/gallery/utt1.jpg", "/assets/gallery/utt2.jpg"],
-    bikeModels: ["Royal Enfield Scram 411", "Honda CB500X"],
-    difficultyLevel: "Moderate-Challenging",
-    averageDailyRide: "120-150 km",
+    difficultyLevel: "Challenging",
+    averageDailyRide: "130-200 km",
     region: "North",
+    itinerary: [
+      {
+        day: 0,
+        title: "Arrival in Chandigarh",
+        highlights: [
+          "Meet the crew and fellow riders",
+          "Bike inspection and preparations",
+        ],
+      },
+      {
+        day: 1,
+        title: "Chandigarh → Chail",
+        distance: "110 km",
+        highlights: [
+          "Scenic mountain views and lush greenery",
+          "Visit Chail Palace",
+        ],
+      },
+      {
+        day: 2,
+        title: "Chail → Sangla",
+        distance: "180 km",
+        highlights: [
+          "Ride through the mesmerizing Kinnaur Valley",
+          "See the beautiful Baspa River",
+        ],
+      },
+      {
+        day: 3,
+        title: "Sangla → Chitkul → Kalpa",
+        distance: "80 km",
+        highlights: [
+          "Visit Chitkul, the last Indian village near the border",
+          "Spectacular views of Kinner Kailash range",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kalpa → Tabo",
+        distance: "190 km",
+        highlights: [
+          "Drive through Spiti’s rocky terrains",
+          "Explore the 1,000-year-old Tabo Monastery",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tabo → Dhankar → Kaza → Chicham",
+        distance: "100 km",
+        highlights: [
+          "Visit Dhankar Monastery with stunning valley views",
+          "Cross the famous Chicham Suspension Bridge",
+        ],
+      },
+      {
+        day: 6,
+        title: "Chicham → Langza → Hikkim → Chicham",
+        distance: "90 km",
+        highlights: [
+          "See Langza’s Giant Buddha Statue",
+          "Send a postcard from the world’s highest post office in Hikkim",
+        ],
+      },
+      {
+        day: 7,
+        title: "Chicham → Chandra Taal → Manali",
+        distance: "190 km",
+        highlights: [
+          "Ride through the challenging Kunzum Pass (4,590m)",
+          "Camp beside Chandra Taal, the 'Moon Lake'",
+        ],
+      },
+      {
+        day: 8,
+        title: "Manali Local Sightseeing",
+        highlights: [
+          "Explore Hadimba Temple & Mall Road",
+          "Relax at Vashisht Hot Springs",
+        ],
+      },
+      {
+        day: 9,
+        title: "Manali → Chandigarh",
+        distance: "310 km",
+        highlights: [
+          "Scenic ride through the Beas River valley",
+          "End of an unforgettable journey",
+        ],
+      },
+    ],
   },
   {
-    id: "8",
-    title: "Western Ghats Thrill",
-    googleCalendarLink: "google.com/calendar/west-ghats",
+    id: "6",
+    title: "Northeast India Motorcycle Expedition",
+    googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
-      "https://images.pexels.com/photos/326058/pexels-photo-326058.jpeg",
-    altText: "Western Ghats biking adventure",
-    shortDescription: "Misty mountains and coffee plantations of South India",
-    longDescription: "Navigate through 36 hairpin bends and lush greenery...",
-    startDate: dayjs("2026-07-10T06:00:00"),
-    endDate: dayjs("2026-07-17T16:00:00"),
+      "https://images.pexels.com/photos/5273240/pexels-photo-5273240.jpeg",
+    altText: "Northeast India Biking Expedition",
+    shortDescription:
+      "An epic 10-day ride through the lush hills, waterfalls, and cultural wonders of Northeast India.",
+    longDescription:
+      "The Northeast India Motorcycle Expedition takes you on a thrilling journey through some of the most scenic and culturally rich regions of the country. Over 10 days, you'll ride through the misty hills of Meghalaya, the dense forests of Kaziranga, and the spiritual heights of Tawang. \n\n\
+      Expect a mix of winding mountain roads, serene valleys, and encounters with vibrant tribal cultures. Ride across breathtaking locations like the Umngot River in Dawki, the famous Kaziranga National Park, and the high-altitude Bumla Pass near the Indo-China border. \n\n\
+      With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
+    startDate: dayjs("2026-10-10T06:00:00"),
+    endDate: dayjs("2026-10-20T17:00:00"),
     keyHighlights: [
-      "Ooty hill station routes",
-      "Coffee plantation stays",
-      "Wildlife sanctuary crossing",
-      "Waterfall rappelling",
+      "Visit the ancient Kamakhya Temple in Guwahati",
+      "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
+      "Experience the crystal-clear Umngot River in Dawki",
+      "Ride through the cleanest village in Asia - Mawlynnong",
+      "Kaziranga National Park (One-horned Rhino sightings)",
+      "Cross the stunning Sangti & Tenga Valleys",
+      "Visit India's largest monastery - Tawang Monastery",
+      "Ride to Bumla Pass near the Indo-China border",
+      "Backup vehicle, professional guide, and mechanic support",
     ],
-    rideDuration: "6 days riding",
-    highestAltitude: "8,600 ft",
-    suitableFor: "Intermediate riders",
-    totalDistance: "850 km",
-    startingPoint: "Bengaluru",
-    accommodationType: "Plantation bungalows",
-    pickupPoint: "Bengaluru Central",
-    photoGallery: ["/assets/gallery/ghat1.jpg", "/assets/gallery/ghat2.jpg"],
-    bikeModels: ["KTM 250 Adventure", "BMW G 310 GS"],
-    difficultyLevel: "Moderate",
-    averageDailyRide: "130-160 km",
-    region: "South",
+    rideDuration: "10 days riding",
+    highestAltitude: "4,633 m (Bumla Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "1,600 km",
+    startingPoint: "Guwahati",
+    accommodationType: "Hotels, homestays & guesthouses",
+    pickupPoint: "Guwahati Airport",
+    photoGallery: [
+      "/assets/gallery/northeast1.jpg",
+      "/assets/gallery/northeast2.jpg",
+    ],
+    bikeModels: [
+      "Royal Enfield Himalayan 450",
+      "Royal Enfield Bullet 500",
+      "KTM 390 Adventure",
+    ],
+    difficultyLevel: "Moderate-Challenging",
+    averageDailyRide: "150-250 km",
+    region: "Northeast",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Guwahati",
+        highlights: [
+          "Visit Kamakhya Temple",
+          "Explore Guwahati’s vibrant local markets",
+        ],
+      },
+      {
+        day: 2,
+        title: "Guwahati → Cherrapunji",
+        distance: "150 km",
+        highlights: [
+          "Stop by Umiam Lake for scenic photography",
+          "Explore Elephant Falls & Mawdok Dympep Valley",
+          "Visit Nohkailikai Falls, India's highest plunge waterfall",
+        ],
+      },
+      {
+        day: 3,
+        title: "Cherrapunji → Shillong",
+        distance: "90 km",
+        highlights: [
+          "Ride to Dawki’s crystal-clear Umngot River",
+          "Visit Mawlynnong - the cleanest village in Asia",
+          "Explore Shillong’s famous cafes and night markets",
+        ],
+      },
+      {
+        day: 4,
+        title: "Shillong → Tezpur (via Kaziranga)",
+        distance: "350 km",
+        highlights: [
+          "Optional visit to Kaziranga National Park",
+          "Explore Mahabhairab Temple & Agnigarh Hill in Tezpur",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tezpur → Dirang",
+        distance: "180 km",
+        highlights: [
+          "Scenic ride through Sangti Valley",
+          "Explore Tippi Orchid Centre",
+        ],
+      },
+      {
+        day: 6,
+        title: "Dirang → Tawang",
+        distance: "150 km",
+        highlights: [
+          "Visit India's largest monastery - Tawang Monastery",
+          "Explore Tawang Museum & local markets",
+        ],
+      },
+      {
+        day: 7,
+        title: "Tawang Sightseeing & Bumla Pass",
+        distance: "70 km",
+        highlights: [
+          "Ride to Bumla Pass (4,633m) near Indo-China border",
+          "Visit Madhuri Lake and serene mountain lakes",
+        ],
+      },
+      {
+        day: 8,
+        title: "Tawang → Bomdilla",
+        distance: "160 km",
+        highlights: [
+          "Stop at Urgelling Monastery - birthplace of the 6th Dalai Lama",
+          "Visit Tawang War Memorial",
+        ],
+      },
+      {
+        day: 9,
+        title: "Bomdilla → Guwahati",
+        distance: "330 km",
+        highlights: [
+          "Enjoy scenic Himalayan valley roads",
+          "Relish traditional Assamese cuisine",
+        ],
+      },
+      {
+        day: 10,
+        title: "Departure from Guwahati",
+        highlights: [
+          "Morning city tour or shopping",
+          "Drop-off at Guwahati Airport",
+        ],
+      },
+    ],
   },
 ];
+
+export default bikingAdventuresData;
 
 // Why Us Section - Updated with biking focus
 const whyUsCardData = [

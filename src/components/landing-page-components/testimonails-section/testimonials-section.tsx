@@ -10,17 +10,15 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { testimonials } from "@/data/content";
-import SectionMiniHeader from "@/components/section-header-aesth/section-mini-header";
-
 const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="col-span-12 mx-16 h-[60vh] p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
+      className="col-span-12 mx-10 h-fit p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4  sm:gap-y-8 relative font-body"
     >
       {/* Section Header */}
-      <SectionMiniHeader title="testimonials" />
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 z-50">
+
+      <h2 className="text-6xl font-bold text-center  mb-6 uppercase font-heading">
         What Riders Say
       </h2>
       <Carousel
@@ -42,7 +40,7 @@ const TestimonialSection = () => {
               className="md:basis-1/2 w-fit lg:basis-1/3 px-4 py-2"
             >
               <div className="p-1 h-full">
-                <Card className="h-full rounded-2xl">
+                <Card className="h-full ">
                   <CardContent className="flex flex-col items-center justify-center p-6 h-fit w-fit">
                     <div className="flex gap-1 mb-4 text-yellow-400">
                       {Array.from({ length: testimonial.rating }).map(
