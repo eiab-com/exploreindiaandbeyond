@@ -1041,34 +1041,26 @@ const testimonials = [
     location: "London",
     text: "The Rajasthan Desert Dash was absolutely incredible! The support team made everything seamless from start to finish. Can't wait for my next Indian adventure!",
     rating: 5,
+    imageSrc:
+      "https://images.pexels.com/photos/1915149/pexels-photo-1915149.jpeg?auto=compress&cs=tinysrgb&w=1200", // Update path
   },
   {
-    id: 2,
-    name: "James Wilson",
+    id: 6,
+    name: "Julian Withers",
+    location: "London",
+    text: "An extraordinary first experience in India! The team's historical insights and problem-solving made our challenging off-road adventure unforgettable. The Royal Enfield 450s handled beautifully.",
+    rating: 5,
+    imageSrc:
+      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets//WhatsApp%20Image%202025-02-25%20at%208.58.57%20PM.jpeg", // Update path
+  },
+  {
+    id: 7,
+    name: "Brent Jackson",
     location: "Manchester",
-    text: "Best motorcycle experience of my life. The Himalayan routes took my breath away, and the local guides were true experts. Highly recommend to UK riders!",
+    text: "My best motorcycle tour yet! Flawless execution with authentic experiences like home-cooked family dinners. Expert guides revealed hidden gems in every city we explored.",
     rating: 5,
-  },
-  {
-    id: 3,
-    name: "Emma Carter",
-    location: "Birmingham",
-    text: "As a solo female rider, I felt completely safe and supported throughout the Kerala Coastal ride. The cultural experiences were as amazing as the riding!",
-    rating: 4,
-  },
-  {
-    id: 4,
-    name: "Mohammed Ali",
-    location: "Leeds",
-    text: "Perfect mix of challenging rides and authentic Indian hospitality. The bike maintenance crew was always on point. Will definitely ride with them again!",
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: "Lucy Bennett",
-    location: "Glasgow",
-    text: "From visa assistance to route planning, every detail was handled. The Spiti Valley route is a must-do for any serious adventure rider!",
-    rating: 5,
+    imageSrc:
+      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets//e7f560a0-8f07-49fa-99f9-5ccccfaf1468.jpeg", // Update path
   },
 ];
 

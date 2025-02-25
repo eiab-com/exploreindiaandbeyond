@@ -14,7 +14,7 @@ const UpcomingAdventures = () => {
   const router = useTransitionRouter();
 
   return (
-    <section className="col-span-12  flex flex-col justify-center  items-center gap-12 h-[80vh] ">
+    <section className="col-span-12 mx-auto  flex flex-col justify-center  items-center gap-12 h-auto lg:h-screen xl:h-screen px-16 ">
       <h2 className="text-6xl font-bold text-center  mb-6 uppercase font-heading">
         Upcoming Adventures
       </h2>

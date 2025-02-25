@@ -10,38 +10,41 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { testimonials } from "@/data/content";
+import Image from "next/image";
 const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="col-span-12 mx-10 h-fit p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4  sm:gap-y-8 relative font-body"
+      className="col-span-12 mx-10 h-fit p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
     >
-      {/* Section Header */}
-
-      <h2 className="text-6xl font-bold text-center  mb-6 uppercase font-heading">
+      <h2 className="text-6xl font-bold text-center mb-6 uppercase font-heading">
         What Riders Say
       </h2>
       <Carousel
-        plugins={[
-          Autoplay({
-            delay: 2000,
-          }),
-        ]}
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="w-full  mx-auto z-40"
+        plugins={[Autoplay({ delay: 2000 })]}
+        opts={{ align: "start", loop: true }}
+        className="w-full mx-auto z-40"
       >
         <CarouselContent>
           {testimonials.map((testimonial) => (
             <CarouselItem
               key={testimonial.id}
-              className="md:basis-1/2 w-fit lg:basis-1/3 px-4 py-2"
+              className="md:basis-1/2 lg:basis-1/3 px-4 py-2"
             >
               <div className="p-1 h-full">
-                <Card className="h-full ">
-                  <CardContent className="flex flex-col items-center justify-center p-6 h-fit w-fit">
+                <Card className="h-full">
+                  <CardContent className="flex flex-col items-center p-6 h-full">
+                    {/* Customer Image */}
+                    <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-primary">
+                      <Image
+                        src={testimonial.imageSrc}
+                        alt={testimonial.name}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+
+                    {/* Rating */}
                     <div className="flex gap-1 mb-4 text-yellow-400">
                       {Array.from({ length: testimonial.rating }).map(
                         (_, i) => (
@@ -49,12 +52,18 @@ const TestimonialSection = () => {
                         )
                       )}
                     </div>
+
+                    {/* Testimonial Text */}
                     <p className="text-center italic mb-4">
                       &quot;{testimonial.text}&quot;
                     </p>
-                    <div className="text-center">
-                      <p className="font-bold">{testimonial.name}</p>
-                      <p className="text-sm text-gray-600">
+
+                    {/* Name & Location */}
+                    <div className="text-center mt-auto">
+                      <p className="font-bold text-foreground">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
                         {testimonial.location}
                       </p>
                     </div>
