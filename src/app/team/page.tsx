@@ -20,47 +20,30 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  {
-    id: "1",
-    name: "Vinayak Hulihalli",
-    role: "Co-Founder",
-    image:
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/team//WhatsApp%20Image%202025-02-24%20at%204.04.50%20AM.jpeg",
-    email: "vinayakhulihalli07@gmail.com",
-    instagram: "https://www.instagram.com/_dronographer_/",
-  },
-  {
-    id: "2",
-    name: "Samarth Thite",
-    role: "Co-Founder",
-    image:
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/team//Team%20photo.jpg",
-    email: "Samarththite12@gmail.com",
-    instagram: "https://www.instagram.com/a_travellester/",
-  },
+  // ... (keep your team members array same)
 ];
 
 const Page = () => {
   return (
     <section
       id="teams-section"
-      className="col-span-12 mt-20 rounded-2xl lg:h-[calc(100vh-2rem)] h-[50vh] relative overflow-hidden p-8 "
+      className="col-span-12 min-h-screen py-12 px-4 sm:px-8 lg:px-16 relative"
     >
       {/* Section Heading */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-primary font-heading">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 text-primary font-heading">
         Meet Our Team
       </h2>
 
       {/* Team Members Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
         {teamMembers.map((member) => (
           <Card
             key={member.id}
-            className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30"
+            className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 flex-1"
           >
             {/* Team Member Image */}
             <CardHeader className="p-0 border-b border-border">
-              <div className="relative aspect-square w-full">
+              <div className="relative aspect-[4/3] w-full">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -72,29 +55,33 @@ const Page = () => {
             </CardHeader>
 
             {/* Team Member Details */}
-            <CardContent className="p-6 text-center space-y-2">
-              <h3 className="text-xl font-bold text-primary">{member.name}</h3>
-              <p className="text-muted-foreground italic">{member.role}</p>
+            <CardContent className="p-4 md:p-6 text-center space-y-2">
+              <h3 className="text-lg md:text-xl font-bold text-primary">
+                {member.name}
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground italic">
+                {member.role}
+              </p>
             </CardContent>
 
             {/* Social Links */}
-            <CardFooter className="flex justify-center gap-4 p-4">
+            <CardFooter className="flex flex-col sm:flex-row justify-center gap-2 md:gap-4 p-2 md:p-4">
               <Button
                 asChild
                 variant="secondary"
-                size="default"
-                className="gap-2 transition-all hover:bg-primary hover:text-primary-foreground"
+                size="sm"
+                className="gap-2 transition-all hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
               >
                 <a href={`mailto:${member.email}`}>
                   <Mail className="w-4 h-4" />
-                  Email
+                  <span className="sr-only sm:not-sr-only">Email</span>
                 </a>
               </Button>
               <Button
                 asChild
                 variant="secondary"
-                size="default"
-                className="gap-2 transition-all hover:bg-primary hover:text-primary-foreground"
+                size="sm"
+                className="gap-2 transition-all hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
               >
                 <a
                   href={member.instagram}
@@ -102,7 +89,7 @@ const Page = () => {
                   rel="noopener noreferrer"
                 >
                   <Instagram className="w-4 h-4" />
-                  Instagram
+                  <span className="sr-only sm:not-sr-only">Instagram</span>
                 </a>
               </Button>
             </CardFooter>

@@ -14,11 +14,11 @@ const UpcomingAdventures = () => {
   const router = useTransitionRouter();
 
   return (
-    <section className="col-span-12 mx-auto  flex flex-col justify-center  items-center gap-12 h-auto lg:h-screen xl:h-screen px-16 ">
+    <section className="col-span-12 mx-auto  flex flex-col justify-center  items-center gap-12 h-fit md:h-fit lg:h-screen xl:h-screen px-16 ">
       <h2 className="text-6xl font-bold text-center  mb-6 uppercase font-heading">
         Upcoming Adventures
       </h2>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8 h-fit">
         {upcomingAdventures.map((adventure) => (
           <AdventureCard
             key={adventure.id}

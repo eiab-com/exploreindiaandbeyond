@@ -37,7 +37,7 @@ const AdventureCard = ({
   const constructedLink = `/adventures/${id}`;
 
   return (
-    <Card className="bg-card group w-full max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md rounded-md overflow-hidden font-body shadow-sm hover:shadow-xl transition-all duration-300 border-primary/10 flex flex-col h-full">
+    <Card className="bg-card group w-full max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md rounded-md overflow-hidden font-body shadow-sm hover:shadow-xl transition-all duration-300 border-primary/10 flex flex-col h-fit">
       <div className="relative">
         {/* Date Overlay */}
         <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium shadow-md backdrop-blur-sm">

@@ -140,7 +140,7 @@ export default async function Page({
               title: "Starting Point",
               value: adventure.startingPoint,
             },
-            { icon: Users, title: "Group Size", value: "4-12 Riders" },
+            { icon: Users, title: "Group Size", value: "6-12 Riders" },
           ].map((item, index) => (
             <MemoizedDetailCard
               key={index}

@@ -7,7 +7,7 @@ const WhyUs = () => {
   return (
     <section
       id="about"
-      className="col-span-12 mx-auto h-fit lg:h-screen xl:h-screen px-6 lg:px-16 py-16 flex flex-col lg:flex-row items-center gap-10 relative font-body"
+      className="col-span-12 mx-auto h-fit lg:h-screen xl:h-screen px-6 lg:px-16 py-16 flex flex-col lg:flex-row md:h-screen items-center gap-10 relative font-body"
     >
       {/* Left Section */}
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2">

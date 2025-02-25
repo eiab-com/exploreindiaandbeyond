@@ -48,8 +48,9 @@ const HeroSection = () => {
   }, [isImageLoaded]);
 
   const heroVideoAddresses = [
-    "https://videos.pexels.com/video-files/27956995/12272647_2560_1440_30fps.mp4",
-    "https://videos.pexels.com/video-files/5379990/5379990-uhd_2560_1440_24fps.mp4",
+    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%201.mp4",
+    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%202.mp4",
+    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%203.mp4",
     "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/LEH-LADAKH.mp4",
     "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Nubra%20.mp4",
     "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Pangong.mp4",
