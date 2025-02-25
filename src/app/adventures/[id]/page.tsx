@@ -47,10 +47,8 @@ export default async function Page({
     );
   }
 
-  // Format the startDate for display
   const formattedStartDate = dayjs(adventure.startDate).format("MMMM D, YYYY");
 
-  // Precompute lists before JSX to improve readability and performance
   const highlightsList = (
     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {adventure.keyHighlights?.map((highlight, index) => (
@@ -149,7 +147,6 @@ export default async function Page({
               icon={item.icon}
               title={item.title}
               value={item.value}
-             
             />
           ))}
         </div>

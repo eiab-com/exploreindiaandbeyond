@@ -15,6 +15,9 @@ export default function PhotoViewer({ images, title }: PhotoViewerProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const [loadingStates, setLoadingStates] = useState<boolean[]>(
+    new Array(images.length).fill(true)
+  );
 
   const handleNext = () => {
     if (selectedImageIndex !== null && selectedImageIndex < images.length - 1) {
@@ -28,6 +31,22 @@ export default function PhotoViewer({ images, title }: PhotoViewerProps) {
     }
   };
 
+  const handleImageLoad = (index: number) => {
+    setLoadingStates((prev) => {
+      const newStates = [...prev];
+      newStates[index] = false;
+      return newStates;
+    });
+  };
+
+  const handleImageError = (index: number) => {
+    setLoadingStates((prev) => {
+      const newStates = [...prev];
+      newStates[index] = false;
+      return newStates;
+    });
+  };
+
   return (
     <section className="space-y-6">
       {/* Thumbnail Grid */}
@@ -39,26 +58,48 @@ export default function PhotoViewer({ images, title }: PhotoViewerProps) {
                 className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
                 onClick={() => setSelectedImageIndex(index)}
               >
+                {/* Skeleton Loader */}
+                {loadingStates[index] && (
+                  <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-primary/20 rounded-lg" />
+                )}
                 <Image
                   src={image}
                   alt={`${title} gallery image ${index + 1}`}
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  className={`object-cover transition-opacity duration-300 ${
+                    loadingStates[index] ? "opacity-0" : "opacity-100"
+                  }`}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
+                  onLoad={() => handleImageLoad(index)}
+                  onError={() => handleImageError(index)}
                 />
               </div>
             </DialogTrigger>
             <DialogContent className="sm:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl p-0 bg-transparent border-none">
               {/* Carousel Navigation */}
               <div className="relative aspect-video w-full h-full">
-                <Image
-                  src={images[selectedImageIndex || 0]}
-                  alt={`${title} gallery image ${selectedImageIndex || 0 + 1}`}
-                  fill
-                  className="object-contain rounded-lg"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1280px) 70vw, 60vw"
-                />
+                {/* Skeleton Loader for Dialog Image */}
+                {selectedImageIndex !== null &&
+                  loadingStates[selectedImageIndex] && (
+                    <div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-gray-700 rounded-lg" />
+                  )}
+                {selectedImageIndex !== null && (
+                  <Image
+                    src={images[selectedImageIndex]}
+                    alt={`${title} gallery image ${selectedImageIndex + 1}`}
+                    fill
+                    className={`object-contain rounded-lg transition-opacity duration-300 ${
+                      loadingStates[selectedImageIndex]
+                        ? "opacity-0"
+                        : "opacity-100"
+                    }`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, (max-width: 1280px) 70vw, 60vw"
+                    loading="lazy"
+                    onLoad={() => handleImageLoad(selectedImageIndex)}
+                    onError={() => handleImageError(selectedImageIndex)}
+                  />
+                )}
                 {/* Previous Button */}
                 {selectedImageIndex !== null && selectedImageIndex > 0 && (
                   <Button

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Youtube, PhoneIcon } from "lucide-react";
+import { Youtube, PhoneIcon, Instagram } from "lucide-react";
 import { Button } from "../button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useTransitionRouter } from "next-view-transitions";
@@ -47,6 +47,10 @@ const Footer = () => {
                     icon: Youtube,
                     href: "https://www.youtube.com/@Exploreindiaandbeyond",
                   },
+                  {
+                    icon:Instagram,
+                    href: "https://www.instagram.com/exploreindiaandbeyond/",
+                  }
                 ].map(({ icon: Icon, href }, index) => (
                   <Link
                     key={index}
@@ -70,13 +74,13 @@ const Footer = () => {
           <div className="flex space-x-4 text-foreground">
             <ModeToggle />
             <Link
-              href="/sitemap"
+              href="#"
               className="text-sm hover:text-primary transition-colors"
             >
               Sitemap
             </Link>
             <Link
-              href="/accessibility"
+              href="#"
               className="text-sm hover:text-primary transition-colors"
             >
               Accessibility
