@@ -48,6 +48,7 @@ export default async function Page({
   }
 
   const formattedStartDate = dayjs(adventure.startDate).format("MMMM D, YYYY");
+  const formattedEndDate = dayjs(adventure.endDate).format("MMMM D, YYYY");
 
   const highlightsList = (
     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -180,8 +181,12 @@ export default async function Page({
               <h3 className="text-xl font-semibold">Plan Your Journey</h3>
               <div className="space-y-4">
                 <MemoizedInfoItem
-                  title="Next Departure"
+                  title="Start Date"
                   value={formattedStartDate}
+                />
+                <MemoizedInfoItem
+                  title="End Date"
+                  value={formattedEndDate}
                 />
                 <MemoizedInfoItem
                   title="Accommodation"
