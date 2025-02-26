@@ -62,7 +62,11 @@ const bikingAdventuresData: BikingAdventure[] = [
     accommodationType: "Hotels,Homestays & Camps",
     pickupPoint: "Leh Airport",
     photoGallery: [
-      
+      "https://images.pexels.com/photos/30844720/pexels-photo-30844720.jpeg",
+      "https://images.pexels.com/photos/30743695/pexels-photo-30743695/free-photo-of-man-enjoying-scenic-mountain-lake-view.jpeg",
+      "https://images.pexels.com/photos/30743694/pexels-photo-30743694.jpeg",
+      "https://images.pexels.com/photos/30743692/pexels-photo-30743692/free-photo-of-adventurous-motorcyclist-at-misty-ladakh-pass.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30743691/pexels-photo-30743691/free-photo-of-aerial-view-of-thiksey-monastery-in-ladakh-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
@@ -201,7 +205,10 @@ const bikingAdventuresData: BikingAdventure[] = [
     accommodationType: "Hotels, Guesthouses & Camps",
     pickupPoint: "Chandigarh Airport",
     photoGallery: [
-     
+      "https://images.pexels.com/photos/30844725/pexels-photo-30844725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844715/pexels-photo-30844715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844728/pexels-photo-30844728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844712/pexels-photo-30844712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
@@ -334,9 +341,7 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Guwahati",
     accommodationType: "Hotels, homestays & guesthouses",
     pickupPoint: "Guwahati Airport",
-    photoGallery: [
-     
-    ],
+    photoGallery: [],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
       "Royal Enfield Bullet 350/500 or similar",
@@ -467,7 +472,11 @@ const bikingAdventuresData: BikingAdventure[] = [
     accommodationType: "Hotels,Homestays & Camps",
     pickupPoint: "Leh Airport",
     photoGallery: [
-     
+      "https://images.pexels.com/photos/30844720/pexels-photo-30844720.jpeg",
+      "https://images.pexels.com/photos/30743695/pexels-photo-30743695/free-photo-of-man-enjoying-scenic-mountain-lake-view.jpeg",
+      "https://images.pexels.com/photos/30743694/pexels-photo-30743694.jpeg",
+      "https://images.pexels.com/photos/30743692/pexels-photo-30743692/free-photo-of-adventurous-motorcyclist-at-misty-ladakh-pass.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30743691/pexels-photo-30743691/free-photo-of-aerial-view-of-thiksey-monastery-in-ladakh-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
@@ -606,11 +615,10 @@ const bikingAdventuresData: BikingAdventure[] = [
     accommodationType: "Hotels, Guesthouses & Camps",
     pickupPoint: "Chandigarh Airport",
     photoGallery: [
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/spiti/24.jpg",
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/spiti/33.jpg",
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/spiti/34.jpg",
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/spiti/35.jpg",
-      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/spiti/36.jpg",
+      "https://images.pexels.com/photos/30844725/pexels-photo-30844725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844715/pexels-photo-30844715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844728/pexels-photo-30844728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844712/pexels-photo-30844712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
@@ -742,7 +750,10 @@ const bikingAdventuresData: BikingAdventure[] = [
     accommodationType: "Hotels, Guesthouses & Camps",
     pickupPoint: "Chandigarh Airport",
     photoGallery: [
-      
+      "https://images.pexels.com/photos/30844725/pexels-photo-30844725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844715/pexels-photo-30844715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844728/pexels-photo-30844728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844712/pexels-photo-30844712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
@@ -875,9 +886,7 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Guwahati",
     accommodationType: "Hotels, homestays & guesthouses",
     pickupPoint: "Guwahati Airport",
-    photoGallery: [
-      
-    ],
+    photoGallery: [],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
       "Royal Enfield Bullet 350/500 or similar",
@@ -994,8 +1003,7 @@ const whyUsCardData = [
   },
   {
     title: "Premium Adventure Bikes",
-    description:
-      `Royal Enfield Himalayan 411/450 Royal Enfield Bullet 350/500`,
+    description: `Royal Enfield Himalayan 411/450 Royal Enfield Bullet 350/500`,
     imageSrc:
       "https://images.pexels.com/photos/8425811/pexels-photo-8425811.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Adventure Bikes Icon",
