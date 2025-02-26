@@ -45,15 +45,11 @@ const HeroSection = () => {
       );
     }
   }, [isImageLoaded]);
-
-  const heroVideoAddresses = [
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%201.mp4",
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%202.mp4",
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/backdrop-videos/Back%203.mp4",
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/LEH-LADAKH.mp4",
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Nubra%20.mp4",
-    "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Pangong.mp4",
-  ];
+ const heroVideoAddresses = [
+   "/assets/backdrop-videos/Back 1.mp4",
+   "/assets/backdrop-videos/Back 2.mp4",
+   "/assets/backdrop-videos/Back 3.mp4",
+ ];
 
   return (
     <section

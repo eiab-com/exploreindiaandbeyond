@@ -1,5 +1,5 @@
 "use client";
-import { stories } from "@/data/content";
+import { stories } from "@/mock-data/content";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
@@ -91,7 +91,7 @@ const Page = () => {
               <DialogContent className="sm:max-w-2xl">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-semibold text-primary flex items-center gap-2">
-                   {` ${story.name}'s Experience`}
+                    {` ${story.name}'s Experience`}
                     <span className="text-muted-foreground text-base font-normal">
                       {story.location}
                     </span>

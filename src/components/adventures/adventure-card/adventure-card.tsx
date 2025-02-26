@@ -51,6 +51,7 @@ const AdventureCard = ({
               alt={altText}
               fill
               className="object-cover rounded-t-md group-hover:scale-105 transition-all duration-300 ease-in-out"
+              sizes="full"
             />
           </div>
         </CardHeader>
