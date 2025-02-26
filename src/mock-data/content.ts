@@ -171,10 +171,10 @@ const bikingAdventuresData: BikingAdventure[] = [
   },
   {
     id: "2",
-    title: "Spiti Valley Adventure",
+    title: "Spiti Valley",
     googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
-      "https://images.pexels.com/photos/23522680/pexels-photo-23522680/free-photo-of-key-gompa-monastery-in-mountains-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
     altText: "Spiti Valley Biking Expedition",
     shortDescription:
       "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
@@ -712,10 +712,10 @@ const bikingAdventuresData: BikingAdventure[] = [
   },
   {
     id: "6",
-    title: "Spiti Valley Adventure",
+    title: "Spiti Valley",
     googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
-      "https://images.pexels.com/photos/23522680/pexels-photo-23522680/free-photo-of-key-gompa-monastery-in-mountains-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
     altText: "Spiti Valley Biking Expedition",
     shortDescription:
       "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",

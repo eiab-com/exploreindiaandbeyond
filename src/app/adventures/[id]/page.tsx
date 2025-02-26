@@ -106,7 +106,8 @@ export default async function Page({
             <Image
               src={adventure.imageSrc}
               alt={adventure.altText}
-              className="object-cover"
+              fill
+              className="object-cover "
               priority
               sizes="(max-width: 768px) 100vw, 80vw"
             />

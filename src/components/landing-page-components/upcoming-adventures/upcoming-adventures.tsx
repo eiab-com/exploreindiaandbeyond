@@ -28,7 +28,7 @@ const UpcomingAdventures = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 mx-auto align-center place-items-center ">
         {upcomingAdventures.map((adventure) => (
           <AdventureCard
-            title="Biking Adventure"
+            title={adventure.title}
             key={adventure.id}
             id={adventure.id}
             coverImage={adventure.imageSrc}
