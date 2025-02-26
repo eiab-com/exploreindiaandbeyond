@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Youtube, PhoneIcon, Instagram } from "lucide-react";
 import { Button } from "../button";
@@ -8,8 +8,17 @@ import { useTransitionRouter } from "next-view-transitions";
 
 const Footer = () => {
   const router = useTransitionRouter();
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    const count = localStorage.getItem("visitorCount");
+    const newCount = count ? parseInt(count, 10) + 1 : 1;
+    localStorage.setItem("visitorCount", newCount.toString());
+    setVisitorCount(newCount);
+  }, []);
+
   return (
-    <footer className="mt-20 p-6 border border-1  col-span-12 rounded-t-2xl relative mx-auto w-full">
+    <footer className="mt-20 p-6 border border-1 col-span-12 rounded-t-2xl relative mx-auto w-full">
       <div className="w-full mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-accent-foreground/20">
           {/* Brand Section */}
@@ -24,11 +33,9 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation Links */}
-
           {/* Contact Section */}
           <div className="md:col-span-4 md:col-start-11 text-foreground">
-            <h3 className="text-lg font-semibold mb-4 ">Get in Touch</h3>
+            <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
             <div className="flex flex-col space-y-4">
               <Button
                 variant={"outline"}
@@ -70,6 +77,9 @@ const Footer = () => {
           <p className="text-sm text-accent-foreground/60 text-center">
             © {new Date().getFullYear()} Explore India and Beyond. All rights
             reserved.
+          </p>
+          <p className="text-sm text-accent-foreground/60 text-center">
+            Visitor Count: {visitorCount}
           </p>
           <div className="flex space-x-4 text-foreground">
             <ModeToggle />
