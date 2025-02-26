@@ -866,7 +866,7 @@ const bikingAdventuresData: BikingAdventure[] = [
     title: "Northeast India Motorcycle Expedition",
     googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
-      "https://images.pexels.com/photos/6058267/pexels-photo-6058267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/14137630/pexels-photo-14137630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Northeast India Biking Expedition",
     shortDescription:
       "An epic 10-day ride through the lush hills, waterfalls, and cultural wonders of Northeast India.",
@@ -874,8 +874,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       "The Northeast India Motorcycle Expedition takes you on a thrilling journey through some of the most scenic and culturally rich regions of the country. Over 10 days, you'll ride through the misty hills of Meghalaya, the dense forests of Kaziranga, and the spiritual heights of Tawang. \n\n\
       Expect a mix of winding mountain roads, serene valleys, and encounters with vibrant tribal cultures. Ride across breathtaking locations like the Umngot River in Dawki, the famous Kaziranga National Park, and the high-altitude Bumla Pass near the Indo-China border. \n\n\
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
-    startDate: dayjs("2025-10-10T06:00:00"),
-    endDate: dayjs("2025-10-20T17:00:00"),
+    startDate: dayjs("2026-10-10T06:00:00"),
+    endDate: dayjs("2026-10-20T17:00:00"),
     keyHighlights: [
       "Visit the ancient Kamakhya Temple in Guwahati",
       "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
@@ -1016,7 +1016,8 @@ const whyUsCardData = [
   },
   {
     title: "Premium Adventure Bikes",
-    description: "Royal Enfield Himalayan 450, KTM 390 Adventure",
+    description:
+      `Royal Enfield Himalayan 411/450 Royal Enfield Bullet 350/500`,
     imageSrc:
       "https://images.pexels.com/photos/8425811/pexels-photo-8425811.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Adventure Bikes Icon",
@@ -1060,7 +1061,6 @@ const testimonials = [
       "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets//e7f560a0-8f07-49fa-99f9-5ccccfaf1468.jpeg", // Update path
   },
 ];
-
 
 const stories = [
   {

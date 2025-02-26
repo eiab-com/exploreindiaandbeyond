@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     image:
       "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/team//WhatsApp%20Image%202025-02-24%20at%204.04.50%20AM.jpeg",
     email: "vinayakhulihalli07@gmail.com",
-    instagram: "https://www.instagram.com/_dronographer_/",
+    instagram: "https://www.instagram.com/_dronographer_",
     youtube: "https://www.youtube.com/@Dronographer",
 
     about:
@@ -119,7 +119,7 @@ const Page = () => {
                     className="gap-2 transition-all hover:bg-primary hover:text-primary-foreground"
                   >
                     <a
-                      href={member.instagram}
+                      href={member.youtube}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

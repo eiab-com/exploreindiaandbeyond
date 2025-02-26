@@ -59,8 +59,7 @@ const Navbar = () => {
           {[
             { name: "Home", href: "/" },
             { name: "Adventures", href: "/adventures" },
-            { name: "Adventure Stories", href: "/adventure-stories" },
-            { name: "Testimonials", href: "#testimonials" },
+            { name: "Stories", href: "/adventure-stories" },
             { name: "Team", href: "/team" },
             { name: "Contact", href: "/contact" },
           ].map((item, index) => (
@@ -68,6 +67,7 @@ const Navbar = () => {
               <Link
                 className="uppercase font-black text-lg text-foreground transition-colors duration-300 relative group"
                 href={item.href.toString()}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
