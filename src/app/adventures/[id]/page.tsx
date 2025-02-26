@@ -1,3 +1,4 @@
+"use server";
 import Image from "next/image";
 import {
   MapPin,
@@ -8,12 +9,12 @@ import {
   CalendarPlus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { bikingAdventuresData } from "@/data/content";
+import { bikingAdventuresData } from "@/mock-data/content";
 import Link from "next/link";
 import DetailCard from "@/components/adventures/detail-card";
 import InfoItem from "@/components/adventures/info-item";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import ContactForm from "@/components/adventures/contact-form/contact-form";
+import ContactForm from "@/components/adventures/adventure-enquiry-form";
 
 import {
   Accordion,
@@ -105,7 +106,6 @@ export default async function Page({
             <Image
               src={adventure.imageSrc}
               alt={adventure.altText}
-              fill
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, 80vw"
@@ -184,10 +184,7 @@ export default async function Page({
                   title="Start Date"
                   value={formattedStartDate}
                 />
-                <MemoizedInfoItem
-                  title="End Date"
-                  value={formattedEndDate}
-                />
+                <MemoizedInfoItem title="End Date" value={formattedEndDate} />
                 <MemoizedInfoItem
                   title="Accommodation"
                   value={adventure.accommodationType}

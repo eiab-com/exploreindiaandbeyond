@@ -1,4 +1,3 @@
-import { getAdventureEnquiries } from "@/lib/data";
 import {
   Table,
   TableBody,
@@ -10,22 +9,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { LoaderIcon, Mail, Phone } from "lucide-react"; 
+import { LoaderIcon, Mail, Phone } from "lucide-react";
 import React from "react";
-
-// Define Contact Type
-type Contact = {
-  id: number;
-  created_at: string;
-  name: string;
-  email: string;
-  phone: string;
-  destination: string;
-  message: string;
-};
+import { getAdventureEnquiries } from "@/lib/data";
 
 const Page = async () => {
-  const contactedList: Contact[] = await getAdventureEnquiries(); // Fetch data properly
+  const contactedList = await getAdventureEnquiries();
 
   return (
     <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10   overflow-hidden p-4">
@@ -57,7 +46,7 @@ const Page = async () => {
                 <TableCell>{contact.destination}</TableCell>
                 <TableCell>{contact.message}</TableCell>
                 <TableCell>
-                  {new Date(contact.created_at).toLocaleDateString()}
+                  {new Date(contact.createdAt).toLocaleDateString()}
                 </TableCell>
                 <TableCell className="flex gap-2">
                   <Button

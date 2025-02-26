@@ -2,7 +2,7 @@
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { bikingAdventuresData } from "@/data/content";
+import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 

@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import GridContainer from "@/components/ui/grid-container";
 import Navbar from "@/components/ui/navbar/navbar";
 import Footer from "@/components/ui/footer/footer";
-import { seo } from "@/data/seo";
+import { seo } from "@/mock-data/seo";
 import { ViewTransitions } from "next-view-transitions";
 
 const heading = Tomorrow({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
         <body className={`${heading.variable} ${body.variable} antialiased`}>
           <ThemeProvider
             attribute="class"

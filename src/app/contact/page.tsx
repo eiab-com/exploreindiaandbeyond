@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,34 +14,21 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import supabase from "@/lib/supabase";
 import { CheckCircle2 } from "lucide-react";
-
-// Validation Schema
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(8, "Phone number must be at least 8 digits"),
-  countryCode: z.string(),
-  location: z.string().min(2, "Please enter your location"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  contactMethod: z.enum(["Email", "Phone"], {
-    required_error: "Please select a preferred way of contact",
-  }),
-});
-
-// Country codes
-const countryCodes = [
-  { code: "+1", country: "US/Canada" },
-  { code: "+44", country: "UK" },
-  { code: "+91", country: "India" },
-  { code: "+61", country: "Australia" },
-  { code: "+49", country: "Germany" },
-];
+import {
+  contactFormSchema,
+  countryCodes,
+  type ContactFormValues,
+} from "@/schema";
+import { submitContactForm } from "@/actions/contacts";
 
 const ContactPage = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [formStatus, setFormStatus] = useState<{
+    error?: string;
+    success?: string;
+  }>({});
 
   const {
     register,
@@ -50,7 +36,7 @@ const ContactPage = () => {
     formState: { errors },
     reset,
     setValue,
-  } = useForm({
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
@@ -59,59 +45,51 @@ const ContactPage = () => {
       countryCode: "+44",
       location: "",
       message: "",
-      contactMethod: "",
+      contactMethod: undefined,
     },
   });
 
-  const onSubmit = async (data: {
-    name: string;
-    email: string;
-    message: string;
-    location: string;
-    phone: string;
-    countryCode: string;
-    contactMethod: string;
-  }) => {
-    try {
-      console.log("Form submitted:", data);
-      // Destructure to remove extra fields if needed
-      const { countryCode, phone, contactMethod, ...rest } = data;
-      // Build payload with phone combined
-      const payload = {
-        ...rest,
-        phone: `${countryCode} ${phone}`,
-        contactMethod,
-      };
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    setFormStatus({});
 
-      await supabase.from("contacts").insert(payload);
-      setIsSubmitted(true);
-      reset();
+    try {
+      const result = await submitContactForm(data);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        reset();
+      } else if (result.error) {
+        setFormStatus({ error: result.error });
+      }
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmissionError(
-        "There was an error submitting your form. Please try again."
-      );
+      setFormStatus({
+        error: "There was an error submitting your form. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="container mt-20 lg:h-screen h-fit mx-auto px-4 py-16 max-w-3xl col-span-12">
-      <div className="space-y-2 text-center  mb-4">
+      <div className="space-y-2 text-center mb-4">
         <h1 className="text-4xl font-bold tracking-tight font-heading text-primary">
           Contact Us
         </h1>
         <p className="text-muted-foreground text-lg">
-          {` We'll get back to you within 24 hours`}
+         {` We'll get back to you within 24 hours`}
         </p>
       </div>
 
       {isSubmitted ? (
-        <div className="border-2  rounded-xl p-8 text-center ">
+        <div className="border-2 rounded-xl p-8 text-center">
           <div className="flex flex-col items-center gap-4">
             <CheckCircle2 className="w-12 h-12 text-green-600" />
             <h2 className="text-2xl font-semibold">Message Sent!</h2>
             <p className="text-muted-foreground">
-              {` Thank you for contacting us. We'll respond shortly.`}
+             {` Thank you for contacting us. We'll respond shortly.`}
             </p>
             <Button
               onClick={() => setIsSubmitted(false)}
@@ -128,8 +106,8 @@ const ContactPage = () => {
           className="border rounded-xl p-8 bg-background shadow-sm"
         >
           <div className="space-y-8">
-            {submissionError && (
-              <p className="text-red-500 text-sm">{submissionError}</p>
+            {formStatus.error && (
+              <p className="text-red-500 text-sm">{formStatus.error}</p>
             )}
 
             <div className="grid gap-6 md:grid-cols-2">
@@ -192,6 +170,7 @@ const ContactPage = () => {
                 </Label>
                 <Select
                   onValueChange={(value) => setValue("countryCode", value)}
+                  defaultValue="+44"
                 >
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="+1" />
@@ -227,7 +206,9 @@ const ContactPage = () => {
                 Preferred Contact Method
               </Label>
               <Select
-                onValueChange={(value) => setValue("contactMethod", value)}
+                onValueChange={(value) =>
+                  setValue("contactMethod", value as "Email" | "Phone")
+                }
               >
                 <SelectTrigger className="h-12">
                   <SelectValue placeholder="Select contact method" />
@@ -264,8 +245,9 @@ const ContactPage = () => {
               type="submit"
               className="w-full h-12 text-base font-medium"
               size="lg"
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </div>
         </form>

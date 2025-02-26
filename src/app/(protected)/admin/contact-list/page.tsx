@@ -1,4 +1,3 @@
-import { getContactList } from "@/lib/data";
 import {
   Table,
   TableBody,
@@ -10,21 +9,10 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import React from "react";
-
-// Define the Contact type matching your data
-type Contact = {
-  id: number;
-  created_at: string;
-  name: string;
-  email: string;
-  message: string;
-  contactMethod: string;
-  location: string;
-  phone: string;
-};
+import { getContacts } from "@/lib/data";
 
 const Page = async () => {
-  const contacts: Contact[] = await getContactList();
+  const contacts = await getContacts();
 
   return (
     <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10   overflow-hidden p-4">
@@ -35,7 +23,7 @@ const Page = async () => {
         </p>
       </div>
 
-       <Table className=" mx-auto w-3/4">
+      <Table className=" mx-auto w-3/4">
         <TableHeader className="bg-card border">
           <TableRow>
             <TableHead>ID</TableHead>
@@ -61,7 +49,7 @@ const Page = async () => {
                 <TableCell>{contact.contactMethod}</TableCell>
                 <TableCell>{contact.message}</TableCell>
                 <TableCell>
-                  {new Date(contact.created_at).toLocaleDateString()}
+                  {new Date(contact.createdAt).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
                   <Button variant="outline" size="sm">

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { whyUsCardData as cardData } from "@/data/content";
+import { whyUsCardData as cardData } from "@/mock-data/content";
 
 const WhyUs = () => {
   return (

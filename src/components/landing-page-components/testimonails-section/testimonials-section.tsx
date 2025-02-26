@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { testimonials } from "@/data/content";
+import { testimonials } from "@/mock-data/content";
 import Image from "next/image";
 const TestimonialSection = () => {
   return (

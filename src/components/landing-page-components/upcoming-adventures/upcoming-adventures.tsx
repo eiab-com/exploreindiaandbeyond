@@ -2,7 +2,7 @@
 "use client";
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { Button } from "@/components/ui/button";
-import { bikingAdventuresData } from "@/data/content";
+import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
 import { useTransitionRouter } from "next-view-transitions";
 import React from "react";
