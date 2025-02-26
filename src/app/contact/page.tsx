@@ -95,8 +95,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-3xl col-span-12">
-      <div className="space-y-2 text-center mt-12 mb-4">
+    <div className="container mt-20 lg:h-screen h-fit mx-auto px-4 py-16 max-w-3xl col-span-12">
+      <div className="space-y-2 text-center  mb-4">
         <h1 className="text-4xl font-bold tracking-tight font-heading text-primary">
           Contact Us
         </h1>

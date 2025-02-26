@@ -1,3 +1,4 @@
+// UpcomingAdventures.tsx
 "use client";
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { Button } from "@/components/ui/button";
@@ -14,34 +15,41 @@ const UpcomingAdventures = () => {
   const router = useTransitionRouter();
 
   return (
-    <section className="col-span-12 mx-auto  flex flex-col justify-center  items-center gap-12 h-fit md:h-fit lg:h-screen xl:h-screen px-16 ">
-      <h2 className="text-6xl font-bold text-center  mb-6 uppercase font-heading">
-        Upcoming Adventures
-      </h2>
-      <div className="flex flex-wrap justify-center gap-8 h-fit">
+    <section className="py-16 md:py-24 lg:py-32 col-span-12 flex flex-col items-center justify-center font-heading">
+      <div className="mx-auto max-w-4xl text-center space-y-6 mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+          Upcoming Adventures
+        </h2>
+        <p className="text-lg text-muted-foreground">
+          Discover our carefully curated selection of upcoming biking adventures
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 mx-auto align-center">
         {upcomingAdventures.map((adventure) => (
           <AdventureCard
+            title="Biking Adventure"
             key={adventure.id}
-            title={adventure.title}
+            id={adventure.id}
             coverImage={adventure.imageSrc}
             altText={adventure.altText}
-            startDate={dayjs(adventure.startDate)}
-            id={adventure.id}
             shortDescription={adventure.shortDescription}
             altitude={adventure.highestAltitude}
             distance={adventure.totalDistance}
+            startDate={dayjs(adventure.startDate)}
           />
         ))}
-
-        {/* Explore More Card using shadcn Card */}
       </div>
-      <Button
-        className="w-fit bg-card/20 text-xl p-6"
-        variant="outline"
-        onClick={() => router.push("/adventures")}
-      >
-        View All Adventures
-      </Button>
+
+      <div className="mt-12 text-center">
+        <Button
+          size="lg"
+          className="text-base"
+          onClick={() => router.push("/adventures")}
+        >
+          View All Adventures
+        </Button>
+      </div>
     </section>
   );
 };

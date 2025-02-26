@@ -55,16 +55,18 @@ const Navbar = () => {
           isMenuOpen ? "block" : "hidden"
         } absolute top-24 left-0 w-full bg-background/95 backdrop-blur-md md:static md:flex md:gap-8 md:bg-transparent md:backdrop-blur-none md:items-center md:w-auto`}
       >
-        <ul className="flex flex-col md:flex-row font-body gap-6 p-6 md:p-0 md:ml-auto font-bold">
+        <ul className="flex flex-col md:flex-row gap-6 p-6 md:p-0 md:ml-auto font-bold">
           {[
             { name: "Home", href: "/" },
             { name: "Adventures", href: "/adventures" },
+            { name: "Adventure Stories", href: "/adventure-stories" },
+            { name: "Testimonials", href: "#testimonials" },
             { name: "Team", href: "/team" },
             { name: "Contact", href: "/contact" },
           ].map((item, index) => (
             <li key={index}>
               <Link
-                className="uppercase font-black text-md text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+                className="uppercase font-black text-lg text-foreground transition-colors duration-300 relative group"
                 href={item.href.toString()}
               >
                 {item.name}

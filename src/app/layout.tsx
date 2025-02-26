@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Merriweather_Sans, Squada_One } from "next/font/google";
+import { Merriweather_Sans, Tomorrow } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import GridContainer from "@/components/ui/grid-container";
@@ -8,14 +8,14 @@ import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/data/seo";
 import { ViewTransitions } from "next-view-transitions";
 
-const heading = Squada_One({
-  weight: "400", // Squada One supports only 400
+const heading = Tomorrow({
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-heading",
 });
 
 const body = Merriweather_Sans({
-  weight: ["300", "400", "500", "600", "700", "800"], // All available weights for Merriweather Sans
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-body",
 });
@@ -36,7 +36,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <GridContainer className=" relative justify-center items-center place-content-start gap-y-2">
+            <GridContainer className=" relative justify-center items-center place-content-start gap-y-2 font-heading">
               <Navbar />
               {children}
               <Footer />

@@ -86,7 +86,7 @@ export default async function Page({
 
   return (
     <Dialog>
-      <div className="col-span-12 mt-28 px-4 sm:px-6 lg:px-8 space-y-12 max-w-screen-2xl mx-auto w-full">
+      <div className="col-span-12 mt-20 px-4 sm:px-6 lg:px-8 space-y-12 max-w-screen-2xl mx-auto w-full ">
         {/* Breadcrumb */}
         <nav className="text-sm text-muted-foreground col-span-12">
           <Link href="/adventures" className="hover:text-primary">
@@ -193,7 +193,7 @@ export default async function Page({
                 />
               </div>
               <DialogTrigger asChild>
-                <Button className="w-full font-body font-bold" size="lg">
+                <Button className="w-full  font-bold" size="lg">
                   Enquire More
                 </Button>
               </DialogTrigger>

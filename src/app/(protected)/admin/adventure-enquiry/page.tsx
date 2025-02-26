@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { LoaderIcon, Mail, Phone } from "lucide-react"; // Importing icons
+import { LoaderIcon, Mail, Phone } from "lucide-react"; 
 import React from "react";
 
 // Define Contact Type

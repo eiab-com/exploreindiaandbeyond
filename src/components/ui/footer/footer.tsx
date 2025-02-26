@@ -9,7 +9,7 @@ import { useTransitionRouter } from "next-view-transitions";
 const Footer = () => {
   const router = useTransitionRouter();
   return (
-    <footer className="mt-20 p-6 border border-1  col-span-12 rounded-t-2xl relative mx-auto">
+    <footer className="mt-20 p-6 border border-1  col-span-12 rounded-t-2xl relative mx-auto w-full">
       <div className="w-full mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-accent-foreground/20">
           {/* Brand Section */}
@@ -48,9 +48,9 @@ const Footer = () => {
                     href: "https://www.youtube.com/@Exploreindiaandbeyond",
                   },
                   {
-                    icon:Instagram,
+                    icon: Instagram,
                     href: "https://www.instagram.com/exploreindiaandbeyond/",
-                  }
+                  },
                 ].map(({ icon: Icon, href }, index) => (
                   <Link
                     key={index}

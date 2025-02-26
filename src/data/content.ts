@@ -1010,21 +1010,23 @@ const whyUsCardData = [
     title: "Curated Riding Routes",
     description:
       "Routes perfected over a decade for the ultimate biking experience",
-    imageSrc: "/assets/routes-2.svg",
+    imageSrc:
+      "https://images.pexels.com/photos/4090350/pexels-photo-4090350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Curated Routes Icon",
   },
   {
     title: "Premium Adventure Bikes",
-    description:
-      "Royal Enfield Himalayan 450, KTM 390 Adventure & BMW GS models",
-    imageSrc: "/assets/bike.svg",
+    description: "Royal Enfield Himalayan 450, KTM 390 Adventure",
+    imageSrc:
+      "https://images.pexels.com/photos/8425811/pexels-photo-8425811.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Adventure Bikes Icon",
   },
   {
     title: "Rider Support",
     description:
       "24/7 support with expert mechanics, medical backup & riding guides",
-    imageSrc: "/assets/support.svg",
+    imageSrc:
+      "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1200",
     altText: "Rider Support Icon",
   },
 ];
@@ -1059,4 +1061,40 @@ const testimonials = [
   },
 ];
 
-export { whyUsCardData, bikingAdventuresData, testimonials };
+
+const stories = [
+  {
+    id: 6,
+    name: "Julian Withers",
+    location: "Northwich",
+    text: `
+    I am writing to Thank India and beyond for such a wonderful trip . 
+    It was my first time to India and not knowing to much about the location we were riding through 
+    it was an over and beyond my expectations. The staff at India  and beyond were great friendly and 
+    very helpful explaining the history of  each reign as we rode through it , and  solved any problems which arose .
+    The Royal Enfield 450 Himalayan bikes were great . 
+    The roads at times were challenging but great fun. 
+    If you like off road ( tracks)  and a good challenge this is for you .   
+    `,
+    rating: 5,
+    imageSrc:
+      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets//WhatsApp%20Image%202025-02-25%20at%208.58.57%20PM.jpeg", // Update path
+  },
+  {
+    id: 7,
+    name: "Brent Jackson",
+    location: "Oxford",
+    text: `I am now back from my tour with explore India and beyond amd I have to say it was my best motorcycle tour yet. I have done the Ladak region before and was excited to be going with this new company.
+The tour leader and guide and his assistant we excellent and very caring and helpful.
+We had no breakdowns and not even a flat tyre ! The tour went smoothly and the places we stayed I know without the guides I would never have found.
+Having dinner with an Indian family in their house with home cooked food on a wood stove was just one of the many authentic highlights. 
+The pace was good and the road were challenging but not too much. 
+Lunches on the road were also fabulous and full of new experiences. 
+When we hit the bigger cities were treated to tours and insight again something that I ha e not experienced before. 
+I can highly reccomend this company and I will be travelling with them again`,
+    rating: 5,
+    imageSrc:
+      "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets//e7f560a0-8f07-49fa-99f9-5ccccfaf1468.jpeg", // Update path
+  },
+];
+export { whyUsCardData, bikingAdventuresData, testimonials, stories };

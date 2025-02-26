@@ -15,7 +15,7 @@ const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="col-span-12 mx-10 h-fit p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative font-body"
+      className="col-span-12 mx-40 h-fit p-4 sm:p-8 md:p-12 flex flex-col justify-center items-center gap-y-4 sm:gap-y-8 relative"
     >
       <h2 className="text-6xl font-bold text-center mb-6 uppercase font-heading">
         What Riders Say

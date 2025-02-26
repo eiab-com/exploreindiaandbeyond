@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button } from "../../ui/button";
-import { ChevronDown } from "lucide-react";
 import { useTransitionRouter } from "next-view-transitions";
 import VideoPlayer from "@/components/video-player";
 
@@ -55,9 +54,6 @@ const HeroSection = () => {
     "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Nubra%20.mp4",
     "https://jsccmjobjntyhiiwwdmv.supabase.co/storage/v1/object/public/photogallery-assets/leh-videos/Pangong.mp4",
   ];
-  // Randomly select a video address
-  const randomVideoAddress =
-    heroVideoAddresses[Math.floor(Math.random() * heroVideoAddresses.length)];
 
   return (
     <section
@@ -77,33 +73,50 @@ const HeroSection = () => {
       {/* Hero Image */}
       <VideoPlayer
         className="absolute top-0 left-0 w-full h-full z-10"
-        src={randomVideoAddress}
+        sources={heroVideoAddresses}
         onLoad={handleImageLoad}
       />
 
       {/* Overlay and Content */}
       <div className="overlay bg-gradient-to-t from-black/80 via-black/50 to-transparent h-full w-full gap-6 relative z-30 flex items-center justify-center px-4 md:px-8 lg:px-12">
-        <div className="space-y-8 lg:space-y-16 w-full relative flex flex-col items-center justify-center">
-          {/* Headline */}
-          <h1 className="font-heading text-4xl text-center sm:text-5xl md:text-6xl font-bold lg:text-[120px] text-white w-full md:w-4/5 lg:w-3/4 leading-[1.15] tracking-tight uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+        <div className="absolute bottom-0 left-0  space-y-6 text-left z-30 p-4 sm:p-6 md:p-8 lg:p-16  md:bg-transparent w-full ">
+          {/* Tagline - Small text above headline */}
+
+          {/* Headline - Larger and more prominent */}
+          <h1 className="font-heading  text-4xl md:text-5xl lg:text-6xl font-bold text-white  w-full lg:w-2/5 ">
             {`Motorcycle Your Way Through India's Top Scenic Roads`}
           </h1>
 
-          {/* CTA Button */}
-          <Button
-            onClick={() => router.push("/adventures")}
-            className="w-fit inline-flex  bg-foreground px-6 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8 text-base sm:text-lg lg:text-xl font-bold transition-all z-30 duration-300 items-center gap-2 sm:gap-3 shadow-lg sm:shadow-xl hover:shadow-2xl group"
-          >
-            <span className="uppercase text-sm sm:text-base lg:text-lg">
-              Reserve Your Adventure
-            </span>
-          </Button>
+          {/* Subheading - More concise and visually distinct */}
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 w-full md:max-w-lg backdrop-blur-sm bg-black/20 p-3 sm:p-4 border-l-2 sm:border-l-4 border-primary">
+            {` Discover India's soul on two wheels. Navigate challenging terrains,
+            experience authentic culture, and create lasting memories with our
+            expert-guided tours.`}
+          </p>
+
+          {/* Action buttons - Primary and secondary options */}
+          <div className="flex flex-col lg:flex-row xs:flex-row gap-3 sm:gap-4 pt-2">
+            <Button
+              onClick={() => router.push("/adventures")}
+              className="w-full xs:w-full lg:w-fit bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-bold transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <span className="uppercase">Reserve Your Adventure</span>
+            </Button>
+
+            <Button
+              variant="outline"
+              onClick={() => router.push("/adventure-stories")}
+              className="w-full xs:w-full lg:w-fit border-white/80 text-white hover:bg-white/10 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium transition-all duration-300"
+            >
+              <span>Read Rider Stories</span>
+            </Button>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 z-30 animate-bounce">
+        {/* <div className="absolute bottom-8 z-30 animate-bounce">
           <ChevronDown className="text-white w-12 h-12 " />
-        </div>
+        </div> */}
 
         {/* Separators */}
         <div className="seperators hidden md:flex justify-evenly items-center w-full h-full absolute z-10 opacity-20">

@@ -60,7 +60,7 @@ const Milestones = () => {
   return (
     <section
       ref={sectionRef}
-      className="col-span-12  font-body text-white text-center flex flex-col gap-10 h-screen justify-center items-center"
+      className="col-span-12  text-white text-center flex flex-col gap-10 h-screen justify-center items-center"
     >
       <p className="text-7xl leading-relaxed w-3/4 font-black">
         We have travelled{" "}
