@@ -11,17 +11,30 @@ import {
 import { Button } from "@/components/ui/button";
 import { LoaderIcon, Mail, Phone } from "lucide-react";
 import React from "react";
-import { getAdventureEnquiries } from "@/lib/data";
 
 const Page = async () => {
-  const contactedList = await getAdventureEnquiries();
+  // Fetch data properly
+  let contactedList = [];
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/enquiries`,
+      { cache: "no-store" } // Ensure fresh data on each request
+    );
+
+    const jsonData = await response.json();
+    if (jsonData.success) {
+      contactedList = jsonData.data;
+    }
+  } catch (error) {
+    console.error("Error fetching enquiries:", error);
+  }
 
   return (
-    <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10   overflow-hidden p-4">
+    <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10 overflow-hidden p-4">
       <h1 className="text-3xl font-bold text-center w-full">
         Our Enquiry List
       </h1>
-      <Table className=" mx-auto w-3/4">
+      <Table className="mx-auto w-3/4">
         <TableCaption>List of users who contacted you.</TableCaption>
         <TableHeader className="bg-card border">
           <TableRow>
@@ -37,7 +50,9 @@ const Page = async () => {
         </TableHeader>
         <TableBody>
           {contactedList.length > 0 ? (
-            contactedList.map((contact) => (
+         
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            contactedList.map((contact: any) => (
               <TableRow key={contact.id}>
                 <TableCell>{contact.id}</TableCell>
                 <TableCell className="font-medium">{contact.name}</TableCell>
