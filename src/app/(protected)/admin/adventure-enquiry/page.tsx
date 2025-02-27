@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import {
   Table,
   TableBody,
@@ -17,7 +18,7 @@ const Page = async () => {
   let contactedList = [];
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/enquiries`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/enquiries`
     );
 
     const jsonData = await response.json();
@@ -49,7 +50,6 @@ const Page = async () => {
         </TableHeader>
         <TableBody>
           {contactedList.length > 0 ? (
-         
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             contactedList.map((contact: any) => (
               <TableRow key={contact.id}>
