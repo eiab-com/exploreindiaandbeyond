@@ -18,7 +18,6 @@ const Page = async () => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/enquiries`,
-      { cache: "no-store" } // Ensure fresh data on each request
     );
 
     const jsonData = await response.json();
