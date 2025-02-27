@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, LoaderCircle } from "lucide-react";
+import { toast } from "sonner";
 import {
   contactFormSchema,
   countryCodes,
@@ -25,10 +26,6 @@ import { submitContactForm } from "@/actions/contacts";
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formStatus, setFormStatus] = useState<{
-    error?: string;
-    success?: string;
-  }>({});
 
   const {
     register,
@@ -51,24 +48,37 @@ const ContactPage = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    setFormStatus({});
 
     try {
       const result = await submitContactForm(data);
       if (result.success) {
         setIsSubmitted(true);
         reset();
+        toast.success("Message sent successfully!", {
+          description: "We'll get back to you within 24 hours.",
+        });
       } else if (result.error) {
-        setFormStatus({ error: result.error });
+        // Show error toast
+        toast.error("Failed to send message", {
+          description: result.error,
+        });
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setFormStatus({
-        error: "There was an error submitting your form. Please try again.",
+      toast.error("Something went wrong", {
+        description:
+          "There was an error submitting your form. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleSendAnother = () => {
+    setIsSubmitted(false);
+    toast.info("Ready for a new message", {
+      description: "Feel free to send us another message.",
+    });
   };
 
   return (
@@ -78,20 +88,20 @@ const ContactPage = () => {
           Contact Us
         </h1>
         <p className="text-muted-foreground text-lg">
-         {` We'll get back to you within 24 hours`}
+          {`We'll get back to you within 24 hours`}
         </p>
       </div>
 
       {isSubmitted ? (
-        <div className="border-2 rounded-xl p-8 text-center">
+        <div className="border-2 rounded-xl p-8 text-center bg-background shadow-sm">
           <div className="flex flex-col items-center gap-4">
             <CheckCircle2 className="w-12 h-12 text-green-600" />
             <h2 className="text-2xl font-semibold">Message Sent!</h2>
             <p className="text-muted-foreground">
-             {` Thank you for contacting us. We'll respond shortly.`}
+              {`Thank you for contacting us. We'll respond shortly.`}
             </p>
             <Button
-              onClick={() => setIsSubmitted(false)}
+              onClick={handleSendAnother}
               className="mt-4"
               variant="outline"
             >
@@ -105,10 +115,6 @@ const ContactPage = () => {
           className="border rounded-xl p-8 bg-background shadow-sm"
         >
           <div className="space-y-8">
-            {formStatus.error && (
-              <p className="text-red-500 text-sm">{formStatus.error}</p>
-            )}
-
             <div className="grid gap-6 md:grid-cols-2">
               {/* Name */}
               <div className="space-y-2">
@@ -208,6 +214,7 @@ const ContactPage = () => {
                 onValueChange={(value) =>
                   setValue("contactMethod", value as "Email" | "Phone")
                 }
+                defaultValue="Email"
               >
                 <SelectTrigger className="h-12">
                   <SelectValue placeholder="Select contact method" />
@@ -246,7 +253,14 @@ const ContactPage = () => {
               size="lg"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <LoaderCircle className="h-4 w-4 animate-spin" />
+                  Sending...
+                </span>
+              ) : (
+                "Send Message"
+              )}
             </Button>
           </div>
         </form>
