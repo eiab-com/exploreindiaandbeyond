@@ -1,7 +1,9 @@
-import { db } from "@/lib/prisma";
-import { ContactFormValues, contactFormSchema } from "@/schema";
 
-// In your submitContactForm function
+"use server";
+
+import { db } from "@/lib/prisma";
+import { contactFormSchema, type ContactFormValues } from "@/schema";
+
 export async function submitContactForm(data: ContactFormValues) {
   // Validate data with Zod
   const parsedData = contactFormSchema.safeParse(data);
@@ -14,16 +16,6 @@ export async function submitContactForm(data: ContactFormValues) {
     parsedData.data;
 
   try {
-    // Check if a contact with this email already exists
-    const existingContact = await db.contact.findFirst({
-      where: { email },
-    });
-
-    if (existingContact) {
-      return { error: "A contact with this email already exists." };
-    }
-
-    // Create new contact if no existing one found
     await db.contact.create({
       data: {
         name,
@@ -39,6 +31,6 @@ export async function submitContactForm(data: ContactFormValues) {
     return { success: "Message sent successfully!" };
   } catch (error) {
     console.error("Submission error:", error);
-    return { error: "Something went wrong. Please try again later." };
+    return { error: "Something went wrong. Please try again with another email." };
   }
 }
