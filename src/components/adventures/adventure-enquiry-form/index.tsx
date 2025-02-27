@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { toast } from "sonner";
 import {
   DialogContent,
   DialogDescription,
@@ -31,7 +32,7 @@ import {
 } from "@/components/ui/select";
 import { AdventureEnquiryFormSchema } from "@/schema";
 import { submitAdventureEnquiryForm } from "@/actions/enquiries";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 
 interface AdventureEnquiryProps {
   adventureTitle: string;
@@ -52,7 +53,7 @@ const AdventureEnquiry: React.FC<AdventureEnquiryProps> = ({
 }) => {
   const successRef = useRef<HTMLDivElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(AdventureEnquiryFormSchema),
@@ -85,16 +86,23 @@ const AdventureEnquiry: React.FC<AdventureEnquiryProps> = ({
     countryCode: string;
     phone: string;
   }) => {
-    setErrorMessage("");
+    setIsLoading(true);
 
-    const response = await submitAdventureEnquiryForm(data);
+    try {
+      const response = await submitAdventureEnquiryForm(data);
 
-    if (response?.error) {
-      setErrorMessage(response.error);
-      return;
+      if (response?.error) {
+        toast.error(response.error);
+        return;
+      }
+
+      toast.success("Your inquiry has been submitted successfully!");
+      setIsSubmitted(true);
+    } catch (error) {
+      toast.error(`Something went wrong. Please try again later.${error}`);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsSubmitted(true);
   };
 
   return (
@@ -201,20 +209,24 @@ const AdventureEnquiry: React.FC<AdventureEnquiryProps> = ({
               )}
             />
 
-            {errorMessage && (
-              <p className="text-red-500 text-sm">{errorMessage}</p>
-            )}
-
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary-dark"
+              className="w-full bg-primary hover:bg-primary-dark flex items-center justify-center"
+              disabled={isLoading}
             >
-              Send Inquiry
+              {isLoading ? (
+                <>
+                  <Loader2 className="animate-spin w-5 h-5 mr-2" />
+                  Sending...
+                </>
+              ) : (
+                "Send Inquiry"
+              )}
             </Button>
           </form>
         </Form>
       ) : (
-        <div className="border-2 rounded-xl p-8 text-center">
+        <div ref={successRef} className="border-2 rounded-xl p-8 text-center">
           <div className="flex flex-col items-center gap-4">
             <CheckCircle2 className="w-12 h-12 text-green-600" />
             <h2 className="text-2xl font-semibold">Message Sent!</h2>

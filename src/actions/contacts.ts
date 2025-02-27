@@ -1,9 +1,10 @@
+// app/actions/contacts.ts
 "use server";
 
 import { db } from "@/lib/prisma";
-import { contactFormSchema } from "@/schema/";
+import { contactFormSchema, type ContactFormValues } from "@/schema";
 
-export async function submitContactForm(data: unknown) {
+export async function submitContactForm(data: ContactFormValues) {
   // Validate data with Zod
   const parsedData = contactFormSchema.safeParse(data);
 

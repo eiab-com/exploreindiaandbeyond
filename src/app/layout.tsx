@@ -7,6 +7,7 @@ import Navbar from "@/components/ui/navbar/navbar";
 import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/mock-data/seo";
 import { ViewTransitions } from "next-view-transitions";
+import { Toaster } from "@/components/ui/sonner";
 
 const heading = Tomorrow({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -40,6 +41,7 @@ export default function RootLayout({
               <Navbar />
               {children}
               <Footer />
+              <Toaster />
             </GridContainer>
           </ThemeProvider>
         </body>

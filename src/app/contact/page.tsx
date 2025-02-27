@@ -45,7 +45,7 @@ const ContactPage = () => {
       countryCode: "+44",
       location: "",
       message: "",
-      contactMethod: undefined,
+      contactMethod: "Email",
     },
   });
 
@@ -55,7 +55,6 @@ const ContactPage = () => {
 
     try {
       const result = await submitContactForm(data);
-
       if (result.success) {
         setIsSubmitted(true);
         reset();

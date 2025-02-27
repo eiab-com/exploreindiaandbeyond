@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import {
   Table,
   TableBody,
@@ -9,11 +10,20 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { getContacts } from "@/lib/data";
 
 const Page = async () => {
-  const contacts = await getContacts();
-
+  let contactedList = [];
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`
+    );
+    const jsonData = await response.json();
+    if (jsonData.success) {
+      contactedList = jsonData.data;
+    }
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+  }
   return (
     <section className="col-span-12 mt-28 rounded-2xl h-screen relative flex flex-col gap-10   overflow-hidden p-4">
       <div className="mb-8 text-center">
@@ -38,8 +48,9 @@ const Page = async () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {contacts.length > 0 ? (
-            contacts.map((contact) => (
+          {contactedList.length > 0 ? (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            contactedList.map((contact: any) => (
               <TableRow key={contact.id}>
                 <TableCell>{contact.id}</TableCell>
                 <TableCell>{contact.name}</TableCell>
@@ -68,7 +79,9 @@ const Page = async () => {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={9}>Total Contacts: {contacts.length}</TableCell>
+            <TableCell colSpan={9}>
+              Total Contacts: {contactedList.length}
+            </TableCell>
           </TableRow>
         </TableFooter>
       </Table>

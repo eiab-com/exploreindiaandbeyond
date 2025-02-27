@@ -4,7 +4,6 @@ import { db } from "@/lib/prisma";
 import { AdventureEnquiryFormSchema } from "@/schema";
 
 export async function submitAdventureEnquiryForm(data: unknown) {
-  // Validate data with Zod
   const parsedData = AdventureEnquiryFormSchema.safeParse(data);
 
   if (!parsedData.success) {
