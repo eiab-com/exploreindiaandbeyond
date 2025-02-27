@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/prisma";
 
 // Set dynamic rendering to ensure fresh data on each request
-export const dynamic = "force-dynamic";
 
 /**
  * GET handler to fetch all adventure enquiries
  */
 export async function GET() {
   try {
+    await db.$connect();
     const data = await db.adventureEnquiry.findMany({
       orderBy: {
         createdAt: "desc",
