@@ -25,57 +25,6 @@ import {
 import React from "react";
 import dayjs from "dayjs";
 import PhotoViewer from "@/components/adventures/photo-gallery";
-import { Metadata } from "next";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const adventure = bikingAdventuresData.find(
-    (a) => a.id.trim() === params.id.trim()
-  );
-
-  if (!adventure) {
-    return {
-      title: "Adventure Not Found | Your Site Name",
-      description: "The requested adventure journey doesn't exist.",
-      openGraph: {
-        title: "Adventure Not Found",
-        description: "The requested adventure journey doesn't exist.",
-        url: `/adventures/${params.id}`,
-        siteName: "Your Site Name",
-        type: "website",
-      },
-    };
-  }
-
-  return {
-    title: `${adventure.title} | Your Site Name`,
-    description: adventure.shortDescription,
-    openGraph: {
-      title: adventure.title,
-      description: adventure.shortDescription,
-      url: `/adventures/${adventure.id}`,
-      siteName: "Your Site Name",
-      images: [
-        {
-          url: adventure.imageSrc,
-          width: 1200,
-          height: 630,
-          alt: adventure.altText,
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: adventure.title,
-      description: adventure.shortDescription,
-      images: [adventure.imageSrc],
-    },
-  };
-}
 
 export default async function Page({
   params,
