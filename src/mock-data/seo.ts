@@ -7,7 +7,7 @@ export const seo: Metadata = {
     template: "%s | Explore India and Beyond",
   },
   description:
-    "Experience India's ultimate motorcycle adventures with expert guides Samarth & Vinayak. Royal Enfield & KTM 390 tours through Himalayas, Rajasthan deserts & hidden cultural gems.",
+    "Experience India's ultimate motorcycle adventures with expert guides Samarth & Vinayak. Royal Enfield tours through Himalayas, Rajasthan deserts & hidden cultural gems.",
   keywords: [
     "India motorcycle tours",
     "Himalayan bike adventures",

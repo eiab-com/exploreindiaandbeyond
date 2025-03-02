@@ -310,7 +310,7 @@ const bikingAdventuresData: BikingAdventure[] = [
   },
   {
     id: "3",
-    title: "Northeast India Motorcycle Expedition",
+    title: "Northeast India Motorcycle Ride",
     googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
       "https://images.pexels.com/photos/6058267/pexels-photo-6058267.jpeg",
@@ -855,7 +855,7 @@ const bikingAdventuresData: BikingAdventure[] = [
   },
   {
     id: "7",
-    title: "Northeast India Motorcycle Expedition",
+    title: "Northeast India Motorcycle Ride",
     googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
       "https://images.pexels.com/photos/14137630/pexels-photo-14137630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 interface PhotoViewerProps {
   images: string[];
@@ -76,6 +77,9 @@ export default function PhotoViewer({ images, title }: PhotoViewerProps) {
                 />
               </div>
             </DialogTrigger>
+            <DialogTitle className="hidden">
+              <h3 className="text-lg font-semibold">{title}</h3>
+            </DialogTitle>
             <DialogContent className="sm:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl p-0 bg-transparent border-none">
               {/* Carousel Navigation */}
               <div className="relative aspect-video w-full h-full">
