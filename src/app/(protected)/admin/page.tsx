@@ -6,7 +6,7 @@ import { ListIcon, MailIcon } from "lucide-react"; // Import icons
 
 const Page = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 col-span-12">
+    <section className="min-h-screen flex flex-col items-center justify-center p-4 col-span-12">
       <h1 className="text-4xl font-bold text-center mb-8">Admin Dashboard</h1>
 
       <div className="flex gap-16 ">
@@ -35,7 +35,7 @@ const Page = () => {
           Sign Out
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

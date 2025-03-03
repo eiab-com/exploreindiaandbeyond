@@ -7,6 +7,7 @@ import {
   Calendar,
   Users,
   CalendarPlus,
+  PoundSterling,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bikingAdventuresData } from "@/mock-data/content";
@@ -25,6 +26,7 @@ import {
 import React from "react";
 import dayjs from "dayjs";
 import PhotoViewer from "@/components/adventures/photo-gallery";
+import { Separator } from "@radix-ui/react-select";
 
 export default async function Page({
   params,
@@ -88,9 +90,9 @@ export default async function Page({
 
   return (
     <Dialog>
-      <div className="col-span-12 mt-20 px-4 sm:px-6 lg:px-8 space-y-12 max-w-screen-2xl mx-auto w-full ">
+      <section className="col-span-12 mt-20 px-4 sm:px-6 lg:px-8 space-y-12 max-w-screen-2xl mx-auto w-full ">
         {/* Breadcrumb */}
-        <nav className="text-sm text-muted-foreground col-span-12">
+        <nav className="text-sm text-muted-foreground col-span-12 mt-20">
           <Link href="/adventures" className="hover:text-primary">
             Adventures
           </Link>{" "}
@@ -102,14 +104,13 @@ export default async function Page({
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             {adventure.title}
           </h1>
-          <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+          <div className="relative aspect-video w-full h-[30vw] rounded-lg overflow-hidden shadow-lg">
             <Image
               src={adventure.imageSrc}
               alt={adventure.altText}
               fill
-              className="object-cover "
+              className="object-center h-[30vw]"
               priority
-              sizes="(max-width: 768px) 100vw, 80vw"
             />
           </div>
         </div>
@@ -142,7 +143,22 @@ export default async function Page({
               title: "Starting Point",
               value: adventure.startingPoint,
             },
-            { icon: Users, title: "Group Size", value: "6-12 Riders" },
+            { icon: Users, title: "Group Size", value: adventure.groupSize },
+            {
+              icon: PoundSterling,
+              title: "Price",
+              value: adventure?.ridePrice,
+            },
+            {
+              icon: PoundSterling,
+              title: "Pillion Price",
+              value: adventure?.pillionPrice,
+            },
+            {
+              icon: PoundSterling,
+              title: "Deposit",
+              value: adventure?.deposit,
+            },
           ].map((item, index) => (
             <MemoizedDetailCard
               key={index}
@@ -203,6 +219,29 @@ export default async function Page({
               <MemoizedGoogleCalendarButton
                 link={adventure.googleCalendarLink}
               />
+              <Separator className="my-4 border-2" />
+              <div className="info-pack space-y-6">
+                <h3 className="text-xl font-semibold text-left">
+                  ⚠️ Info Pack for {adventure.title}
+                </h3>
+                <div className="font-normal text-md  text-left ">
+                  This Information Pack contains everything you need to know
+                  about this adventure, including emergency contact,
+                  driving/riding conditions, QnA and Visa Application link
+                </div>
+                <a
+                  href=""
+                  download
+                  className="group flex flex-col items-center justify-center w-full aspect-video border-2 border-dashed border-primary/40 rounded-xl bg-background/50 hover:bg-primary/5 transition-colors duration-200 cursor-pointer"
+                >
+                  <div className="flex flex-col items-center space-y-3">
+                    <span className="text-7xl">📒</span>
+                    <span className="text-sm text-muted-foreground">
+                      Click to download (2.4MB)
+                    </span>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -211,7 +250,7 @@ export default async function Page({
         <div className="col-span-12">
           <ContactForm adventureTitle={adventure.title} />
         </div>
-      </div>
+      </section>
     </Dialog>
   );
 }

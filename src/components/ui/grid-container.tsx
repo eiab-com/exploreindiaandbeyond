@@ -13,7 +13,7 @@ const GridContainer = ({
 }: GridContainerProps) => {
   return (
     <main
-      className={`grid min-h-screen grid-cols-12 gap-4 gap-y-10  ${className}`}
+      className={`grid min-h-screen grid-cols-12 gap-4 gap-y-10  mx-auto ${className}`}
       {...rest}
     >
       {children}

@@ -4,7 +4,6 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +11,7 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { Dayjs } from "dayjs";
 import { Badge } from "@/components/ui/badge";
+import { MapPin, ArrowRight, Calendar, Mountain, Route } from "lucide-react";
 
 interface AdventureCardProps {
   title: string;
@@ -22,6 +22,8 @@ interface AdventureCardProps {
   shortDescription: string;
   altitude: string;
   distance: string;
+  location?: string;
+  difficulty?: "Easy" | "Moderate" | "Hard" | "Expert";
 }
 
 const AdventureCard = ({
@@ -33,66 +35,95 @@ const AdventureCard = ({
   shortDescription,
   altitude,
   distance,
+  location,
+  difficulty = "Moderate",
 }: AdventureCardProps) => {
   const constructedLink = `/adventures/${id}`;
 
+  // Map difficulty to theme colors
+  const difficultyColor = {
+    Easy: "bg-secondary/30 text-secondary",
+    Moderate: "bg-primary/30 text-primary",
+    Hard: "bg-accent/30 text-accent",
+    Expert: "bg-destructive/30 text-destructive",
+  }[difficulty];
+
   return (
-    <Card className="bg-card group w-[90%] xs:w-[80%]  md:max-w-md rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-primary/10 flex flex-col h-fit">
-      <div className="relative">
-        {/* Date Overlay */}
-        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 bg-black/70 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium shadow-md backdrop-blur-sm">
+    <Card className="group w-full max-w-md rounded-xl overflow-hidden border border-border rugged-shadow relative bg-black">
+      {/* Background Image */}
+      <div className="relative w-full h-80">
+        <Image
+          src={coverImage}
+          alt={altText}
+          fill
+          className="object-cover group-hover:scale-105 transition-all duration-500 ease-in-out"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
+        />
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
+
+        {/* Difficulty Badge */}
+        <div
+          className={`absolute top-4 right-4 z-10 ${difficultyColor} px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wide backdrop-blur-lg shadow-lg`}
+        >
+          {difficulty}
+        </div>
+
+        {/* Date Badge */}
+        <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-lg text-white px-3 py-1 rounded-md text-xs font-medium flex items-center gap-1 shadow-md">
+          <Calendar className="w-4 h-4 text-primary" />
           {startDate.format("MMM YYYY")}
         </div>
 
-        <CardHeader className="p-0 overflow-hidden">
-          <div className="relative h-40 xs:h-44 sm:h-48 md:h-52 w-full">
-            <Image
-              src={coverImage}
-              alt={altText}
-              fill
-              className="object-cover rounded-t-md group-hover:scale-105 transition-all duration-300 ease-in-out"
-              sizes="full"
-            />
+        {/* Location Badge */}
+        {location && (
+          <div className="absolute bottom-4 left-4 flex items-center text-white text-sm font-medium gap-1 bg-black/60 backdrop-blur-lg rounded-md px-3 py-1 shadow-md">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span>{location}</span>
           </div>
-        </CardHeader>
+        )}
       </div>
 
-      <div className="p-3 sm:p-4 md:p-5 space-y-2 sm:space-y-3 flex-grow">
-        <CardTitle className="text-base sm:text-lg md:text-xl font-bold leading-tight">
+      {/* Content Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+        <CardTitle className="text-xl font-heading font-bold text-white">
           {title}
         </CardTitle>
 
-        <CardDescription className="text-sm sm:text-base line-clamp-2 text-muted-foreground">
+        <CardDescription className="text-sm text-gray-300 line-clamp-2">
           {shortDescription}
         </CardDescription>
 
-        <CardContent className="px-0 py-1 sm:py-2">
-          <div className="flex gap-1 sm:gap-2 flex-wrap">
+        <CardContent className="px-0 py-3">
+          <div className="flex gap-2 flex-wrap">
             <Badge
-              variant="secondary"
-              className="flex items-center gap-1 text-xs sm:text-sm"
+              variant="outline"
+              className="flex items-center gap-1.5 text-xs py-1 border-border bg-black/50 text-gray-300"
             >
-              <span className="text-xs">🏔️</span> {altitude}
+              <Mountain className="w-3 h-3 text-secondary" /> {altitude}
             </Badge>
             <Badge
-              variant="secondary"
-              className="flex items-center gap-1 text-xs sm:text-sm"
+              variant="outline"
+              className="flex items-center gap-1.5 text-xs py-1 border-border bg-black/50 text-gray-300"
             >
-              <span className="text-xs">🚏</span> {distance}
+              <Route className="w-3 h-3 text-secondary" /> {distance}
             </Badge>
           </div>
         </CardContent>
-      </div>
 
-      <CardFooter className="lg:p-2 sm:p-4 md:p-5 pt-0 mt-auto">
-        <Button
-          className="w-full text-sm sm:text-sm md:text-base lg:text-lg font-medium hover:bg-primary/90 transition-colors rouunded-lg"
-          asChild
-          size="sm"
-        >
-          <Link href={constructedLink}>Explore Adventure</Link>
-        </Button>
-      </CardFooter>
+        <CardFooter className="p-0 ">
+          <Button
+            className="w-full p-0 font-medium bg-primary hover:bg-primary/90 text-primary-foreground  transition-all duration-300 rounded-md flex items-center justify-center gap-2"
+            asChild
+          >
+            <Link className="p-0 font-bold" href={constructedLink}>
+              Explore Adventure
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </CardFooter>
+      </div>
     </Card>
   );
 };

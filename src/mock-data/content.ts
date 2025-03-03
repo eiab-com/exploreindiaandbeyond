@@ -23,6 +23,10 @@ interface BikingAdventure {
   difficultyLevel: string;
   averageDailyRide: string;
   region: string;
+  ridePrice: string;
+  pillionPrice: string;
+  deposit: string;
+  groupSize: string;
   itinerary: {
     day: number;
     title: string;
@@ -54,6 +58,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Experience desert dunes and double-humped camels in Nubra",
       "Backup vehicle, mechanic support, and expert tour captain",
     ],
+    groupSize: "6-12 riders",
+    ridePrice: "£ 3355",
+    pillionPrice: "£ 2955",
+    deposit: "£ 955",
     rideDuration: "11 days riding",
     highestAltitude: "19,024 ft (Umling La Pass)",
     suitableFor: "Intermediate to advanced riders",
@@ -188,6 +196,7 @@ const bikingAdventuresData: BikingAdventure[] = [
       Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
     startDate: dayjs("2025-08-22T06:00:00"),
     endDate: dayjs("2025-09-01T17:00:00"),
+    groupSize: "6-12 riders",
     keyHighlights: [
       "Ride through the majestic Kinnaur & Spiti Valleys",
       "Visit Chitkul, India's last village near the Indo-Tibetan border",
@@ -197,6 +206,9 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Conquer the Kunzum Pass (4,590m)",
       "Backup vehicle, professional trip captain & mechanic support",
     ],
+    ridePrice: "£ 2899",
+    pillionPrice: "£ 2599",
+    deposit: "£ 899",
     rideDuration: "9 days riding",
     highestAltitude: "14000 ft (Kunzum Pass)",
     suitableFor: "Intermediate to experienced riders",
@@ -323,6 +335,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
     startDate: dayjs("2025-10-10T06:00:00"),
     endDate: dayjs("2025-10-20T17:00:00"),
+    ridePrice: "£ 2995",
+    pillionPrice: "£ 2595",
+    deposit: "£ 995",
+    groupSize: "6-10 riders",
     keyHighlights: [
       "Visit the ancient Kamakhya Temple in Guwahati",
       "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
@@ -341,7 +357,11 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Guwahati",
     accommodationType: "Hotels, homestays & guesthouses",
     pickupPoint: "Guwahati Airport",
-    photoGallery: [],
+    photoGallery: [
+      "https://images.pexels.com/photos/30277768/pexels-photo-30277768/free-photo-of-scenic-waterfall-in-lush-tropical-rainforest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/19469039/pexels-photo-19469039/free-photo-of-krang-shuri-waterfalls-krang-suri-rd-umlarem-meghalaya-india-most-beautiful-falls-in-meghalaya.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/2815093/pexels-photo-2815093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
       "Royal Enfield Bullet 350/500 or similar",
@@ -464,6 +484,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Experience desert dunes and double-humped camels in Nubra",
       "Backup vehicle, mechanic support, and expert tour captain",
     ],
+    ridePrice: "£ 3355",
+    pillionPrice: "£ 2955",
+    deposit: "£ 955",
+    groupSize: "6-12 riders",
     rideDuration: "11 days riding",
     highestAltitude: "19,024 ft (Umling La Pass)",
     suitableFor: "Intermediate to advanced riders",
@@ -607,6 +631,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Conquer the Kunzum Pass (4,590m)",
       "Backup vehicle, professional trip captain & mechanic support",
     ],
+    ridePrice: "£ 2899",
+    pillionPrice: "£ 2599",
+    deposit: "£ 899",
+    groupSize: "6-12 riders",
     rideDuration: "9 days riding",
     highestAltitude: "14000 ft (Kunzum Pass)",
     suitableFor: "Intermediate to experienced riders",
@@ -742,6 +770,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Conquer the Kunzum Pass (4,590m)",
       "Backup vehicle, professional trip captain & mechanic support",
     ],
+    ridePrice: "£ 2899",
+    pillionPrice: "£ 2599",
+    deposit: "£ 899",
+    groupSize: "6-12 riders",
     rideDuration: "9 days riding",
     highestAltitude: "14000 ft (Kunzum Pass)",
     suitableFor: "Intermediate to experienced riders",
@@ -879,6 +911,10 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Ride to Bumla Pass near the Indo-China border",
       "Backup vehicle, professional guide, and mechanic support",
     ],
+    ridePrice: "£ 2995",
+    pillionPrice: "£ 2595",
+    deposit: "£ 995",
+    groupSize: "6-10 riders",
     rideDuration: "10 days riding",
     highestAltitude: "15,200 ft (Bumla Pass)",
     suitableFor: "Intermediate to experienced riders",
@@ -886,7 +922,11 @@ const bikingAdventuresData: BikingAdventure[] = [
     startingPoint: "Guwahati",
     accommodationType: "Hotels, homestays & guesthouses",
     pickupPoint: "Guwahati Airport",
-    photoGallery: [],
+    photoGallery: [
+      "https://images.pexels.com/photos/30277768/pexels-photo-30277768/free-photo-of-scenic-waterfall-in-lush-tropical-rainforest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/2815093/pexels-photo-2815093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/19469039/pexels-photo-19469039/free-photo-of-krang-shuri-waterfalls-krang-suri-rd-umlarem-meghalaya-india-most-beautiful-falls-in-meghalaya.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
     bikeModels: [
       "Royal Enfield Himalayan 450/411 or similar",
       "Royal Enfield Bullet 350/500 or similar",
