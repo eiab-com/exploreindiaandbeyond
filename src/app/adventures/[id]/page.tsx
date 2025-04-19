@@ -51,12 +51,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: post.title,
         description: post.shortDescription,
         type: "website",
+        locale: "en_IN",
+        
         images: [
           {
             url: post.imageSrc,
-            width: 1200,
-            height: 630,
+            width: 200,
+            height: 200,
             alt: post.altText,
+
           },
         ],
       },
