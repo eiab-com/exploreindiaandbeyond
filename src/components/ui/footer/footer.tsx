@@ -8,14 +8,6 @@ import { useTransitionRouter } from "next-view-transitions";
 
 const Footer = () => {
   const router = useTransitionRouter();
-  const [visitorCount, setVisitorCount] = useState(0);
-
-  useEffect(() => {
-    const count = localStorage.getItem("visitorCount");
-    const newCount = count ? parseInt(count, 10) + 1 : 1;
-    localStorage.setItem("visitorCount", newCount.toString());
-    setVisitorCount(newCount);
-  }, []);
 
   return (
     <footer className="mt-20 p-6 border border-1 col-span-12 rounded-t-2xl relative mx-auto w-full">
@@ -30,8 +22,10 @@ const Footer = () => {
               EIAB.com is a premium platform dedicated to helping adventurers
               discover vibrant cultures and breathtaking landscapes through
               curated motorcycle journeys.
+              <br />
+              <br />
               <span className="font-bold">
-                *Explore India and Beyond is registered in UK*
+                Explore India and Beyond is registered in UK
               </span>
             </p>
           </div>
@@ -83,9 +77,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Explore India and Beyond. All rights
             reserved.
           </p>
-          <p className="text-sm text-accent-foreground/60 text-center">
-            Visitor Count: {visitorCount}
-          </p>
+
           <div className="flex space-x-4 text-foreground">
             <Link
               href="#"

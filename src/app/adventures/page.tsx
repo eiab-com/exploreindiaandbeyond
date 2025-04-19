@@ -30,7 +30,7 @@ const Page = () => {
     );
 
   return (
-    <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-32 sm:h-fit lg:min-h-screen">
+    <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-32 sm:h-fit ">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary mb-4 font-heading">

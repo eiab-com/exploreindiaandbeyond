@@ -30,11 +30,11 @@ const Page = () => {
   };
 
   return (
-    <div className="container mt-20 lg:h-screen h-fit mx-auto px-4 py-16 max-w-3xl col-span-12">
+    <div className="container mt-20 h-fit  mx-auto px-4 py-16 max-w-3xl col-span-12">
       <h1 className="text-4xl font-bold text-center mb-12 text-primary">
         Customer Stories
       </h1>
-      <div className="grid gap-8">
+      <div className="grid gap-8 z-50">
         {stories.map((story) => (
           <React.Fragment key={story.id}>
             <Card className="overflow-hidden border border-border bg-card shadow-md">
