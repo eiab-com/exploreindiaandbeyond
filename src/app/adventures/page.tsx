@@ -1,10 +1,11 @@
 "use client";
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
 import React, { useState } from "react";
+
+
+
 
 const Page = () => {
   const [sortOrder, setSortOrder] = useState("asc");
@@ -29,7 +30,7 @@ const Page = () => {
     );
 
   return (
-    <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-20 sm:h-fit lg:min-h-screen">
+    <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-32 sm:h-fit lg:min-h-screen">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary mb-4 font-heading">
@@ -41,7 +42,7 @@ const Page = () => {
 
         {/* Horizontal Navigation */}
         <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
-          <button
+          {/* <button
             className={`px-6 py-2 rounded-full transition-all ${
               !selectedYear
                 ? "bg-primary text-background"
@@ -50,14 +51,15 @@ const Page = () => {
             onClick={() => setSelectedYear(null)}
           >
             Discover
-          </button>
+          </button> */}
+         
           {availableYears.map((year) => (
             <button
               key={year}
               className={`px-6 py-2 rounded-full transition-all ${
                 selectedYear === year
-                  ? "bg-primary text-background"
-                  : "bg-background text-foreground hover:bg-primary/10"
+                  ? "bg-primary text-background "
+                  : "bg-background text-foreground hover:bg-primary/10 border"
               }`}
               onClick={() =>
                 setSelectedYear(selectedYear === year ? null : year)
@@ -66,7 +68,7 @@ const Page = () => {
               {year}
             </button>
           ))}
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <Label htmlFor="sort-order" className="text-sm">
               {sortOrder === "asc" ? "Earliest First" : "Latest First"}
             </Label>
@@ -77,7 +79,7 @@ const Page = () => {
                 setSortOrder(checked ? "desc" : "asc")
               }
             />
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -95,6 +97,7 @@ const Page = () => {
               shortDescription={adventure.shortDescription}
               altitude={adventure.highestAltitude}
               distance={adventure.totalDistance}
+              disabled={adventure.disabled}
             />
           ))
         ) : (

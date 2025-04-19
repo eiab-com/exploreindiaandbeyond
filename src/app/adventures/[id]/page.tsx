@@ -27,6 +27,43 @@ import React from "react";
 import dayjs from "dayjs";
 import PhotoViewer from "@/components/adventures/photo-gallery";
 import { Separator } from "@radix-ui/react-select";
+import { createGoogleCalendarLink } from "@/lib/generateGoogleCalendarLink";
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // Extract the adventure ID from the route params
+  const { id } = params;
+
+  // Find the adventure data based on the ID
+  const adventure = bikingAdventuresData.find((a) => a.id.trim() === id.trim());
+
+  if (!adventure) {
+    return {
+      title: "Adventure Not Found",
+      description: "The requested adventure could not be found.",
+    };
+  }
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: adventure.title,
+    description: adventure.shortDescription,
+    openGraph: {
+      title: adventure.title,
+      description: adventure.shortDescription,
+      images: [adventure.imageSrc, ...previousImages],
+    },
+  };
+}
 
 export default async function Page({
   params,
@@ -108,6 +145,7 @@ export default async function Page({
             <Image
               src={adventure.imageSrc}
               alt={adventure.altText}
+              objectFit="cover"
               fill
               className="object-center h-[30vw]"
               priority
@@ -217,7 +255,12 @@ export default async function Page({
                 </Button>
               </DialogTrigger>
               <MemoizedGoogleCalendarButton
-                link={adventure.googleCalendarLink}
+                link={createGoogleCalendarLink(
+                  adventure.title,
+                  formattedStartDate.toString(),
+                  formattedEndDate.toString(),
+                  adventure.shortDescription
+                )}
               />
               <Separator className="my-4 border-2" />
               <div className="info-pack space-y-6">
@@ -230,7 +273,7 @@ export default async function Page({
                   driving/riding conditions, QnA and Visa Application link
                 </div>
                 <a
-                  href=""
+                  href={adventure.infoPackUrl}
                   download
                   className="group flex flex-col items-center justify-center w-full aspect-video border-2 border-dashed border-primary/40 rounded-xl bg-background/50 hover:bg-primary/5 transition-colors duration-200 cursor-pointer"
                 >
@@ -272,7 +315,7 @@ const MemoizedGoogleCalendarButton = React.memo(
         <Button
           asChild
           variant="outline"
-          className="flex items-center gap-2 p-6"
+          className="flex items-center gap-2 p-6 hover:bg-white/20 "
         >
           <Link href={link} target="_blank">
             <CalendarPlus className="w-10 h-10" />

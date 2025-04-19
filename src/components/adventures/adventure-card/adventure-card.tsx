@@ -24,6 +24,7 @@ interface AdventureCardProps {
   distance: string;
   location?: string;
   difficulty?: "Easy" | "Moderate" | "Hard" | "Expert";
+  disabled?: boolean;
 }
 
 const AdventureCard = ({
@@ -37,6 +38,7 @@ const AdventureCard = ({
   distance,
   location,
   difficulty = "Moderate",
+  disabled,
 }: AdventureCardProps) => {
   const constructedLink = `/adventures/${id}`;
 
@@ -73,7 +75,7 @@ const AdventureCard = ({
         {/* Date Badge */}
         <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-lg text-white px-3 py-1 rounded-md text-xs font-medium flex items-center gap-1 shadow-md">
           <Calendar className="w-4 h-4 text-primary" />
-          {startDate.format("MMM YYYY")}
+          {startDate.format("MMMM,YYYY")}
         </div>
 
         {/* Location Badge */}
@@ -115,11 +117,10 @@ const AdventureCard = ({
         <CardFooter className="p-0 ">
           <Button
             className="w-full p-0 font-medium bg-primary hover:bg-primary/90 text-primary-foreground  transition-all duration-300 rounded-md flex items-center justify-center gap-2"
-            asChild
+            disabled={disabled}
           >
             <Link className="p-0 font-bold" href={constructedLink}>
               Explore Adventure
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </CardFooter>

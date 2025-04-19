@@ -4,9 +4,14 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-body, sans-serif);
 }
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 @layer base {
   :root {
@@ -21,16 +26,16 @@ html {
     --popover-foreground: 24 25% 12%;
 
     /* Main accent colors (30%) */
-    --primary: 32 90% 50%;      /* Earthy orange - your brand color */
+    --primary: 32 90% 50%; /* Earthy orange - your brand color */
     --primary-foreground: 24 15% 8%;
 
-    --secondary: 162 59% 25%;   /* Forest green */
+    --secondary: 162 59% 25%; /* Forest green */
     --secondary-foreground: 0 0% 98%;
 
     /* Subtle shades and highlight colors (10%) */
-    --accent: 354 70% 54%;      /* Rugged red for highlights */
+    --accent: 354 70% 54%; /* Rugged red for highlights */
     --accent-foreground: 0 0% 98%;
-    
+
     --muted: 24 15% 90%;
     --muted-foreground: 24 10% 40%;
 
@@ -43,12 +48,12 @@ html {
     --ring: 32 80% 54%;
 
     /* Chart colors */
-    --chart-1: 32 90% 50%;      /* Brand orange */
-    --chart-2: 162 59% 25%;     /* Forest green */
-    --chart-3: 354 70% 54%;     /* Rugged red */
-    --chart-4: 205 70% 35%;     /* Steel blue */
-    --chart-5: 42 87% 55%;      /* Trail yellow */
-    
+    --chart-1: 32 90% 50%; /* Brand orange */
+    --chart-2: 162 59% 25%; /* Forest green */
+    --chart-3: 354 70% 54%; /* Rugged red */
+    --chart-4: 205 70% 35%; /* Steel blue */
+    --chart-5: 42 87% 55%; /* Trail yellow */
+
     /* Sidebar specific colors */
     --sidebar-background: 24 25% 18%;
     --sidebar-foreground: 24 15% 90%;
@@ -61,7 +66,7 @@ html {
 
     --radius: 0.5rem;
   }
-  
+
   .dark {
     /* Base / Background (60%) */
     --background: 24 25% 8%;
@@ -74,16 +79,16 @@ html {
     --popover-foreground: 24 10% 95%;
 
     /* Main accent colors (30%) */
-    --primary: 32 85% 48%;       /* Slightly darkened orange for dark mode */
+    --primary: 32 85% 48%; /* Slightly darkened orange for dark mode */
     --primary-foreground: 24 5% 10%;
 
-    --secondary: 162 45% 20%;    /* Darker forest green */
+    --secondary: 162 45% 20%; /* Darker forest green */
     --secondary-foreground: 0 0% 90%;
 
     /* Subtle shades and highlight colors (10%) */
-    --accent: 354 65% 50%;       /* Slightly muted red for dark mode */
+    --accent: 354 65% 50%; /* Slightly muted red for dark mode */
     --accent-foreground: 0 0% 95%;
-    
+
     --muted: 24 15% 17%;
     --muted-foreground: 24 5% 65%;
 
@@ -101,7 +106,7 @@ html {
     --chart-3: 354 60% 50%;
     --chart-4: 205 60% 40%;
     --chart-5: 42 75% 50%;
-    
+
     /* Sidebar specific colors */
     --sidebar-background: 24 25% 10%;
     --sidebar-foreground: 24 10% 90%;
@@ -130,7 +135,12 @@ html {
   body {
     @apply bg-background text-foreground font-body;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading text-foreground tracking-tight;
   }
 }
@@ -140,19 +150,21 @@ html {
   .trail-pattern {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  
+
   .tire-track {
     background-image: url("data:image/svg+xml,%3Csvg width='48' height='32' viewBox='0 0 48 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-rule='nonzero'%3E%3Cpath d='M0 16v16h48V0H0v16zm24 14c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zm0-2c5.523 0 10-4.477 10-10S29.523 4 24 4 14 8.477 14 14s4.477 10 10 10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  
+
   .mountain-texture {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0l30 30L60 0H0zm0 60l30-30 30 30H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  
+
   .rugged-shadow {
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06), inset 0 1px 0 0 rgba(255,255,255,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   .terrain-gradient {
     background: linear-gradient(to bottom, var(--tw-gradient-stops));
     --tw-gradient-from: hsl(var(--card));

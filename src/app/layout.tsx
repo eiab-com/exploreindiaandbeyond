@@ -8,6 +8,8 @@ import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/mock-data/seo";
 import { ViewTransitions } from "next-view-transitions";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
+import HeroSection from "@/components/landing-page-components/hero-section/hero-section";
 
 const heading = Tomorrow({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -30,6 +32,12 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
+        <head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </head>
         <body className={`${heading.variable} ${body.variable} antialiased`}>
           <ThemeProvider
             attribute="class"
@@ -38,6 +46,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <GridContainer className=" relative justify-center items-center place-content-start gap-y-2 font-heading">
+              <Analytics />
               <Navbar />
               {children}
               <Footer />

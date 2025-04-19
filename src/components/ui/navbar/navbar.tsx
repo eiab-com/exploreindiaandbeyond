@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className={`fixed top-0 left-0 w-full h-28 z-50 px-4 md:p-6 lg:px-12 flex justify-between items-center transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full h-28 z-50 px-4 md:p-6 lg:px-12 flex justify-between items-center transition-all duration-300  ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isAtTop

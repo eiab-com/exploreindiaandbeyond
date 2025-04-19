@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Youtube, PhoneIcon, Instagram } from "lucide-react";
 import { Button } from "../button";
-import { ModeToggle } from "@/components/mode-toggle";
+
 import { useTransitionRouter } from "next-view-transitions";
 
 const Footer = () => {
@@ -26,29 +26,34 @@ const Footer = () => {
             <h1 className="text-2xl font-bold text-primary tracking-tight">
               Explore India and Beyond
             </h1>
-            <p className="text-sm text-accent-foreground/80 leading-relaxed">
+            <p className="text-sm leading-relaxed">
               EIAB.com is a premium platform dedicated to helping adventurers
               discover vibrant cultures and breathtaking landscapes through
               curated motorcycle journeys.
+              <span className="font-bold">
+                *Explore India and Beyond is registered in UK*
+              </span>
             </p>
           </div>
 
           {/* Contact Section */}
-          <div className="md:col-span-4 md:col-start-11 text-foreground">
-            <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
-            <div className="flex flex-col space-y-4">
+          <div className="md:col-span-4 md:col-start-11 text-foreground flex flex-col items-center justify-center  ">
+            <h3 className="text-lg font-semibold mb-4 text-center sm:text-left">
+              Get in Touch
+            </h3>
+            <div className="flex flex-col space-y-4 w-full items-center ">
               <Button
                 variant={"outline"}
-                className="w-fit bg-transparent border-primary hover:bg-primary/10 hover:scale-105 transition-transform"
+                className="w-full sm:w-fit bg-transparent border-primary hover:bg-primary/10 hover:scale-105 transition-transform"
                 onClick={() => {
                   router.push("/contact");
                 }}
               >
-                Contact Us
                 <PhoneIcon className="mr-2 h-4 w-4" />
+                Contact Us
               </Button>
 
-              <div className="flex space-x-4">
+              <div className="flex justify-center sm:justify-start space-x-4">
                 {[
                   {
                     icon: Youtube,
@@ -82,7 +87,6 @@ const Footer = () => {
             Visitor Count: {visitorCount}
           </p>
           <div className="flex space-x-4 text-foreground">
-            <ModeToggle />
             <Link
               href="#"
               className="text-sm hover:text-primary transition-colors"

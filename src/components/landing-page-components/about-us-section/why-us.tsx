@@ -4,7 +4,7 @@ import { whyUsCardData as cardData } from "@/mock-data/content";
 
 const WhyUs = () => {
   return (
-    <section className="container col-span-12 mx-auto px-4 md:px-8 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+    <section className="col-span-12 mx-auto px-4 md:px-8 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
       {/* Content Section */}
       <div className="flex flex-col gap-8">
         <div className="space-y-4">
@@ -48,15 +48,14 @@ const WhyUs = () => {
       </div>
 
       {/* Image Section */}
-      <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[5/7] rounded-xl overflow-hidden shadow-xl">
+      <div className="relative  md:aspect-square  overflow-hidden shadow-xl">
         <Image
           src="https://images.pexels.com/photos/30743692/pexels-photo-30743692/free-photo-of-adventurous-motorcyclist-at-misty-ladakh-pass.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="Adventurous motorcyclist at misty Ladakh pass"
           fill
-          className="object-cover transition-transform duration-500 hover:scale-105"
+          className="object-cover h-screen transition-transform duration-500 hover:scale-105  w-full rounded-lg"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-background/0" />
       </div>
     </section>
   );

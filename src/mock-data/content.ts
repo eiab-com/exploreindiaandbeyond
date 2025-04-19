@@ -3,13 +3,12 @@ import dayjs, { Dayjs } from "dayjs";
 interface BikingAdventure {
   id: string;
   title: string;
-  googleCalendarLink: string;
   imageSrc: string;
   altText: string;
   shortDescription: string;
   longDescription: string;
-  startDate: Dayjs | Date;
-  endDate: Dayjs | Date;
+  startDate: Dayjs | Date | string;
+  endDate: Dayjs | Date | string;
   keyHighlights: string[];
   rideDuration: string;
   highestAltitude: string;
@@ -27,6 +26,8 @@ interface BikingAdventure {
   pillionPrice: string;
   deposit: string;
   groupSize: string;
+  disabled?: boolean;
+  infoPackUrl?: string;
   itinerary: {
     day: number;
     title: string;
@@ -39,7 +40,7 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "1",
     title: "Leh - Ladakh Bike Trip",
-    googleCalendarLink: "google.com/calendar/leh-ladakh",
+
     imageSrc:
       "https://images.pexels.com/photos/5201944/pexels-photo-5201944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Leh - Ladakh Biking Expedition",
@@ -49,6 +50,9 @@ const bikingAdventuresData: BikingAdventure[] = [
       "This 11-day Leh-Ladakh biking adventure is the ultimate test of endurance, skill, and passion for motorcycling. Ride through high-altitude passes, explore remote valleys, and immerse yourself in Ladakh’s rich culture and history...",
     startDate: dayjs("2025-09-09T07:00:00"),
     endDate: dayjs("2025-09-19T17:00:00"),
+    infoPackUrl:
+      "https://drive.google.com/file/d/1YFNI0mYc8geTUk7fxNz7TjshjSsfaf1G/view?usp=sharing",
+    disabled: false,
     keyHighlights: [
       "Ride through Khardung La (5,359m) & Umling La (5,883m) – Highest motorable passes",
       "Explore remote Zanskar Valley, Padum, and Hanle",
@@ -184,7 +188,6 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "2",
     title: "Spiti Valley",
-    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
       "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
     altText: "Spiti Valley Biking Expedition",
@@ -197,6 +200,8 @@ const bikingAdventuresData: BikingAdventure[] = [
     startDate: dayjs("2025-08-22T06:00:00"),
     endDate: dayjs("2025-09-01T17:00:00"),
     groupSize: "6-12 riders",
+    infoPackUrl:
+      "https://drive.google.com/file/d/1peFIAMJ-KeooIvklLYLffSvgb3SI280P/view?usp=sharing",
     keyHighlights: [
       "Ride through the majestic Kinnaur & Spiti Valleys",
       "Visit Chitkul, India's last village near the Indo-Tibetan border",
@@ -323,7 +328,6 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "3",
     title: "Northeast India Motorcycle Ride",
-    googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
       "https://images.pexels.com/photos/6058267/pexels-photo-6058267.jpeg",
     altText: "Northeast India Biking Expedition",
@@ -335,6 +339,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
     startDate: dayjs("2025-10-10T06:00:00"),
     endDate: dayjs("2025-10-20T17:00:00"),
+    infoPackUrl:
+      "https://drive.google.com/file/d/1BIuGQJrGoQ-BL3ewNu24rOBsNtS0lsts/view?usp=drive_link",
     ridePrice: "£ 2995",
     pillionPrice: "£ 2595",
     deposit: "£ 995",
@@ -465,7 +471,7 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "4",
     title: "Leh - Ladakh Bike Trip",
-    googleCalendarLink: "google.com/calendar/leh-ladakh",
+
     imageSrc:
       "https://images.pexels.com/photos/5201944/pexels-photo-5201944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Leh - Ladakh Biking Expedition",
@@ -475,6 +481,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       "This 11-day Leh-Ladakh biking adventure is the ultimate test of endurance, skill, and passion for motorcycling. Ride through high-altitude passes, explore remote valleys, and immerse yourself in Ladakh’s rich culture and history...",
     startDate: dayjs("2026-09-09T07:00:00"),
     endDate: dayjs("2026-09-19T17:00:00"),
+    infoPackUrl:
+      "https://drive.google.com/file/d/1YFNI0mYc8geTUk7fxNz7TjshjSsfaf1G/view?usp=sharing",
     keyHighlights: [
       "Ride through Khardung La (5,359m) & Umling La (5,883m) – Highest motorable passes",
       "Explore remote Zanskar Valley, Padum, and Hanle",
@@ -610,7 +618,6 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "5",
     title: "Snow white Spiti",
-    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
       "https://images.pexels.com/photos/23522680/pexels-photo-23522680/free-photo-of-key-gompa-monastery-in-mountains-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Spiti Valley Biking Expedition",
@@ -622,6 +629,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
     startDate: dayjs("2026-04-17T06:00:00"),
     endDate: dayjs("2026-04-27T17:00:00"),
+    infoPackUrl:
+      "https://drive.google.com/file/d/1peFIAMJ-KeooIvklLYLffSvgb3SI280P/view?usp=sharing",
     keyHighlights: [
       "Ride through the majestic Kinnaur & Spiti Valleys",
       "Visit Chitkul, India's last village near the Indo-Tibetan border",
@@ -749,7 +758,6 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "6",
     title: "Spiti Valley",
-    googleCalendarLink: "google.com/calendar/spiti-valley",
     imageSrc:
       "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
     altText: "Spiti Valley Biking Expedition",
@@ -761,6 +769,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
     startDate: dayjs("2026-08-22T06:00:00"),
     endDate: dayjs("2026-09-01T17:00:00"),
+    infoPackUrl:
+      "https://drive.google.com/file/d/1peFIAMJ-KeooIvklLYLffSvgb3SI280P/view?usp=sharing",
     keyHighlights: [
       "Ride through the majestic Kinnaur & Spiti Valleys",
       "Visit Chitkul, India's last village near the Indo-Tibetan border",
@@ -888,7 +898,6 @@ const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "7",
     title: "Northeast India Motorcycle Ride",
-    googleCalendarLink: "google.com/calendar/northeast-india",
     imageSrc:
       "https://images.pexels.com/photos/14137630/pexels-photo-14137630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Northeast India Biking Expedition",
@@ -900,6 +909,7 @@ const bikingAdventuresData: BikingAdventure[] = [
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
     startDate: dayjs("2026-10-10T06:00:00"),
     endDate: dayjs("2026-10-20T17:00:00"),
+    infoPackUrl:'https://drive.google.com/file/d/1BIuGQJrGoQ-BL3ewNu24rOBsNtS0lsts/view?usp=sharing',
     keyHighlights: [
       "Visit the ancient Kamakhya Temple in Guwahati",
       "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
@@ -917,6 +927,138 @@ const bikingAdventuresData: BikingAdventure[] = [
     groupSize: "6-10 riders",
     rideDuration: "10 days riding",
     highestAltitude: "15,200 ft (Bumla Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "850 miles",
+    startingPoint: "Guwahati",
+    accommodationType: "Hotels, homestays & guesthouses",
+    pickupPoint: "Guwahati Airport",
+    photoGallery: [
+      "https://images.pexels.com/photos/30277768/pexels-photo-30277768/free-photo-of-scenic-waterfall-in-lush-tropical-rainforest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/2815093/pexels-photo-2815093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/19469039/pexels-photo-19469039/free-photo-of-krang-shuri-waterfalls-krang-suri-rd-umlarem-meghalaya-india-most-beautiful-falls-in-meghalaya.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+    bikeModels: [
+      "Royal Enfield Himalayan 450/411 or similar",
+      "Royal Enfield Bullet 350/500 or similar",
+    ],
+    difficultyLevel: "Moderate-Challenging",
+    averageDailyRide: "100-150 miles",
+    region: "Northeast",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Guwahati",
+        highlights: [
+          "Visit Kamakhya Temple",
+          "Explore Guwahati’s vibrant local markets",
+        ],
+      },
+      {
+        day: 2,
+        title: "Guwahati → Cherrapunji",
+        distance: "100 miles",
+        highlights: [
+          "Stop by Umiam Lake for scenic photography",
+          "Explore Elephant Falls & Mawdok Dympep Valley",
+          "Visit Nohkailikai Falls, India's highest plunge waterfall",
+        ],
+      },
+      {
+        day: 3,
+        title: "Cherrapunji → Shillong",
+        distance: "40 miles",
+        highlights: [
+          "Ride to Dawki’s crystal-clear Umngot River",
+          "Visit Mawlynnong - the cleanest village in Asia",
+          "Explore Shillong’s famous cafes and night markets",
+        ],
+      },
+      {
+        day: 4,
+        title: "Shillong → Tezpur (via Kaziranga)",
+        distance: "160 miles",
+        highlights: [
+          "Optional visit to Kaziranga National Park",
+          "Explore Mahabhairab Temple & Agnigarh Hill in Tezpur",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tezpur → Dirang",
+        distance: "120 miles",
+        highlights: [
+          "Scenic ride through Sangti Valley",
+          "Explore Tippi Orchid Centre",
+        ],
+      },
+      {
+        day: 6,
+        title: "Dirang → Tawang",
+        distance: "90 miles",
+        highlights: [
+          "Visit India's largest monastery - Tawang Monastery",
+          "Explore Tawang Museum & local markets",
+        ],
+      },
+      {
+        day: 7,
+        title: "Tawang Sightseeing & Bumla Pass",
+        distance: "35 miles",
+        highlights: [
+          "Ride to Bumla Pass (15,200 ft) near Indo-China border",
+          "Visit Madhuri Lake and serene mountain lakes",
+        ],
+      },
+      {
+        day: 8,
+        title: "Tawang → Bomdilla",
+        distance: "120 miles",
+        highlights: [
+          "Stop at Urgelling Monastery - birthplace of the 6th Dalai Lama",
+          "Visit Tawang War Memorial",
+        ],
+      },
+      {
+        day: 9,
+        title: "Bomdilla → Guwahati",
+        distance: "180 miles",
+        highlights: [
+          "Enjoy scenic Himalayan valley roads",
+          "Relish traditional Assamese cuisine",
+        ],
+      },
+      {
+        day: 10,
+        title: "Departure from Guwahati",
+        highlights: [
+          "Morning city tour or shopping",
+          "Drop-off at Guwahati Airport",
+        ],
+      },
+    ],
+  },
+  {
+    id: "8",
+    title: "South India Expedition ( Coming Soon )",
+
+    imageSrc:
+      "https://images.pexels.com/photos/1576858/pexels-photo-1576858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    altText: "Northeast India Biking Expedition",
+    shortDescription: "An epic 10-day ride through Southern india",
+    longDescription:
+      "The Northeast India Motorcycle Expedition takes you on a thrilling journey through some of the most scenic and culturally rich regions of the country. Over 10 days, you'll ride through the misty hills of Meghalaya, the dense forests of Kaziranga, and the spiritual heights of Tawang. \n\n\
+      Expect a mix of winding mountain roads, serene valleys, and encounters with vibrant tribal cultures. Ride across breathtaking locations like the Umngot River in Dawki, the famous Kaziranga National Park, and the high-altitude Bumla Pass near the Indo-China border. \n\n\
+      With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
+    startDate: dayjs("2026-10-20T17:00:00"),
+    endDate: dayjs("2026-10-20T17:00:00"),
+    disabled: true,
+    keyHighlights: [],
+    ridePrice: "££££",
+    pillionPrice: "££££",
+    deposit: "££££",
+    groupSize: "6-10 riders",
+    rideDuration: "10 days riding",
+    highestAltitude: "( Details to be updated ) ",
     suitableFor: "Intermediate to experienced riders",
     totalDistance: "850 miles",
     startingPoint: "Guwahati",
