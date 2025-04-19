@@ -8,8 +8,8 @@ import Footer from "@/components/ui/footer/footer";
 import { seo } from "@/mock-data/seo";
 import { ViewTransitions } from "next-view-transitions";
 import { Toaster } from "@/components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import HeroSection from "@/components/landing-page-components/hero-section/hero-section";
 
 const heading = Tomorrow({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -47,6 +47,8 @@ export default function RootLayout({
           >
             <GridContainer className=" relative justify-center items-center place-content-start gap-y-2 font-heading">
               <Analytics />
+              <SpeedInsights />
+
               <Navbar />
               {children}
               <Footer />

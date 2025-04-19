@@ -30,9 +30,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         videoElement.removeEventListener("ended", handleVideoEnded);
       };
     }
-  }, []);
+  }, [handleVideoEnded]);
 
-  // Effect to load the new video when currentVideoIndex changes
+  
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();

@@ -2,11 +2,9 @@
 
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
 import { Link } from "next-view-transitions";
-import Image from "next/image";
 import React from "react";
 
 const UpcomingAdventures = () => {

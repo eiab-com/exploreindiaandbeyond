@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 import { Dayjs } from "dayjs";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, ArrowRight, Calendar, Mountain, Route } from "lucide-react";
+import { MapPin, Calendar, Mountain, Route } from "lucide-react";
 
 interface AdventureCardProps {
   title: string;

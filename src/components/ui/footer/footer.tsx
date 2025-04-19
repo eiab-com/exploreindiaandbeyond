@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Youtube, PhoneIcon, Instagram } from "lucide-react";
 import { Button } from "../button";

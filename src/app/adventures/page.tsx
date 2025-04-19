@@ -4,11 +4,7 @@ import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 
-
-
-
 const Page = () => {
-  const [sortOrder, setSortOrder] = useState("asc");
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   // Extract unique years from adventure dates
@@ -19,15 +15,9 @@ const Page = () => {
   ).sort();
 
   // Filter & Sort adventures
-  const filteredAdventures = bikingAdventuresData
-    .filter((adventure) =>
-      selectedYear ? dayjs(adventure.startDate).year() === selectedYear : true
-    )
-    .sort((a, b) =>
-      sortOrder === "asc"
-        ? dayjs(a.startDate).valueOf() - dayjs(b.startDate).valueOf()
-        : dayjs(b.startDate).valueOf() - dayjs(a.startDate).valueOf()
-    );
+  const filteredAdventures = bikingAdventuresData.filter((adventure) =>
+    selectedYear ? dayjs(adventure.startDate).year() === selectedYear : true
+  );
 
   return (
     <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-32 sm:h-fit ">
@@ -52,7 +42,7 @@ const Page = () => {
           >
             Discover
           </button> */}
-         
+
           {availableYears.map((year) => (
             <button
               key={year}
