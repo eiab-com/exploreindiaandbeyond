@@ -28,41 +28,51 @@ import dayjs from "dayjs";
 import PhotoViewer from "@/components/adventures/photo-gallery";
 import { Separator } from "@radix-ui/react-select";
 import { createGoogleCalendarLink } from "@/lib/generateGoogleCalendarLink";
-import type { Metadata, ResolvingMetadata } from "next";
+
+import type { Metadata } from "next";
 
 type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // Extract the adventure ID from the route params
-  const { id } = params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = (await params).id;
+  const post = bikingAdventuresData.find((a) => a.id.trim() === id.trim());
 
-  // Find the adventure data based on the ID
-  const adventure = bikingAdventuresData.find((a) => a.id.trim() === id.trim());
-
-  if (!adventure) {
+  if (post) {
+    return {
+      title: `${post.title} | Biking Adventures`,
+      description: post.shortDescription,
+      keywords: ["biking", "adventure", "motorcycle", post.title].filter(
+        Boolean
+      ),
+      openGraph: {
+        title: post.title,
+        description: post.shortDescription,
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.shortDescription,
+        images: [post.imageSrc],
+      },
+      authors: [{ name: "Biking Adventures Team" }],
+      robots: {
+        index: true,
+        follow: true,
+      },
+      alternates: {
+        canonical: `/adventures/${id}`,
+      },
+    };
+  } else {
     return {
       title: "Adventure Not Found",
-      description: "The requested adventure could not be found.",
+      description: "Adventure details not available.",
     };
   }
-
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: adventure.title,
-    description: adventure.shortDescription,
-    openGraph: {
-      title: adventure.title,
-      description: adventure.shortDescription,
-      images: [adventure.imageSrc, ...previousImages],
-    },
-  };
 }
 
 export default async function Page({

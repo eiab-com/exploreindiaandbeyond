@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   sources: string[];
@@ -15,9 +15,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Handle video ended event to play the next video
-  const handleVideoEnded = () => {
+  const handleVideoEnded = useCallback(() => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % sources.length);
-  };
+  }, [sources.length]);
 
   // Effect to set up the event listener when the video element is available
   useEffect(() => {
@@ -32,7 +32,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
   }, [handleVideoEnded]);
 
-  
+  // Effect to load and play the video when the index changes
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();
