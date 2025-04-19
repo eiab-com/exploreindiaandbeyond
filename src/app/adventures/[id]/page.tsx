@@ -51,6 +51,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: post.title,
         description: post.shortDescription,
         type: "website",
+        images: [
+          {
+            url: post.imageSrc,
+            width: 1200,
+            height: 630,
+            alt: post.altText,
+          },
+        ],
       },
       twitter: {
         card: "summary_large_image",
