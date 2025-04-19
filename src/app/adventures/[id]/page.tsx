@@ -28,7 +28,6 @@ import dayjs from "dayjs";
 import PhotoViewer from "@/components/adventures/photo-gallery";
 import { Separator } from "@radix-ui/react-select";
 import { createGoogleCalendarLink } from "@/lib/generateGoogleCalendarLink";
-
 import type { Metadata } from "next";
 
 type Props = {
@@ -52,16 +51,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: post.shortDescription,
         type: "website",
         locale: "en_IN",
-        
+
         images: [
           {
             url: post.imageSrc,
-            width: 200,
-            height: 200,
+            width: 1200, 
+            height: 630,
             alt: post.altText,
-
           },
         ],
+       
+        siteName: "Explore India and Beyond",
+        url: `https://exploreindiaandbeyond.com/adventures/${id}`,
+      },
+      other: {
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": post.altText,
+        "og:site_name": "Explore India and Beyond",
+        "og:locale": "en_IN",
+        "apple-mobile-web-app-title": "Explore India and Beyond",
+        "application-name": "Explore India and Beyond",
       },
       twitter: {
         card: "summary_large_image",
@@ -69,6 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: post.shortDescription,
         images: [post.imageSrc],
       },
+
       authors: [{ name: "Biking Adventures Team" }],
       robots: {
         index: true,
