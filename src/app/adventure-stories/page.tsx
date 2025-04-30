@@ -87,10 +87,11 @@ const Page = () => {
             <Dialog
               open={openStoryId === story.id}
               onOpenChange={closeStoryDialog}
+              
             >
-              <DialogContent className="sm:max-w-2xl">
+              <DialogContent className="sm:max-w-xl">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-semibold text-primary flex items-center gap-2">
+                  <DialogTitle className="text-2xl font-semibold text-primary flex items-center gap-2 sm:justify-between sm:mt-10">
                     {` ${story.name}'s Experience`}
                     <span className="text-muted-foreground text-base font-normal">
                       {story.location}
@@ -113,7 +114,7 @@ const Page = () => {
                     objectFit="cover"
                   />
                 </div>
-                <DialogDescription className="text-foreground leading-relaxed whitespace-pre-line">
+                <DialogDescription className="text-foreground leading-relaxed whitespace-pre-line max-h-72 overflow-y-auto">
                   {story.text}
                 </DialogDescription>
                 <DialogClose className="absolute right-4 top-4" />
