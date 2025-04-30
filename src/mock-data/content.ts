@@ -39,6 +39,146 @@ interface BikingAdventure {
 const bikingAdventuresData: BikingAdventure[] = [
   {
     id: "1",
+    title: "Spiti Valley",
+    imageSrc:
+      "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
+    altText: "Spiti Valley Biking Expedition",
+    shortDescription:
+      "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
+    longDescription:
+      "The Spiti Valley bike trip is a perfect blend of adventure and scenic landscapes. This 9-day journey takes you through the rugged mountains of Himachal Pradesh, covering the last inhabited village near the Indo-Tibetan border, ancient monasteries, and high-altitude passes. \n\n\
+      Riders will experience the thrill of navigating through narrow mountain roads, river crossings, and high-altitude passes such as Kunzum La. Along the way, they'll witness the serene beauty of Chandra Taal (Moon Lake) and ride across Asia’s highest suspension bridge at Chicham. \n\n\
+      Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
+    startDate: dayjs("2025-08-22T06:00:00"),
+    endDate: dayjs("2025-09-01T17:00:00"),
+    groupSize: "6-12 riders",
+    infoPackUrl:
+      "https://drive.google.com/file/d/1peFIAMJ-KeooIvklLYLffSvgb3SI280P/view?usp=sharing",
+    keyHighlights: [
+      "Ride through the majestic Kinnaur & Spiti Valleys",
+      "Visit Chitkul, India's last village near the Indo-Tibetan border",
+      "Explore ancient monasteries: Tabo & Dhankar",
+      "Cross Asia's highest suspension bridge at Chicham",
+      "Witness the pristine beauty of Chandra Taal Lake",
+      "Conquer the Kunzum Pass (4,590m)",
+      "Backup vehicle, professional trip captain & mechanic support",
+    ],
+    ridePrice: "£ 2899",
+    pillionPrice: "£ 2599",
+    deposit: "£ 899",
+    rideDuration: "9 days riding",
+    highestAltitude: "14000 ft (Kunzum Pass)",
+    suitableFor: "Intermediate to experienced riders",
+    totalDistance: "800 miles",
+    startingPoint: "Chandigarh",
+    accommodationType: "Hotels, Guesthouses & Camps",
+    pickupPoint: "Chandigarh Airport",
+    photoGallery: [
+      "https://images.pexels.com/photos/30844725/pexels-photo-30844725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844715/pexels-photo-30844715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844728/pexels-photo-30844728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/30844712/pexels-photo-30844712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
+    bikeModels: [
+      "Royal Enfield Himalayan 450/411 or similar",
+      "Royal Enfield Bullet 500/350 or similar",
+    ],
+    difficultyLevel: "Challenging",
+    averageDailyRide: "130-200 km",
+    region: "North",
+    itinerary: [
+      {
+        day: 0,
+        title: "Arrival in Chandigarh",
+        highlights: [
+          "Meet the crew and fellow riders",
+          "Bike inspection and preparations",
+        ],
+      },
+      {
+        day: 1,
+        title: "Chandigarh → Chail",
+        distance: "70 miles",
+        highlights: [
+          "Scenic mountain views and lush greenery",
+          "Visit Chail Palace",
+        ],
+      },
+      {
+        day: 2,
+        title: "Chail → Sangla",
+        distance: "150 miles",
+        highlights: [
+          "Ride through the mesmerizing Kinnaur Valley",
+          "See the beautiful Baspa River",
+        ],
+      },
+      {
+        day: 3,
+        title: "Sangla → Chitkul → Kalpa",
+        distance: "65 miles",
+        highlights: [
+          "Visit Chitkul, the last Indian village near the border",
+          "Spectacular views of Kinner Kailash range",
+        ],
+      },
+      {
+        day: 4,
+        title: "Kalpa → Tabo",
+        distance: "110 miles",
+        highlights: [
+          "Drive through Spiti’s rocky terrains",
+          "Explore the 1,000-year-old Tabo Monastery",
+        ],
+      },
+      {
+        day: 5,
+        title: "Tabo → Dhankar → Kaza → Chicham",
+        distance: "55 miles",
+        highlights: [
+          "Visit Dhankar Monastery with stunning valley views",
+          "Cross the famous Chicham Suspension Bridge",
+        ],
+      },
+      {
+        day: 6,
+        title: "Chicham → Langza → Hikkim → Chicham",
+        distance: "30 miles",
+        highlights: [
+          "See Langza’s Giant Buddha Statue",
+          "Send a postcard from the world’s highest post office in Hikkim",
+        ],
+      },
+      {
+        day: 7,
+        title: "Chicham → Chandra Taal → Manali",
+        distance: "130 miles",
+        highlights: [
+          "Ride through the challenging Kunzum Pass (14,931 ft)",
+          "Camp beside Chandra Taal ( 12,000 ft ), the 'Moon Lake'",
+        ],
+      },
+      {
+        day: 8,
+        title: "Manali Local Sightseeing",
+        highlights: [
+          "Explore Hadimba Temple & Mall Road",
+          "Relax at Vashisht Hot Springs",
+        ],
+      },
+      {
+        day: 9,
+        title: "Manali → Chandigarh",
+        distance: "170 miles",
+        highlights: [
+          "Scenic ride through the Beas River valley",
+          "End of an unforgettable journey",
+        ],
+      },
+    ],
+  },
+  {
+    id: "2",
     title: "Leh - Ladakh Bike Trip",
 
     imageSrc:
@@ -181,146 +321,6 @@ const bikingAdventuresData: BikingAdventure[] = [
         highlights: [
           "Scenic ride back to Leh",
           "Reflect on an unforgettable journey",
-        ],
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "Spiti Valley",
-    imageSrc:
-      "https://images.pexels.com/photos/12804831/pexels-photo-12804831.jpeg",
-    altText: "Spiti Valley Biking Expedition",
-    shortDescription:
-      "An exhilarating 9-day motorcycle expedition through the raw beauty of Spiti Valley.",
-    longDescription:
-      "The Spiti Valley bike trip is a perfect blend of adventure and scenic landscapes. This 9-day journey takes you through the rugged mountains of Himachal Pradesh, covering the last inhabited village near the Indo-Tibetan border, ancient monasteries, and high-altitude passes. \n\n\
-      Riders will experience the thrill of navigating through narrow mountain roads, river crossings, and high-altitude passes such as Kunzum La. Along the way, they'll witness the serene beauty of Chandra Taal (Moon Lake) and ride across Asia’s highest suspension bridge at Chicham. \n\n\
-      Whether you're looking for an adrenaline rush or a peaceful retreat amidst nature, Spiti Valley offers the best of both worlds. With expert guidance, backup vehicle support, and well-planned accommodations, this journey ensures a hassle-free and unforgettable adventure.",
-    startDate: dayjs("2025-08-22T06:00:00"),
-    endDate: dayjs("2025-09-01T17:00:00"),
-    groupSize: "6-12 riders",
-    infoPackUrl:
-      "https://drive.google.com/file/d/1peFIAMJ-KeooIvklLYLffSvgb3SI280P/view?usp=sharing",
-    keyHighlights: [
-      "Ride through the majestic Kinnaur & Spiti Valleys",
-      "Visit Chitkul, India's last village near the Indo-Tibetan border",
-      "Explore ancient monasteries: Tabo & Dhankar",
-      "Cross Asia's highest suspension bridge at Chicham",
-      "Witness the pristine beauty of Chandra Taal Lake",
-      "Conquer the Kunzum Pass (4,590m)",
-      "Backup vehicle, professional trip captain & mechanic support",
-    ],
-    ridePrice: "£ 2899",
-    pillionPrice: "£ 2599",
-    deposit: "£ 899",
-    rideDuration: "9 days riding",
-    highestAltitude: "14000 ft (Kunzum Pass)",
-    suitableFor: "Intermediate to experienced riders",
-    totalDistance: "800 miles",
-    startingPoint: "Chandigarh",
-    accommodationType: "Hotels, Guesthouses & Camps",
-    pickupPoint: "Chandigarh Airport",
-    photoGallery: [
-      "https://images.pexels.com/photos/30844725/pexels-photo-30844725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/30844715/pexels-photo-30844715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/30844728/pexels-photo-30844728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/30844712/pexels-photo-30844712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    bikeModels: [
-      "Royal Enfield Himalayan 450/411 or similar",
-      "Royal Enfield Bullet 500/350 or similar",
-    ],
-    difficultyLevel: "Challenging",
-    averageDailyRide: "130-200 km",
-    region: "North",
-    itinerary: [
-      {
-        day: 0,
-        title: "Arrival in Chandigarh",
-        highlights: [
-          "Meet the crew and fellow riders",
-          "Bike inspection and preparations",
-        ],
-      },
-      {
-        day: 1,
-        title: "Chandigarh → Chail",
-        distance: "70 miles",
-        highlights: [
-          "Scenic mountain views and lush greenery",
-          "Visit Chail Palace",
-        ],
-      },
-      {
-        day: 2,
-        title: "Chail → Sangla",
-        distance: "150 miles",
-        highlights: [
-          "Ride through the mesmerizing Kinnaur Valley",
-          "See the beautiful Baspa River",
-        ],
-      },
-      {
-        day: 3,
-        title: "Sangla → Chitkul → Kalpa",
-        distance: "65 miles",
-        highlights: [
-          "Visit Chitkul, the last Indian village near the border",
-          "Spectacular views of Kinner Kailash range",
-        ],
-      },
-      {
-        day: 4,
-        title: "Kalpa → Tabo",
-        distance: "110 miles",
-        highlights: [
-          "Drive through Spiti’s rocky terrains",
-          "Explore the 1,000-year-old Tabo Monastery",
-        ],
-      },
-      {
-        day: 5,
-        title: "Tabo → Dhankar → Kaza → Chicham",
-        distance: "55 miles",
-        highlights: [
-          "Visit Dhankar Monastery with stunning valley views",
-          "Cross the famous Chicham Suspension Bridge",
-        ],
-      },
-      {
-        day: 6,
-        title: "Chicham → Langza → Hikkim → Chicham",
-        distance: "30 miles",
-        highlights: [
-          "See Langza’s Giant Buddha Statue",
-          "Send a postcard from the world’s highest post office in Hikkim",
-        ],
-      },
-      {
-        day: 7,
-        title: "Chicham → Chandra Taal → Manali",
-        distance: "130 miles",
-        highlights: [
-          "Ride through the challenging Kunzum Pass (14,931 ft)",
-          "Camp beside Chandra Taal ( 12,000 ft ), the 'Moon Lake'",
-        ],
-      },
-      {
-        day: 8,
-        title: "Manali Local Sightseeing",
-        highlights: [
-          "Explore Hadimba Temple & Mall Road",
-          "Relax at Vashisht Hot Springs",
-        ],
-      },
-      {
-        day: 9,
-        title: "Manali → Chandigarh",
-        distance: "170 miles",
-        highlights: [
-          "Scenic ride through the Beas River valley",
-          "End of an unforgettable journey",
         ],
       },
     ],
@@ -909,7 +909,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
     startDate: dayjs("2026-10-10T06:00:00"),
     endDate: dayjs("2026-10-20T17:00:00"),
-    infoPackUrl:'https://drive.google.com/file/d/1BIuGQJrGoQ-BL3ewNu24rOBsNtS0lsts/view?usp=sharing',
+    infoPackUrl:
+      "https://drive.google.com/file/d/1BIuGQJrGoQ-BL3ewNu24rOBsNtS0lsts/view?usp=sharing",
     keyHighlights: [
       "Visit the ancient Kamakhya Temple in Guwahati",
       "Explore Meghalaya's waterfalls & caves: Nohkailikai, Elephant Falls, and Limestone Cave",
