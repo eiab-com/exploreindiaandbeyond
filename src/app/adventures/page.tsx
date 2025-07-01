@@ -2,22 +2,22 @@
 import AdventureCard from "@/components/adventures/adventure-card/adventure-card";
 import { bikingAdventuresData } from "@/mock-data/content";
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import React from "react";
 
 const Page = () => {
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  // const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   // Extract unique years from adventure dates
-  const availableYears = Array.from(
-    new Set(
-      bikingAdventuresData.map((adventure) => dayjs(adventure.startDate).year())
-    )
-  ).sort();
+  // const availableYears = Array.from(
+  //   new Set(
+  //     bikingAdventuresData.map((adventure) => dayjs(adventure.startDate).year())
+  //   )
+  // ).sort();
 
   // Filter & Sort adventures
-  const filteredAdventures = bikingAdventuresData.filter((adventure) =>
-    selectedYear ? dayjs(adventure.startDate).year() === selectedYear : true
-  );
+  // const filteredAdventures = bikingAdventuresData.filter((adventure) =>
+  //   selectedYear ? dayjs(adventure.startDate).year() === selectedYear : true
+  // );
 
   return (
     <section className="w-full lg:px-24 px-6 py-8 col-span-12 mt-32 sm:h-fit ">
@@ -75,8 +75,8 @@ const Page = () => {
 
       {/* Adventures Grid */}
       <div className="flex gap-12 px-0  justify-center items-center w-full  flex-wrap">
-        {filteredAdventures.length > 0 ? (
-          filteredAdventures.map((adventure, index) => (
+        {bikingAdventuresData.length > 0 ? (
+          bikingAdventuresData.map((adventure, index) => (
             <AdventureCard
               key={index}
               title={adventure.title}
