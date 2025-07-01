@@ -75,7 +75,7 @@ const AdventureCard = ({
         {/* Date Badge */}
         <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-lg text-white px-3 py-1 rounded-md text-xs font-medium flex items-center gap-1 shadow-md">
           <Calendar className="w-4 h-4 text-primary" />
-          {startDate.format("MMMM,YYYY")}
+          {startDate.format("MMMM")}
         </div>
 
         {/* Location Badge */}

@@ -43,7 +43,7 @@ const Page = () => {
             Discover
           </button> */}
 
-          {availableYears.map((year) => (
+          {/* {availableYears.map((year) => (
             <button
               key={year}
               className={`px-6 py-2 rounded-full transition-all ${
@@ -57,7 +57,7 @@ const Page = () => {
             >
               {year}
             </button>
-          ))}
+          ))} */}
           {/* <div className="flex items-center gap-2">
             <Label htmlFor="sort-order" className="text-sm">
               {sortOrder === "asc" ? "Earliest First" : "Latest First"}

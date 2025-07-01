@@ -1040,8 +1040,7 @@ const bikingAdventuresData: BikingAdventure[] = [
   },
   {
     id: "8",
-    title: "South India Expedition ( Coming Soon )",
-
+    title: "South India Expedition ",
     imageSrc:
       "https://images.pexels.com/photos/1576858/pexels-photo-1576858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     altText: "Northeast India Biking Expedition",
@@ -1052,7 +1051,7 @@ const bikingAdventuresData: BikingAdventure[] = [
       With expert guides, backup vehicle support, and carefully curated accommodations, this expedition offers the perfect balance of adventure, relaxation, and cultural immersion.",
     startDate: dayjs("2026-10-20T17:00:00"),
     endDate: dayjs("2026-10-20T17:00:00"),
-    disabled: true,
+    disabled: false,
     keyHighlights: [],
     ridePrice: "££££",
     pillionPrice: "££££",

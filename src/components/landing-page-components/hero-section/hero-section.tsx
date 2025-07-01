@@ -80,12 +80,12 @@ const HeroSection = () => {
 
           {/* Headline - Larger and more prominent */}
           <h1 className="font-heading  text-4xl md:text-5xl lg:text-6xl font-bold text-white  w-full lg:w-2/5 ">
-            {`Motorcycle Your Way Through India's Top Scenic Roads`}
+            {`Travel Your Way Through India's Top Scenic Roads`}
           </h1>
 
           {/* Subheading - More concise and visually distinct */}
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 w-full md:max-w-lg backdrop-blur-sm bg-black/20 p-3 sm:p-4 border-l-2 sm:border-l-4 border-primary">
-            {` Discover India's soul on two wheels. Navigate challenging terrains,
+            {` Discover India's soul by travelling. Navigate challenging terrains,
             experience authentic culture, and create lasting memories with our
             expert-guided tours.`}
           </p>
@@ -104,7 +104,7 @@ const HeroSection = () => {
               onClick={() => router.push("/adventure-stories")}
               className="w-full xs:w-full lg:w-fit border-white/80 text-white hover:bg-white/10 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium transition-all duration-300"
             >
-              <span>Read Rider Stories</span>
+              <span>Read Stories</span>
             </Button>
           </div>
         </div>
