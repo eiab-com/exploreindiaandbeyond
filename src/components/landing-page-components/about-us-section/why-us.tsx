@@ -13,7 +13,7 @@ const WhyUs = () => {
             <span className="text-primary"> Typical Trails</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            At EIAB, our mission is to unite all motorcyclists worldwide,
+            At EIAB, our mission is to unite all adventurers worldwide,
             offering unforgettable, culture-respecting tours within India and
             Southeast Asia. With several years of collective riding expertise,
             we prioritize safety and camaraderie. We aspire to empower riders,
