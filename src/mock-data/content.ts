@@ -341,8 +341,8 @@ const bikingAdventuresData: BikingAdventure[] = [
     endDate: dayjs("2025-10-20T17:00:00"),
     infoPackUrl:
       "https://drive.google.com/file/d/1BIuGQJrGoQ-BL3ewNu24rOBsNtS0lsts/view?usp=drive_link",
-    ridePrice: "£ 2995",
-    pillionPrice: "£ 2595",
+    ridePrice: "£ 3399",
+    pillionPrice: "£ 2799",
     deposit: "£ 995",
     groupSize: "6-10 riders",
     keyHighlights: [
@@ -922,8 +922,8 @@ const bikingAdventuresData: BikingAdventure[] = [
       "Ride to Bumla Pass near the Indo-China border",
       "Backup vehicle, professional guide, and mechanic support",
     ],
-    ridePrice: "£ 2995",
-    pillionPrice: "£ 2595",
+    ridePrice: "£ 3399",
+    pillionPrice: "£ 2799",
     deposit: "£ 995",
     groupSize: "6-10 riders",
     rideDuration: "10 days riding",
