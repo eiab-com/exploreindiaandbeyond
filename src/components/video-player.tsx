@@ -46,10 +46,13 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     <div className={`w-full h-full ${className}`}>
       <video
         ref={videoRef}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover pointer-events-none"
         autoPlay
         muted
         onLoad={onLoad}
+        disablePictureInPicture
+
+        
       >
         <source src={sources[currentVideoIndex]} type="video/mp4" />
         Your browser does not support the video tag.
